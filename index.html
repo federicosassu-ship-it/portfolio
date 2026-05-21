@@ -10,22 +10,20 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #F5F1EC;
-      --surface:  #FDFAF7;
-      --ink:      #1A1714;
-      --ink-2:    #4A4540;
-      --ink-3:    #8A8480;
-      --accent:   #3B6B5E;
-      --accent-2: #2D5248;
-      --border:   #DDD8D2;
-      --tag-bg:   #EAE5DF;
+      --bg:      #F7F4EF;
+      --surface: #FFFFFF;
+      --ink:     #111010;
+      --ink-2:   #514E49;
+      --ink-3:   #9E9A94;
+      --border:  #E2DED8;
+      --tag-bg:  #EEEBE5;
 
       --font-display: 'Lora', Georgia, serif;
       --font-body:    'Inter', system-ui, sans-serif;
 
-      --radius:   12px;
-      --radius-sm: 6px;
-      --transition: 220ms cubic-bezier(.4,0,.2,1);
+      --radius:    6px;
+      --radius-sm: 3px;
+      --t: 200ms ease;
     }
 
     html { scroll-behavior: smooth; }
@@ -39,109 +37,103 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ─── LAYOUT ─────────────────────────────────────────────── */
     .container {
-      max-width: 880px;
+      max-width: 920px;
       margin: 0 auto;
-      padding: 0 24px;
+      padding: 0 32px;
     }
 
     /* ─── HEADER ─────────────────────────────────────────────── */
     header {
-      padding: 72px 0 56px;
+      padding: 80px 0 64px;
       border-bottom: 1px solid var(--border);
     }
 
     .header-inner {
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
-      gap: 32px;
+      align-items: flex-start;
+      gap: 40px;
       flex-wrap: wrap;
     }
 
-    .header-left {
-      flex: 1;
-      min-width: 280px;
+    .header-identity {
       display: flex;
       align-items: flex-start;
-      gap: 20px;
+      gap: 24px;
     }
 
     .header-avatar {
-      width: 72px;
-      height: 72px;
-      border-radius: 50%;
+      width: 84px;
+      height: 84px;
+      border-radius: var(--radius);
       object-fit: cover;
       object-position: center top;
-      border: 2px solid var(--border);
       flex-shrink: 0;
-      margin-top: 4px;
     }
 
     .header-text { flex: 1; }
 
     .name {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-size: clamp(2rem, 5vw, 3rem);
       font-weight: 600;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin-bottom: 14px;
+      letter-spacing: -0.025em;
+      line-height: 1.05;
+      margin-bottom: 10px;
     }
 
-    .headline {
-      font-size: 1rem;
-      line-height: 1.65;
-      color: var(--ink-2);
-      max-width: 520px;
+    .header-role {
+      font-size: 0.875rem;
+      color: var(--ink-3);
+      line-height: 1.55;
+      max-width: 420px;
     }
 
     .header-links {
       display: flex;
       flex-direction: column;
       align-items: flex-end;
-      gap: 8px;
+      gap: 10px;
+      padding-top: 6px;
+      flex-shrink: 0;
     }
 
     .header-links a {
-      color: var(--accent);
+      color: var(--ink-3);
       text-decoration: none;
-      font-size: 0.875rem;
+      font-size: 0.8rem;
       font-weight: 500;
       display: flex;
       align-items: center;
       gap: 6px;
-      transition: color var(--transition);
+      transition: color var(--t);
     }
 
-    .header-links a:hover { color: var(--accent-2); }
-
-    .header-links a svg {
-      width: 14px; height: 14px; flex-shrink: 0;
-    }
+    .header-links a:hover { color: var(--ink); }
+    .header-links a svg { width: 14px; height: 14px; flex-shrink: 0; }
 
     /* ─── INTRO ──────────────────────────────────────────────── */
     .intro {
-      padding: 48px 0 40px;
+      padding: 72px 0 64px;
       border-bottom: 1px solid var(--border);
     }
 
-    .intro-label {
-      font-size: 0.75rem;
+    .eyebrow {
+      font-size: 0.68rem;
       font-weight: 600;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
+      color: var(--ink-3);
+      margin-bottom: 28px;
     }
 
     .intro-text {
       font-family: var(--font-display);
-      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
-      line-height: 1.7;
+      font-size: clamp(1.05rem, 2.2vw, 1.22rem);
+      line-height: 1.78;
       color: var(--ink);
-      max-width: 680px;
+      max-width: 700px;
     }
 
     .intro-text em {
@@ -150,114 +142,100 @@
     }
 
     /* ─── WORK SECTION ───────────────────────────────────────── */
-    .work-section {
-      padding: 48px 0;
-    }
-
-    .section-label {
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      margin-bottom: 32px;
-    }
+    .work-section { padding: 64px 0 96px; }
 
     /* ─── CARDS GRID ─────────────────────────────────────────── */
     .cards-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 20px;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
     }
 
     .card {
       background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 28px;
+      padding: 36px 32px 32px;
       cursor: pointer;
-      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 12px;
       position: relative;
-      overflow: hidden;
+      transition: background var(--t);
+      min-height: 200px;
+      border-right: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
     }
 
-    .card::before {
+    .card:hover { background: var(--bg); }
+
+    .card::after {
       content: '';
       position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--card-accent, var(--accent));
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--card-accent, var(--ink));
       opacity: 0;
-      transition: opacity var(--transition);
+      transition: opacity var(--t);
     }
 
-    .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
-      border-color: var(--card-accent, var(--accent));
-    }
-
-    .card:hover::before { opacity: 1; }
+    .card:hover::after { opacity: 1; }
 
     .card-tag {
-      display: inline-flex;
-      align-items: center;
-      background: var(--tag-bg);
-      color: var(--ink-2);
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 600;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 99px;
-      width: fit-content;
+      color: var(--ink-3);
     }
 
     .card-title {
       font-family: var(--font-display);
-      font-size: 1.35rem;
+      font-size: 1.5rem;
       font-weight: 600;
       letter-spacing: -0.01em;
       color: var(--ink);
-      line-height: 1.2;
+      line-height: 1.15;
+      flex: 1;
     }
 
     .card-subtitle {
-      font-size: 0.82rem;
+      font-size: 0.78rem;
       color: var(--ink-3);
       line-height: 1.5;
     }
 
     .card-arrow {
-      margin-top: auto;
-      color: var(--card-accent, var(--accent));
-      font-size: 1.2rem;
+      font-size: 1rem;
+      color: var(--card-accent, var(--ink-3));
       align-self: flex-end;
-      transition: transform var(--transition);
+      transition: transform var(--t);
+      margin-top: 8px;
     }
 
     .card:hover .card-arrow { transform: translate(3px, -3px); }
 
-    /* Primary card = larger */
     .card.primary {
       grid-column: span 2;
+      min-height: auto;
+      padding: 44px 40px 36px;
     }
 
-    .card.primary .card-title { font-size: 1.65rem; }
+    .card.primary .card-title { font-size: 2.1rem; }
 
-    @media (max-width: 600px) {
+    @media (max-width: 580px) {
+      .cards-grid { grid-template-columns: 1fr; }
       .card.primary { grid-column: span 1; }
+      .card.primary .card-title { font-size: 1.65rem; }
     }
 
-    /* ─── MODAL OVERLAY ──────────────────────────────────────── */
+    /* ─── OVERLAY ────────────────────────────────────────────── */
     .overlay {
       position: fixed;
       inset: 0;
-      background: rgba(20, 17, 14, 0.6);
-      backdrop-filter: blur(4px);
+      background: rgba(10, 9, 8, 0.55);
+      backdrop-filter: blur(6px);
       z-index: 100;
       display: flex;
       align-items: flex-end;
@@ -265,7 +243,7 @@
       padding: 0;
       opacity: 0;
       pointer-events: none;
-      transition: opacity var(--transition);
+      transition: opacity var(--t);
     }
 
     .overlay.open {
@@ -274,10 +252,7 @@
     }
 
     @media (min-width: 600px) {
-      .overlay {
-        align-items: center;
-        padding: 24px;
-      }
+      .overlay { align-items: center; padding: 24px; }
     }
 
     /* ─── MODAL ──────────────────────────────────────────────── */
@@ -285,12 +260,12 @@
       background: var(--modal-bg, var(--surface));
       border-radius: var(--radius) var(--radius) 0 0;
       width: 100%;
-      max-width: 720px;
-      max-height: 90vh;
+      max-width: 760px;
+      max-height: 92vh;
       overflow-y: auto;
-      padding: 40px 36px 48px;
-      transform: translateY(40px);
-      transition: transform var(--transition);
+      padding: 48px 44px 56px;
+      transform: translateY(32px);
+      transition: transform var(--t);
       position: relative;
       scrollbar-width: thin;
       scrollbar-color: var(--border) transparent;
@@ -299,161 +274,213 @@
     @media (min-width: 600px) {
       .modal {
         border-radius: var(--radius);
-        transform: translateY(0) scale(0.97);
+        transform: translateY(0) scale(0.975);
       }
     }
 
-    .overlay.open .modal {
-      transform: translateY(0) scale(1);
+    @media (max-width: 580px) {
+      .modal { padding: 32px 24px 48px; }
     }
+
+    .overlay.open .modal { transform: translateY(0) scale(1); }
 
     .modal-close {
       position: absolute;
       top: 20px; right: 20px;
-      width: 36px; height: 36px;
+      width: 34px; height: 34px;
       border: 1px solid var(--border);
-      background: var(--bg);
+      background: transparent;
       border-radius: 50%;
       cursor: pointer;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1rem;
-      color: var(--ink-2);
-      transition: background var(--transition), color var(--transition);
+      font-size: 0.85rem;
+      color: var(--modal-ink-3, var(--ink-3));
+      transition: background var(--t), color var(--t), border-color var(--t);
       z-index: 1;
     }
 
     .modal-close:hover {
-      background: var(--ink);
-      color: #fff;
+      background: var(--modal-ink, var(--ink));
+      color: var(--modal-bg, var(--surface));
+      border-color: var(--modal-ink, var(--ink));
     }
 
     /* ─── MODAL CONTENT ──────────────────────────────────────── */
     .modal-tag {
-      display: inline-flex;
-      align-items: center;
-      background: color-mix(in srgb, var(--modal-accent, var(--accent)) 15%, transparent);
-      color: var(--modal-accent, var(--accent));
-      font-size: 0.7rem;
+      display: inline-block;
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      padding: 4px 12px;
-      border-radius: 99px;
-      width: fit-content;
-      margin-bottom: 20px;
+      color: var(--modal-accent, var(--ink-3));
+      margin-bottom: 24px;
     }
 
     .modal-headline {
       font-family: var(--font-display);
-      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      font-size: clamp(1.4rem, 3vw, 1.9rem);
       font-weight: 600;
-      line-height: 1.3;
+      line-height: 1.25;
       color: var(--modal-ink, var(--ink));
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      letter-spacing: -0.015em;
     }
 
     .modal-hook {
       font-size: 0.95rem;
-      line-height: 1.7;
+      line-height: 1.75;
       color: var(--modal-ink-2, var(--ink-2));
-      margin-bottom: 32px;
-      padding-bottom: 28px;
-      border-bottom: 1px solid var(--border);
+      margin-bottom: 36px;
+      padding-bottom: 32px;
+      border-bottom: 1px solid var(--modal-border, var(--border));
     }
 
     .modal-metrics {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin-bottom: 32px;
+      gap: 8px;
+      margin-bottom: 36px;
     }
 
     .metric-pill {
-      background: var(--modal-bg, var(--bg));
-      border: 1px solid var(--border);
+      background: transparent;
+      border: 1px solid var(--modal-border, var(--border));
       border-radius: var(--radius-sm);
-      padding: 8px 14px;
-      font-size: 0.8rem;
+      padding: 6px 12px;
+      font-size: 0.75rem;
       font-weight: 600;
       color: var(--modal-ink, var(--ink));
       white-space: nowrap;
+      letter-spacing: 0.01em;
     }
 
-    .modal-section {
-      margin-bottom: 28px;
-    }
+    .modal-section { margin-bottom: 32px; }
 
     .modal-section-label {
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: var(--modal-accent, var(--accent));
-      margin-bottom: 10px;
+      color: var(--modal-accent, var(--ink-3));
+      margin-bottom: 12px;
     }
 
     .modal-section-body {
-      font-size: 0.92rem;
-      line-height: 1.75;
+      font-size: 0.9rem;
+      line-height: 1.78;
       color: var(--modal-ink-2, var(--ink-2));
     }
 
-    .modal-section-body p + p { margin-top: 12px; }
+    .modal-section-body p + p { margin-top: 14px; }
 
     /* ─── MODAL IMAGES ──────────────────────────────────────── */
-    .modal-hero-img {
+    .modal-hero {
       width: 100%;
-      border-radius: var(--radius-sm);
-      margin-bottom: 28px;
+      aspect-ratio: 3/2;
       object-fit: cover;
-      max-height: 340px;
+      object-position: center top;
+      border-radius: var(--radius);
       display: block;
+      margin-bottom: 36px;
     }
+
+    .modal-hero.tall { aspect-ratio: 4/3; }
 
     .modal-gallery {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin: 24px 0;
+      gap: 6px;
+      margin: 32px 0 8px;
+      border-radius: var(--radius);
+      overflow: hidden;
     }
 
     .modal-gallery img {
       width: 100%;
-      border-radius: var(--radius-sm);
+      aspect-ratio: 4/3;
       object-fit: cover;
-      max-height: 200px;
       display: block;
     }
 
-    .modal-gallery img.full-width {
+    .modal-gallery img.wide {
       grid-column: span 2;
-      max-height: 260px;
+      aspect-ratio: 16/9;
+    }
+
+    .modal-gallery img.portrait {
+      aspect-ratio: 3/4;
     }
 
     .img-caption {
-      font-size: 0.72rem;
+      font-size: 0.7rem;
       color: var(--modal-ink-3, var(--ink-3));
-      margin-top: 6px;
-      text-align: center;
+      margin-top: 10px;
+      line-height: 1.5;
     }
 
-    .modal-credits {
-      margin-top: 32px;
-      padding-top: 24px;
-      border-top: 1px solid var(--border);
-      font-size: 0.8rem;
+    /* ─── MODAL LINKS ────────────────────────────────────────── */
+    .modal-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 32px 0;
+    }
+
+    .modal-link-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      color: var(--modal-accent, var(--ink));
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-decoration: none;
+      border: 1.5px solid var(--modal-accent, var(--ink));
+      border-radius: var(--radius-sm);
+      padding: 9px 18px;
+      transition: background var(--t), color var(--t);
+    }
+
+    .modal-link-primary:hover {
+      background: var(--modal-accent, var(--ink));
+      color: var(--modal-bg, var(--surface));
+    }
+
+    .modal-link-secondary {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
       color: var(--modal-ink-3, var(--ink-3));
+      font-size: 0.82rem;
+      font-weight: 500;
+      text-decoration: none;
+      border: 1px solid var(--modal-border, var(--border));
+      border-radius: var(--radius-sm);
+      padding: 9px 18px;
+      opacity: 0.75;
+      transition: opacity var(--t);
+    }
+
+    .modal-link-secondary:hover { opacity: 1; }
+
+    /* ─── MODAL FOOTER ───────────────────────────────────────── */
+    .modal-credits {
+      margin-top: 40px;
+      padding-top: 24px;
+      border-top: 1px solid var(--modal-border, var(--border));
+      font-size: 0.78rem;
+      color: var(--modal-ink-3, var(--ink-3));
+      line-height: 1.6;
     }
 
     .modal-meta {
       display: flex;
       flex-wrap: wrap;
-      gap: 16px;
-      margin-top: 20px;
+      gap: 20px;
+      margin-top: 18px;
     }
 
     .meta-item {
-      font-size: 0.78rem;
+      font-size: 0.75rem;
       color: var(--modal-ink-3, var(--ink-3));
     }
 
@@ -466,6 +493,9 @@
     footer {
       padding: 40px 0;
       border-top: 1px solid var(--border);
+    }
+
+    .footer-inner {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -474,92 +504,65 @@
     }
 
     .footer-name {
-      font-size: 0.875rem;
+      font-size: 0.82rem;
       font-weight: 500;
-      color: var(--ink-2);
+      color: var(--ink-3);
     }
 
     .footer-links {
       display: flex;
-      gap: 20px;
+      gap: 24px;
     }
 
     .footer-links a {
-      font-size: 0.8rem;
+      font-size: 0.78rem;
       color: var(--ink-3);
       text-decoration: none;
-      transition: color var(--transition);
+      transition: color var(--t);
     }
 
-    .footer-links a:hover { color: var(--accent); }
+    .footer-links a:hover { color: var(--ink); }
 
-    /* ─── DARK MODAL VARIANT ─────────────────────────────────── */
-    .modal.dark {
-      --modal-bg: #0F1923;
-      --modal-ink: #E8EDF2;
-      --modal-ink-2: #9DAEC0;
-      --modal-ink-3: #5E7286;
+    /* ─── MODAL VARIANTS ─────────────────────────────────────── */
+
+    /* ROSS — cream/sage */
+    #modal-ross {
+      --modal-bg:     #F5F0EB;
+      --modal-ink:    #1A1714;
+      --modal-ink-2:  #4A4540;
+      --modal-ink-3:  #8A8480;
+      --modal-accent: #3B6B5E;
+      --modal-border: #DDD8D2;
+    }
+
+    /* MANTA — deep navy */
+    #modal-manta {
+      --modal-bg:     #0D1720;
+      --modal-ink:    #E4EAF0;
+      --modal-ink-2:  #96AABF;
+      --modal-ink-3:  #576A7E;
       --modal-accent: #4A9EBF;
+      --modal-border: #1E2E3E;
     }
 
-    .modal.dark .modal-tag {
-      background: rgba(74, 158, 191, 0.15);
-    }
-
-    .modal.dark .metric-pill {
-      background: #1A2736;
-      border-color: #2A3A4A;
-    }
-
-    .modal.dark .modal-hook,
-    .modal.dark .modal-credits {
-      border-color: #2A3A4A;
-    }
-
-    /* ─── GREEN MODAL VARIANT ────────────────────────────────── */
-    .modal.green {
-      --modal-bg: #F0F7F0;
-      --modal-ink: #1A2B1A;
-      --modal-ink-2: #3A5A3A;
-      --modal-ink-3: #6A8A6A;
+    /* AGROMERCATO — forest green */
+    #modal-agromercato {
+      --modal-bg:     #EDF4ED;
+      --modal-ink:    #162016;
+      --modal-ink-2:  #385438;
+      --modal-ink-3:  #668066;
       --modal-accent: #25A244;
+      --modal-border: #C5D9C5;
     }
 
-    .modal.green .modal-tag {
-      background: rgba(37, 162, 68, 0.12);
-    }
-
-    .modal.green .metric-pill {
-      background: #E4F0E4;
-      border-color: #C5DEC5;
-    }
-
-    .modal.green .modal-hook,
-    .modal.green .modal-credits {
-      border-color: #C5DEC5;
-    }
-
-    /* ─── PURPLE MODAL VARIANT ───────────────────────────────── */
-    .modal.purple {
-      --modal-bg: #F3F0FA;
-      --modal-ink: #1A1428;
-      --modal-ink-2: #3D3060;
-      --modal-ink-3: #7A6BA0;
+    /* LOCALI — violet */
+    #modal-locali {
+      --modal-bg:     #F2EFF9;
+      --modal-ink:    #1A1428;
+      --modal-ink-2:  #3D3060;
+      --modal-ink-3:  #7A6BA0;
       --modal-accent: #7C5CBF;
-    }
-
-    .modal.purple .modal-tag {
-      background: rgba(124, 92, 191, 0.12);
-    }
-
-    .modal.purple .metric-pill {
-      background: #EAE5F5;
-      border-color: #D0C8EB;
-    }
-
-    .modal.purple .modal-hook,
-    .modal.purple .modal-credits {
-      border-color: #D0C8EB;
+      --modal-border: #CFC9E8;
     }
   </style>
 </head>
@@ -569,11 +572,11 @@
 <header>
   <div class="container">
     <div class="header-inner">
-      <div class="header-left">
+      <div class="header-identity">
         <img src="assets/federico-profile.jpg" alt="Federico Sassu Verderi" class="header-avatar" />
         <div class="header-text">
           <h1 class="name">Federico Sassu<br>Verderi</h1>
-          <p class="headline">Commercial and financial co-founder. Currently building R.O.S.S. — an AI companion for the elderly — within H-Farm's Venture Building Program.</p>
+          <p class="header-role">Commercial and financial co-founder · R.O.S.S.<br>H-Farm Venture Building Program</p>
         </div>
       </div>
       <div class="header-links">
@@ -593,7 +596,7 @@
 <!-- ─────────────────── INTRO ────────────────────────────────── -->
 <section class="intro">
   <div class="container">
-    <p class="intro-label">Who I am</p>
+    <p class="eyebrow">Who I am</p>
     <p class="intro-text">
       I started at 17 with a dropshipping store. Alone: product sourcing, logistics, Meta Ads campaigns.
       No blueprint, no capital, no one telling me to do it. It didn't become a big business —
@@ -612,40 +615,42 @@
 <!-- ─────────────────── WORK ─────────────────────────────────── -->
 <section class="work-section">
   <div class="container">
-    <p class="section-label">Selected work</p>
+    <p class="eyebrow" style="margin-bottom: 24px;">Selected work</p>
     <div class="cards-grid">
 
-      <!-- ── CARD 1: ROSS (primary, spans 2 cols) ── -->
-      <div class="card primary" style="--card-accent: #3B6B5E;" onclick="openModal('ross')">
+      <!-- ROSS — primary, full width -->
+      <div class="card primary" style="--card-accent:#3B6B5E;" onclick="openModal('ross')">
         <span class="card-tag">Venture</span>
         <h2 class="card-title">R.O.S.S.</h2>
-        <p class="card-subtitle">AI companion for the elderly · Co-founder & Finance/Commercial Lead<br>April 2026 – present</p>
+        <p class="card-subtitle">AI companion for the elderly · Co-founder &amp; Finance/Commercial Lead · April 2026 – present</p>
         <span class="card-arrow">↗</span>
       </div>
 
-      <!-- ── CARD 2: MANTA AI ── -->
-      <div class="card" style="--card-accent: #4A9EBF;" onclick="openModal('manta')">
+      <!-- MANTA AI -->
+      <div class="card" style="--card-accent:#4A9EBF;" onclick="openModal('manta')">
         <span class="card-tag">AI Build</span>
         <h2 class="card-title">MANTA AI</h2>
-        <p class="card-subtitle">RAG voice agent for aerospace · Team Lead<br>Oct – Nov 2025</p>
+        <p class="card-subtitle">RAG voice agent · Aerospace · Team Lead<br>Oct – Nov 2025</p>
         <span class="card-arrow">↗</span>
       </div>
 
-      <!-- ── CARD 3: Agromercato ── -->
-      <div class="card" style="--card-accent: #25A244;" onclick="openModal('agromercato')">
+      <!-- Agromercato -->
+      <div class="card" style="--card-accent:#25A244;" onclick="openModal('agromercato')">
         <span class="card-tag">AI Product</span>
         <h2 class="card-title">Agromercato.com</h2>
-        <p class="card-subtitle">WhatsApp AI agent for B2B food market<br>Mar – May 2025</p>
+        <p class="card-subtitle">WhatsApp AI agent · B2B food wholesale<br>Mar – May 2025</p>
         <span class="card-arrow">↗</span>
       </div>
 
-      <!-- ── CARD 4: LocaLì ── -->
-      <div class="card" style="--card-accent: #7C5CBF;" onclick="openModal('locali')">
+      <!-- LocaLì -->
+      <div class="card" style="--card-accent:#7C5CBF;" onclick="openModal('locali')">
         <span class="card-tag">Venture Thinking</span>
         <h2 class="card-title">LocaLì</h2>
-        <p class="card-subtitle">Erasmus student platform · Pivot case study<br>2025–2026</p>
+        <p class="card-subtitle">Erasmus student platform · Pivot case study<br>2025 – 2026</p>
         <span class="card-arrow">↗</span>
       </div>
+
+      <!-- LocaLì — same width as Manta/Agromercato, so 4th card needs to fill 2nd col of row 2 -->
 
     </div>
   </div>
@@ -653,11 +658,13 @@
 
 <!-- ─────────────────── FOOTER ───────────────────────────────── -->
 <footer>
-  <div class="container" style="width:100%; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
-    <span class="footer-name">Federico Sassu Verderi</span>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/federico-sassu-verderi-0345a1231" target="_blank">LinkedIn</a>
-      <a href="mailto:Federico.sassu@student.h-farm.com">Email</a>
+  <div class="container">
+    <div class="footer-inner">
+      <span class="footer-name">Federico Sassu Verderi</span>
+      <div class="footer-links">
+        <a href="https://www.linkedin.com/in/federico-sassu-verderi-0345a1231" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:Federico.sassu@student.h-farm.com">Email</a>
+      </div>
     </div>
   </div>
 </footer>
@@ -666,12 +673,13 @@
 <div class="overlay" id="overlay" onclick="handleOverlayClick(event)">
 
   <!-- ── MODAL: ROSS ── -->
-  <div class="modal" id="modal-ross" style="--modal-bg:#F5F0EB; --modal-accent:#3B6B5E; --modal-ink:#1A1714; --modal-ink-2:#4A4540; --modal-ink-3:#8A8480;">
+  <div class="modal" id="modal-ross">
     <button class="modal-close" onclick="closeModal()">✕</button>
     <span class="modal-tag">Venture</span>
 
-    <!-- Hero: ROSS team at HUMAN+ Healthcare Dialogue -->
-    <img src="assets/ross/ross-human-plus.jpg" alt="ROSS team at HUMAN+ Healthcare Dialogue 2026" class="modal-hero-img" />
+    <img src="assets/ross/ross-human-plus.jpg"
+         alt="ROSS team at HUMAN+ Healthcare Dialogue 2026"
+         class="modal-hero tall" />
 
     <h2 class="modal-headline">We chose not to build a medical device.<br>That decision made everything else possible.</h2>
 
@@ -718,26 +726,31 @@
       </div>
     </div>
 
-    <!-- Gallery: ROSS images -->
     <div class="modal-gallery">
-      <img src="assets/ross/hhack-top-projects.jpg" alt="H-HACK — The top projects making us say WOWWWWWWW" class="full-width" />
-      <img src="assets/ross/ross-team-hhack.png" alt="ROSS team at H-HACK hackathon" />
-      <img src="assets/ross/ross-team-outdoor.jpg" alt="ROSS team at H-Farm" />
-      <img src="assets/ross/ross-user-journey.jpeg" alt="ROSS — Maria's daily experience map" class="full-width" />
+      <img src="assets/ross/hhack-top-projects.jpg"
+           alt="H-HACK — The top projects making us say WOWWWWWWW"
+           class="wide" style="object-position: center 30%;" />
+      <img src="assets/ross/ross-team-hhack.png"
+           alt="ROSS team at H-HACK" style="object-position: center top;" />
+      <img src="assets/ross/ross-team-outdoor.jpg"
+           alt="ROSS team at H-Farm" style="object-position: center 20%;" />
+      <img src="assets/ross/ross-user-journey.jpeg"
+           alt="Maria's daily experience with R.O.S.S."
+           class="wide" style="object-position: center;" />
     </div>
-    <p class="img-caption">H-HACK 2026 — selected among the top projects. · ROSS team. · Maria's day with R.O.S.S.</p>
+    <p class="img-caption">H-HACK 2026 — selected among the top projects · ROSS team · Maria's day with R.O.S.S.</p>
 
-    <p class="modal-credits">Team: Alessandro Di Mauro (Product & Comms), Alessandra Beretta (Institutional Relations & Ops), Luca Marzotto (Tech Architecture). Built within H-Farm's ecosystem.</p>
+    <p class="modal-credits">Team: Alessandro Di Mauro (Product &amp; Comms), Alessandra Beretta (Institutional Relations &amp; Ops), Luca Marzotto (Tech Architecture). Built within H-Farm's ecosystem.</p>
 
     <div class="modal-meta">
       <span class="meta-item"><strong>Period:</strong> April 2026 – present</span>
-      <span class="meta-item"><strong>Role:</strong> Co-founder & Finance/Commercial Development Lead</span>
+      <span class="meta-item"><strong>Role:</strong> Co-founder &amp; Finance/Commercial Development Lead</span>
       <span class="meta-item"><strong>Team:</strong> 4 co-founders + incoming AI engineer</span>
     </div>
   </div>
 
   <!-- ── MODAL: MANTA AI ── -->
-  <div class="modal dark" id="modal-manta">
+  <div class="modal" id="modal-manta">
     <button class="modal-close" onclick="closeModal()">✕</button>
     <span class="modal-tag">AI Build</span>
 
@@ -762,7 +775,7 @@
     <div class="modal-section">
       <p class="modal-section-label">What we built</p>
       <div class="modal-section-body">
-        <p>A functional RAG-based AI voice agent. Voiceflow for the voice layer, a RAG pipeline ingesting the full technical documentation. Operators query 500+ pages via voice or text — answer in seconds, not minutes. No new hardware. No retraining. The knowledge base is the documentation MANTA already had.</p>
+        <p>A functional RAG-based voice agent. Voiceflow for the voice layer, a RAG pipeline ingesting the full technical documentation. Operators query 500+ pages via voice or text — answer in seconds, not minutes. No new hardware. No retraining. The knowledge base is the documentation MANTA already had.</p>
         <p>Led a cross-university team of 4 (H-Farm College × Università di Puglia). Delivered a working MVP in a 1-month sprint. Pitched to a jury of representatives from 12 participating companies.</p>
       </div>
     </div>
@@ -784,12 +797,13 @@
   </div>
 
   <!-- ── MODAL: AGROMERCATO ── -->
-  <div class="modal green" id="modal-agromercato">
+  <div class="modal" id="modal-agromercato">
     <button class="modal-close" onclick="closeModal()">✕</button>
     <span class="modal-tag">AI Product</span>
 
-    <!-- Hero: H-Farm Pre-Accelerator Spring 2026 -->
-    <img src="assets/agromercato/preaccelerator-cover.jpg" alt="H-Farm Pre-Accelerator Spring Edition 2026 — Young Minds, Big Startups Ideas" class="modal-hero-img" style="object-position: top;" />
+    <img src="assets/agromercato/preaccelerator-cover.jpg"
+         alt="H-Farm Pre-Accelerator Spring 2025"
+         class="modal-hero" style="object-position: center top;" />
 
     <h2 class="modal-headline">The best interface for wholesale food buyers wasn't an app. It was WhatsApp.</h2>
 
@@ -813,7 +827,7 @@
     <div class="modal-section">
       <p class="modal-section-label">What we designed</p>
       <div class="modal-section-body">
-        <p>A WhatsApp AI agent that centralises incoming orders for wholesalers and simplifies purchasing for professional buyers — without changing the interface either side already uses. The agent structures unstructured order messages, routes them correctly, and reduces coordination overhead on both sides.</p>
+        <p>A WhatsApp agent that centralises incoming orders for wholesalers and simplifies purchasing for professional buyers — without changing the interface either side already uses. The agent structures unstructured order messages, routes them correctly, and reduces coordination overhead on both sides.</p>
         <p>Built in partnership with Abilita Srls as part of the scaling strategy for Agromercato.com, starting from a pilot with the Mercato Agroalimentare della Sardegna (€150M+ annual turnover).</p>
       </div>
     </div>
@@ -821,37 +835,33 @@
     <div class="modal-section">
       <p class="modal-section-label">The principle</p>
       <div class="modal-section-body">
-        <p>The most AI-native choice is often not to build a new interface — it's to make the existing one intelligent. WhatsApp is infrastructure. The agent is the product. This distinction matters when building for markets where behaviour change is the biggest adoption barrier.</p>
+        <p>The best choice is often not to build a new interface — it's to make the existing one work better. WhatsApp is infrastructure. The agent is the product. This matters most in markets where changing behaviour is harder than changing technology.</p>
       </div>
     </div>
 
-    <!-- Gallery: Agromercato images -->
     <div class="modal-gallery">
-      <img src="assets/agromercato/agromercato-conference.jpg" alt="Ecommerce Food Conference — prima presentazione pubblica di Agromercato.com" />
-      <img src="assets/agromercato/agromercato-pitch.jpg" alt="Federico presenting Agromercato.com" />
-      <img src="assets/agromercato/agromercato-hfarm-group.jpg" alt="H-Farm Startup Centre cohort — Spring 2025" class="full-width" />
+      <img src="assets/agromercato/agromercato-conference.jpg"
+           alt="Ecommerce Food Conference — prima presentazione pubblica del prototipo"
+           class="wide" style="object-position: center 25%;" />
+      <img src="assets/agromercato/agromercato-hfarm-group.jpg"
+           alt="H-Farm Startup Centre cohort Spring 2025"
+           style="object-position: center top;" />
+      <img src="assets/agromercato/agromercato-pitch.jpg"
+           alt="Presenting Agromercato scaling strategy"
+           style="object-position: center top;" />
     </div>
-    <p class="img-caption">Ecommerce Food Conference — prima presentazione pubblica del prototipo. · H-Farm Startup Centre cohort, Spring 2025.</p>
-
-    <!-- Gallery: Agromercato images -->
-    <div class="modal-gallery">
-      <img src="assets/agromercato/agromercato-conference.jpg" alt="Ecommerce Food Conference — prima presentazione pubblica del prototipo Agromercato.com" class="full-width" style="object-position: center 20%;" />
-      <img src="assets/agromercato/agromercato-hfarm-group.jpg" alt="H-Farm Startup Centre — cohort Spring 2025" style="object-position: center top;" />
-      <img src="assets/agromercato/agromercato-pitch.jpg" alt="Presenting Agromercato scaling strategy" style="object-position: center top;" />
-    </div>
-    <p class="img-caption">Ecommerce Food Conference — first public pitch of the prototype. · H-Farm Startup Centre Spring 2025 cohort.</p>
+    <p class="img-caption">Ecommerce Food Conference — first public pitch of the prototype · H-Farm Startup Centre Spring 2025 cohort</p>
 
     <p class="modal-credits">Built within H-Farm Startup Centre Pre-Acceleration Program, in partnership with Abilita Srls.</p>
 
     <div class="modal-meta">
       <span class="meta-item"><strong>Period:</strong> March – May 2025</span>
-      <span class="meta-item"><strong>Role:</strong> AI Product Designer & Strategy Lead</span>
+      <span class="meta-item"><strong>Role:</strong> Product Strategy &amp; AI Design Lead</span>
     </div>
   </div>
 
-
   <!-- ── MODAL: LOCALI ── -->
-  <div class="modal purple" id="modal-locali">
+  <div class="modal" id="modal-locali">
     <button class="modal-close" onclick="closeModal()">✕</button>
     <span class="modal-tag">Venture Thinking</span>
 
@@ -891,11 +901,11 @@
       </div>
     </div>
 
-    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:4px; margin-bottom:28px;">
-      <a href="https://localit.lovable.app" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; color:var(--modal-accent); font-weight:600; font-size:0.9rem; text-decoration:none; border:1px solid var(--modal-accent); border-radius:6px; padding:8px 16px; transition:background 220ms;">
+    <div class="modal-links">
+      <a href="https://localit.lovable.app" target="_blank" rel="noopener" class="modal-link-primary">
         Live app: localit.lovable.app ↗
       </a>
-      <a href="https://checkthestreet.lovable.app" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; color:var(--modal-ink-3); font-weight:500; font-size:0.85rem; text-decoration:none; border:1px solid var(--modal-ink-3); border-radius:6px; padding:8px 16px; opacity:0.7;">
+      <a href="https://checkthestreet.lovable.app" target="_blank" rel="noopener" class="modal-link-secondary">
         CheckTheStreet — the idea we killed ↗
       </a>
     </div>
@@ -916,11 +926,9 @@
   let currentModal = null;
 
   function openModal(id) {
-    if (currentModal) currentModal.style.display = 'none';
+    document.querySelectorAll('.modal').forEach(el => el.style.display = 'none');
     const m = document.getElementById('modal-' + id);
     if (!m) return;
-    // Hide all modals first
-    document.querySelectorAll('.modal').forEach(el => el.style.display = 'none');
     m.style.display = 'block';
     currentModal = m;
     overlay.classList.add('open');
@@ -934,7 +942,7 @@
     setTimeout(() => {
       if (currentModal) currentModal.style.display = 'none';
       currentModal = null;
-    }, 250);
+    }, 220);
   }
 
   function handleOverlayClick(e) {
@@ -945,7 +953,6 @@
     if (e.key === 'Escape') closeModal();
   });
 
-  // Hide all modals on load
   document.querySelectorAll('.modal').forEach(el => el.style.display = 'none');
 </script>
 
