@@ -1,0 +1,66 @@
+{
+  "version": "1.0.0",
+  "schema_version": "1.0.0",
+  "created_at": "2026-05-21",
+  "last_updated": "2026-05-21",
+  "owner": {
+    "display_name": "Federico Sassu Verderi",
+    "title": "Co-founder, R.O.S.S.",
+    "headline": "I build AI-native companies. Currently: an AI companion for the elderly that treats people as people, not conditions to manage.",
+    "links": {
+      "linkedin": "https://www.linkedin.com/in/federico-sassu-verderi-0345a1231",
+      "email": "Federico.sassu@student.h-farm.com"
+    }
+  },
+  "metadata": {
+    "total_pieces": 4,
+    "primary_count": 2,
+    "secondary_count": 2
+  },
+  "pieces": [
+    {
+      "id": "ross-cofounder",
+      "display_priority": 1,
+      "primary_or_secondary": "primary",
+      "card": {
+        "title": "R.O.S.S.",
+        "subtitle": "AI companion for the elderly · Co-founder · Apr 2026–present",
+        "tag": "Venture",
+        "accent_color": "#3B6B5E"
+      }
+    },
+    {
+      "id": "manta-ai",
+      "display_priority": 2,
+      "primary_or_secondary": "primary",
+      "card": {
+        "title": "MANTA AI",
+        "subtitle": "RAG voice agent for aerospace · Team Lead · Oct–Nov 2025",
+        "tag": "AI Build",
+        "accent_color": "#4A9EBF"
+      }
+    },
+    {
+      "id": "agromercato-ai",
+      "display_priority": 3,
+      "primary_or_secondary": "secondary",
+      "card": {
+        "title": "Agromercato.com",
+        "subtitle": "WhatsApp AI agent · H-Farm Startup Centre · Mar–May 2025",
+        "tag": "AI Product",
+        "accent_color": "#25A244"
+      }
+    },
+    {
+      "id": "locali",
+      "display_priority": 4,
+      "primary_or_secondary": "secondary",
+      "card": {
+        "title": "LocaLì",
+        "subtitle": "Erasmus student platform · Pivot case study · 2025–2026",
+        "tag": "Venture Thinking",
+        "accent_color": "#7C5CBF"
+      }
+    }
+  ]
+}

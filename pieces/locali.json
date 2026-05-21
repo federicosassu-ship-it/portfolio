@@ -1,0 +1,79 @@
+{
+  "id": "locali",
+  "experience_id": "locali-entrepreneurship",
+  "version": 1,
+  "created_at": "2026-05-21",
+  "updated_at": "2026-05-21",
+
+  "card": {
+    "title": "LocaLì",
+    "subtitle": "Erasmus student platform · Venture pivot case study · 2025–2026",
+    "tag": "Venture Thinking",
+    "accent_color": "#7C5CBF"
+  },
+
+  "interior": {
+    "headline": "We killed our first startup when the financial model didn't close. Then we built this.",
+    "hook": "We started with CheckTheStreet — an urban safety app for students navigating Italian cities at night. We built the product, mapped the personas, designed the B2B2C model. Then we built the financial model. €2 per enrolled student, universities paying. 36-month projection: revenues couldn't cover operating costs. And the content verification problem — an open crowdsourced safety platform in the wrong hands becomes a misinformation weapon. We couldn't solve it early-stage. So we didn't defend the solution. We questioned the problem.",
+
+    "sections": [
+      {
+        "label": "The pivot",
+        "body": "We asked: who experiences the information gap most intensely? Not the Italian student who partially knows the city and updates over time. The international student — arriving with zero local context, zero network, often a language barrier, for 6–12 months. The same problem, more acute, on a ticking clock.\n\nFrom that question came LocaLì: not a safety tool, but the student layer of the city. Map & Discovery (finding the places locals know but tourists don't), Student Deals (aggregating the discounts scattered across ESN pages and window stickers nobody reads), Safe & Chill (crowdsourced contextual safety from students who just walked that route)."
+      },
+      {
+        "label": "The problem is real",
+        "body": "ESNsurvey XV (2024, N=17,855): only 34% of international students actively integrate with the city they arrive in. The 66% who don't — don't lack motivation. They lack tools.\n\nThe market doesn't need to be created: 50,000 international students arrive in Italy every year (+10.7% YoY), all starting from zero. Italy is the second-largest Erasmus destination in Europe — a natural beachhead for France, Spain, Germany, Netherlands.\n\nI was the user. I did Erasmus in Vilnius. I navigated an unknown city through fragmented WhatsApp groups, random word of mouth, and tourist circuits. That experience built the first hypothesis."
+      },
+      {
+        "label": "The model",
+        "body": "B2C freemium: Guest mode (free, see the map, hit a wall when you want to act) → Monthly €2.99 → Semester Pass €9.99. The conversion trigger is intentional friction at the moment of intent, not a time limit.\n\nMarket sizing built bottom-up from the student's digitally addressable wallet (€700–1,000/stay, €800 central estimate): TAM €5B (6.3M students globally), SAM €400M (Europe), SOM €40M (Italy beachhead, 50K students/year).\n\nLive MVP shipped: localit.lovable.app"
+      }
+    ],
+
+    "credits": "Entrepreneurship in Digital Age course — MSc Digital Transformation & Entrepreneurship, H-Farm College / University of Chichester, A.Y. 2025/2026.",
+
+    "metrics_highlight": [
+      "TAM €5B global",
+      "SAM €400M Europe",
+      "34% of Erasmus students integrate (ESNsurvey XV)",
+      "+10.7% YoY market growth",
+      "Live MVP: localit.lovable.app"
+    ]
+  },
+
+  "visual_identity": {
+    "palette": {
+      "bg": "#F3F0FA",
+      "surface": "#FAF8FD",
+      "ink": "#1A1428",
+      "accent": "#7C5CBF"
+    },
+    "typography": {
+      "display": "Inter, system-ui, sans-serif",
+      "body": "Inter, system-ui, sans-serif"
+    },
+    "treatment": "minimal",
+    "mood": "calm",
+    "rationale": "Purple-tinted palette — student, urban, European. Distinct from the green (Agromercato) and dark blue (MANTA) of other pieces."
+  },
+
+  "links": [
+    {"label": "Live app", "url": "https://localit.lovable.app", "primary": true}
+  ],
+
+  "meta": {
+    "experience_period": "2025–2026",
+    "your_role": "Co-founder — venture design, financial modeling, market sizing, business model",
+    "team_size": 3,
+    "tags": ["venture thinking", "pivot", "business model", "Erasmus", "live MVP", "market sizing"],
+    "anonymized": false,
+    "redaction_notes": null,
+    "primary_or_secondary": "secondary"
+  },
+
+  "ranking": {
+    "affinity_score": 7.5,
+    "display_priority": 4
+  }
+}

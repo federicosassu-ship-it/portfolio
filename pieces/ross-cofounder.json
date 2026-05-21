@@ -1,0 +1,92 @@
+{
+  "id": "ross-cofounder",
+  "experience_id": "ross-cofounder",
+  "version": 1,
+  "created_at": "2026-05-21",
+  "updated_at": "2026-05-21",
+
+  "card": {
+    "title": "R.O.S.S.",
+    "subtitle": "AI companion for the elderly · Co-founder · Apr 2026–present",
+    "tag": "Venture",
+    "thumbnail_asset": null,
+    "external_link_indicator": "none"
+  },
+
+  "interior": {
+    "headline": "We chose not to build a medical device. That decision made everything else possible.",
+    "hook": "Italy has 14.6M people over 65. Most eldercare technology treats them as patients to monitor — cameras, SOS buttons, biometric wearables. Every product in this space optimises for caregiver anxiety, not for the person living in that house. ROSS starts from the opposite hypothesis: the elderly person is not a condition to manage. She's someone to accompany.",
+
+    "sections": [
+      {
+        "label": "The insight",
+        "body": "The eldercare market is saturated with products that the elderly reject — because they feel like surveillance. ElliQ, Paro, SOS buttons, GPS bracelets: Marco (the adult child, our actual buyer) has looked at all of them and excluded them one by one, because he knows his mother won't accept them. The gap isn't technology. It's positioning. Nobody has built for the person living alone — only for the family watching from a distance.\n\nThis is the gap ROSS fills. And the positioning decision — 'companion, not device' — isn't just a marketing choice. It's the foundation of our regulatory strategy (AI Act Art. 50, non-MDR), our IP architecture (no biometric sensors, ever), our technical design (on-device AI, no biometric triggers), and our glossary (the word 'monitoring' is banned from every line of code, every pitch, every caregiver app label)."
+      },
+      {
+        "label": "What we built",
+        "body": "ROSS runs on a local-first architecture: a small language model (quantized, LoRA-adapted), speech-to-text and TTS — all on-device, in Maria's house. The core of the system is the 'ontologia biografica': a structured biographical knowledge base of Maria's people, places, events, routines, preferences, and memories — compiled by Marco at onboarding.\n\nFrom this, ROSS runs three presence modes: Active (it approaches Maria with narrative intent — not because a sensor triggered, but because it has something to share or remember with her), Silent (non-biometric absence detection — from voice interaction patterns, not cameras or PIR — sends Marco a narrative sentence, never an alert), and Reactive (it responds when Maria calls it).\n\nEvery day, Marco receives the Daily Report: a narrative letter about Maria's day — not a dashboard, not parameters, not alerts. A letter. 'Today Maria remembered the trip to Venice in 1987. She talked about it for twelve minutes.'"
+      },
+      {
+        "label": "My role",
+        "body": "I run the commercial and financial engine of ROSS. Financial models, unit economics, cap table, fundraising structure. I own the pricing decision: our hypothesis is €1,000 device + €40/month — less than one month of a live-in carer (€1,400/month average in Italy), for a product that works 24/7 and doesn't require Maria to accept another person in her home.\n\nI built the market sizing: TAM Italy ~€3.8B (2.55M families with a Maria and a Marco), SAM ~€941M after filtering for tech acceptance and income, SOM ~€34M in the first three years. TAM EU-27 ~€23B. I manage investor relations and am responsible for structuring the round when we go to fundraise.\n\nI also own the WTP research design — we need to validate the pricing hypothesis before any pitch to institutional investors, and I'm designing the methodology."
+      },
+      {
+        "label": "Where we are",
+        "body": "Selected as top project at H-HACK (H-Farm Robotics Hackathon, April 2026). Now building through H-Farm's Venture Building Program. Patent 1 (conversational layer, covering F1–F10) is in progress — no public technical demos until the provisional deposit is filed (Art. 56 CPI). Patent 2 (NLG for caregiver, app, hardware) in parallel development. Trademark deposit (EUIPO/UIBM, classes 9/28/42/44 — explicitly not class 10, medical devices) before first external pilot.\n\nWe're currently closing the team (AI Full Stack Engineer, joining as freelance with equity option), engaging a patent attorney, and running the first Wizard-of-Oz tests with elderly users before committing to hardware form factor."
+      }
+    ],
+
+    "credits": "Team: Alessandro Di Mauro (Product & Comms), Alessandra Beretta (Institutional Relations & Ops), Luca Marzotto (Tech Architecture). Built within H-Farm's ecosystem.",
+
+    "metrics_highlight": [
+      "€3.8B TAM Italy",
+      "€23B TAM EU-27",
+      "€1,480/yr vs €1,400/month (carer)",
+      "2 patents in progress",
+      "#1 at H-HACK"
+    ]
+  },
+
+  "visual_identity": {
+    "palette": {
+      "bg": "#F5F0EB",
+      "surface": "#FDFAF7",
+      "ink": "#1A1714",
+      "accent": "#3B6B5E"
+    },
+    "typography": {
+      "display": "Georgia, 'Times New Roman', serif",
+      "body": "Inter, system-ui, sans-serif"
+    },
+    "treatment": "editorial",
+    "mood": "calm",
+    "rationale": "Cream and sage tones — domestic warmth, not clinical white. Serif display for the headline signals narrative and care, not tech startup. The sage accent ties to the R.O.S.S. colour palette (cream/ink/teal/sage/terracotta from the product requirements). This piece should feel like the Daily Report: a letter, not a dashboard."
+  },
+
+  "assets": {
+    "hero": {
+      "src": null,
+      "alt": "R.O.S.S. — AI companion for the elderly",
+      "caption": "R.O.S.S.: three presence modes, one biographical knowledge base, zero biometric sensors."
+    },
+    "gallery": [],
+    "embeds": []
+  },
+
+  "links": [],
+
+  "meta": {
+    "experience_period": "April 2026 – present",
+    "your_role": "Co-founder & Finance/Commercial Development Lead",
+    "team_size": 4,
+    "tags": ["AI", "venture", "eldercare", "on-device AI", "founder", "H-FARM"],
+    "anonymized": false,
+    "redaction_notes": "Patent claims not disclosed per IP strategy (Patent 1 not yet filed). No technical feature detail that would constitute public disclosure per Art. 56 CPI.",
+    "primary_or_secondary": "primary"
+  },
+
+  "ranking": {
+    "affinity_score": 10.0,
+    "display_priority": 1
+  }
+}

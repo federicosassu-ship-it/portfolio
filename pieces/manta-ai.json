@@ -1,0 +1,87 @@
+{
+  "id": "manta-ai",
+  "experience_id": "manta-ai-team-lead",
+  "version": 1,
+  "created_at": "2026-05-21",
+  "updated_at": "2026-05-21",
+
+  "card": {
+    "title": "MANTA AI",
+    "subtitle": "RAG voice agent for aerospace · Team Lead · Oct–Nov 2025",
+    "tag": "AI Build",
+    "thumbnail_asset": null,
+    "external_link_indicator": "none"
+  },
+
+  "interior": {
+    "headline": "500 pages of technical manuals. Queryable in seconds, by voice.",
+    "hook": "MANTA Group supplies Leonardo and Boeing. Their operators work on the floor with 500+ pages of technical manuals — printed, indexed by hand, searched by memory. We had one month to change that.",
+
+    "sections": [
+      {
+        "label": "The problem",
+        "body": "Manual lookup on an aerospace manufacturing floor is slow, error-prone, and breaks flow. The information exists — it's just trapped in PDFs. The question was how to make it accessible in the way operators actually work: hands busy, eyes on the part, no time to type a search query."
+      },
+      {
+        "label": "What we built",
+        "body": "A functional RAG-based AI voice agent. Voiceflow for the voice layer, a RAG pipeline on top of the ingested manuals. Operators query 500+ pages of technical documentation via voice or text — and get an answer in seconds, not minutes. No new hardware required. No retraining. The knowledge base is the documentation MANTA already has.\n\nLed a cross-university team of 4 (H-Farm College x Università di Puglia). Delivered a working MVP in a 1-month sprint. Pitched to a jury of representatives from 12 participating companies."
+      },
+      {
+        "label": "Why it matters",
+        "body": "MANTA AI is not a portfolio exercise. It's a proof that AI-native tooling — voice + retrieval + a clean interface — can replace workflows that haven't changed in decades in industries that have never had a reason to change them. The same architecture scales to any knowledge-intensive field where the person doing the work can't stop to type."
+      }
+    ],
+
+    "credits": "Cross-university team of 4. Challenge: Impact Puglia — H-Farm College x Università di Puglia.",
+
+    "metrics_highlight": [
+      "500+ pages indexed",
+      "1-month sprint to working MVP",
+      "Pitched to 12 companies",
+      "RAG + Voiceflow stack"
+    ]
+  },
+
+  "visual_identity": {
+    "palette": {
+      "bg": "#0F1923",
+      "surface": "#1A2736",
+      "ink": "#E8EDF2",
+      "accent": "#4A9EBF"
+    },
+    "typography": {
+      "display": "Inter, system-ui, sans-serif",
+      "body": "Inter, system-ui, sans-serif"
+    },
+    "treatment": "minimal",
+    "mood": "technical",
+    "rationale": "Dark, technical palette — aerospace context. Blue accent echoes industrial precision. Monochrome sans-serif throughout — this is a build piece, not a narrative piece."
+  },
+
+  "assets": {
+    "hero": {
+      "src": null,
+      "alt": "MANTA AI — RAG voice agent architecture",
+      "caption": "RAG pipeline on 500+ pages of technical documentation, queryable by voice in seconds."
+    },
+    "gallery": [],
+    "embeds": []
+  },
+
+  "links": [],
+
+  "meta": {
+    "experience_period": "October–November 2025",
+    "your_role": "Team Lead",
+    "team_size": 4,
+    "tags": ["RAG", "voice AI", "aerospace", "MVP", "team lead"],
+    "anonymized": false,
+    "redaction_notes": null,
+    "primary_or_secondary": "primary"
+  },
+
+  "ranking": {
+    "affinity_score": 9.0,
+    "display_priority": 2
+  }
+}

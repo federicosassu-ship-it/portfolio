@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Federico Sassu Verderi — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:       #F5F1EC;
+      --surface:  #FDFAF7;
+      --ink:      #1A1714;
+      --ink-2:    #4A4540;
+      --ink-3:    #8A8480;
+      --accent:   #3B6B5E;
+      --accent-2: #2D5248;
+      --border:   #DDD8D2;
+      --tag-bg:   #EAE5DF;
+
+      --font-display: 'Lora', Georgia, serif;
+      --font-body:    'Inter', system-ui, sans-serif;
+
+      --radius:   12px;
+      --radius-sm: 6px;
+      --transition: 220ms cubic-bezier(.4,0,.2,1);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ─── LAYOUT ─────────────────────────────────────────────── */
+    .container {
+      max-width: 880px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* ─── HEADER ─────────────────────────────────────────────── */
+    header {
+      padding: 72px 0 56px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .header-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 32px;
+      flex-wrap: wrap;
+    }
+
+    .header-left { flex: 1; min-width: 280px; }
+
+    .name {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 2.75rem);
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 14px;
+    }
+
+    .headline {
+      font-size: 1rem;
+      line-height: 1.65;
+      color: var(--ink-2);
+      max-width: 520px;
+    }
+
+    .header-links {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+    }
+
+    .header-links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: color var(--transition);
+    }
+
+    .header-links a:hover { color: var(--accent-2); }
+
+    .header-links a svg {
+      width: 14px; height: 14px; flex-shrink: 0;
+    }
+
+    /* ─── INTRO ──────────────────────────────────────────────── */
+    .intro {
+      padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .intro-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+    }
+
+    .intro-text {
+      font-family: var(--font-display);
+      font-size: clamp(1.1rem, 2.5vw, 1.3rem);
+      line-height: 1.7;
+      color: var(--ink);
+      max-width: 680px;
+    }
+
+    .intro-text em {
+      font-style: italic;
+      color: var(--ink-2);
+    }
+
+    /* ─── WORK SECTION ───────────────────────────────────────── */
+    .work-section {
+      padding: 48px 0;
+    }
+
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      margin-bottom: 32px;
+    }
+
+    /* ─── CARDS GRID ─────────────────────────────────────────── */
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px;
+      cursor: pointer;
+      transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--card-accent, var(--accent));
+      opacity: 0;
+      transition: opacity var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+      border-color: var(--card-accent, var(--accent));
+    }
+
+    .card:hover::before { opacity: 1; }
+
+    .card-tag {
+      display: inline-flex;
+      align-items: center;
+      background: var(--tag-bg);
+      color: var(--ink-2);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 99px;
+      width: fit-content;
+    }
+
+    .card-title {
+      font-family: var(--font-display);
+      font-size: 1.35rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      line-height: 1.2;
+    }
+
+    .card-subtitle {
+      font-size: 0.82rem;
+      color: var(--ink-3);
+      line-height: 1.5;
+    }
+
+    .card-arrow {
+      margin-top: auto;
+      color: var(--card-accent, var(--accent));
+      font-size: 1.2rem;
+      align-self: flex-end;
+      transition: transform var(--transition);
+    }
+
+    .card:hover .card-arrow { transform: translate(3px, -3px); }
+
+    /* Primary card = larger */
+    .card.primary {
+      grid-column: span 2;
+    }
+
+    .card.primary .card-title { font-size: 1.65rem; }
+
+    @media (max-width: 600px) {
+      .card.primary { grid-column: span 1; }
+    }
+
+    /* ─── MODAL OVERLAY ──────────────────────────────────────── */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(20, 17, 14, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 100;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding: 0;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity var(--transition);
+    }
+
+    .overlay.open {
+      opacity: 1;
+      pointer-events: all;
+    }
+
+    @media (min-width: 600px) {
+      .overlay {
+        align-items: center;
+        padding: 24px;
+      }
+    }
+
+    /* ─── MODAL ──────────────────────────────────────────────── */
+    .modal {
+      background: var(--modal-bg, var(--surface));
+      border-radius: var(--radius) var(--radius) 0 0;
+      width: 100%;
+      max-width: 720px;
+      max-height: 90vh;
+      overflow-y: auto;
+      padding: 40px 36px 48px;
+      transform: translateY(40px);
+      transition: transform var(--transition);
+      position: relative;
+      scrollbar-width: thin;
+      scrollbar-color: var(--border) transparent;
+    }
+
+    @media (min-width: 600px) {
+      .modal {
+        border-radius: var(--radius);
+        transform: translateY(0) scale(0.97);
+      }
+    }
+
+    .overlay.open .modal {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-close {
+      position: absolute;
+      top: 20px; right: 20px;
+      width: 36px; height: 36px;
+      border: 1px solid var(--border);
+      background: var(--bg);
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+      color: var(--ink-2);
+      transition: background var(--transition), color var(--transition);
+      z-index: 1;
+    }
+
+    .modal-close:hover {
+      background: var(--ink);
+      color: #fff;
+    }
+
+    /* ─── MODAL CONTENT ──────────────────────────────────────── */
+    .modal-tag {
+      display: inline-flex;
+      align-items: center;
+      background: color-mix(in srgb, var(--modal-accent, var(--accent)) 15%, transparent);
+      color: var(--modal-accent, var(--accent));
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 99px;
+      width: fit-content;
+      margin-bottom: 20px;
+    }
+
+    .modal-headline {
+      font-family: var(--font-display);
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--modal-ink, var(--ink));
+      margin-bottom: 12px;
+    }
+
+    .modal-hook {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      color: var(--modal-ink-2, var(--ink-2));
+      margin-bottom: 32px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .modal-metrics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-bottom: 32px;
+    }
+
+    .metric-pill {
+      background: var(--modal-bg, var(--bg));
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      padding: 8px 14px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--modal-ink, var(--ink));
+      white-space: nowrap;
+    }
+
+    .modal-section {
+      margin-bottom: 28px;
+    }
+
+    .modal-section-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--modal-accent, var(--accent));
+      margin-bottom: 10px;
+    }
+
+    .modal-section-body {
+      font-size: 0.92rem;
+      line-height: 1.75;
+      color: var(--modal-ink-2, var(--ink-2));
+    }
+
+    .modal-section-body p + p { margin-top: 12px; }
+
+    /* ─── MODAL IMAGES ──────────────────────────────────────── */
+    .modal-hero-img {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      margin-bottom: 28px;
+      object-fit: cover;
+      max-height: 340px;
+      display: block;
+    }
+
+    .modal-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 24px 0;
+    }
+
+    .modal-gallery img {
+      width: 100%;
+      border-radius: var(--radius-sm);
+      object-fit: cover;
+      max-height: 200px;
+      display: block;
+    }
+
+    .modal-gallery img.full-width {
+      grid-column: span 2;
+      max-height: 260px;
+    }
+
+    .img-caption {
+      font-size: 0.72rem;
+      color: var(--modal-ink-3, var(--ink-3));
+      margin-top: 6px;
+      text-align: center;
+    }
+
+    .modal-credits {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: var(--modal-ink-3, var(--ink-3));
+    }
+
+    .modal-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-top: 20px;
+    }
+
+    .meta-item {
+      font-size: 0.78rem;
+      color: var(--modal-ink-3, var(--ink-3));
+    }
+
+    .meta-item strong {
+      font-weight: 600;
+      color: var(--modal-ink-2, var(--ink-2));
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-name {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--ink-2);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-size: 0.8rem;
+      color: var(--ink-3);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .footer-links a:hover { color: var(--accent); }
+
+    /* ─── DARK MODAL VARIANT ─────────────────────────────────── */
+    .modal.dark {
+      --modal-bg: #0F1923;
+      --modal-ink: #E8EDF2;
+      --modal-ink-2: #9DAEC0;
+      --modal-ink-3: #5E7286;
+      --modal-accent: #4A9EBF;
+    }
+
+    .modal.dark .modal-tag {
+      background: rgba(74, 158, 191, 0.15);
+    }
+
+    .modal.dark .metric-pill {
+      background: #1A2736;
+      border-color: #2A3A4A;
+    }
+
+    .modal.dark .modal-hook,
+    .modal.dark .modal-credits {
+      border-color: #2A3A4A;
+    }
+
+    /* ─── GREEN MODAL VARIANT ────────────────────────────────── */
+    .modal.green {
+      --modal-bg: #F0F7F0;
+      --modal-ink: #1A2B1A;
+      --modal-ink-2: #3A5A3A;
+      --modal-ink-3: #6A8A6A;
+      --modal-accent: #25A244;
+    }
+
+    .modal.green .modal-tag {
+      background: rgba(37, 162, 68, 0.12);
+    }
+
+    .modal.green .metric-pill {
+      background: #E4F0E4;
+      border-color: #C5DEC5;
+    }
+
+    .modal.green .modal-hook,
+    .modal.green .modal-credits {
+      border-color: #C5DEC5;
+    }
+
+    /* ─── PURPLE MODAL VARIANT ───────────────────────────────── */
+    .modal.purple {
+      --modal-bg: #F3F0FA;
+      --modal-ink: #1A1428;
+      --modal-ink-2: #3D3060;
+      --modal-ink-3: #7A6BA0;
+      --modal-accent: #7C5CBF;
+    }
+
+    .modal.purple .modal-tag {
+      background: rgba(124, 92, 191, 0.12);
+    }
+
+    .modal.purple .metric-pill {
+      background: #EAE5F5;
+      border-color: #D0C8EB;
+    }
+
+    .modal.purple .modal-hook,
+    .modal.purple .modal-credits {
+      border-color: #D0C8EB;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ─────────────────── HEADER ──────────────────────────────── -->
+<header>
+  <div class="container">
+    <div class="header-inner">
+      <div class="header-left">
+        <h1 class="name">Federico Sassu<br>Verderi</h1>
+        <p class="headline">I build AI-native companies. Currently: an AI companion for the elderly that treats people as people, not conditions to manage.</p>
+      </div>
+      <div class="header-links">
+        <a href="https://www.linkedin.com/in/federico-sassu-verderi-0345a1231" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
+          LinkedIn
+        </a>
+        <a href="mailto:Federico.sassu@student.h-farm.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─────────────────── INTRO ────────────────────────────────── -->
+<section class="intro">
+  <div class="container">
+    <p class="intro-label">Who I am</p>
+    <p class="intro-text">
+      I started building things at 17 — not because someone told me to, because waiting felt wrong.
+      Since then, every project has followed the same instinct: <em>see a real problem, find the AI-native
+      solution, build it, ship it.</em> I'm a commercial and financial founder. I don't write
+      the models — I build the case for why they should exist and how to get them to market.
+      Currently co-founding R.O.S.S., an AI companion for the elderly, selected at H-HACK and now
+      building through H-Farm's Venture Building Program.
+    </p>
+  </div>
+</section>
+
+<!-- ─────────────────── WORK ─────────────────────────────────── -->
+<section class="work-section">
+  <div class="container">
+    <p class="section-label">Selected work</p>
+    <div class="cards-grid">
+
+      <!-- ── CARD 1: ROSS (primary, spans 2 cols) ── -->
+      <div class="card primary" style="--card-accent: #3B6B5E;" onclick="openModal('ross')">
+        <span class="card-tag">Venture</span>
+        <h2 class="card-title">R.O.S.S.</h2>
+        <p class="card-subtitle">AI companion for the elderly · Co-founder & Finance/Commercial Lead<br>April 2026 – present</p>
+        <span class="card-arrow">↗</span>
+      </div>
+
+      <!-- ── CARD 2: MANTA AI ── -->
+      <div class="card" style="--card-accent: #4A9EBF;" onclick="openModal('manta')">
+        <span class="card-tag">AI Build</span>
+        <h2 class="card-title">MANTA AI</h2>
+        <p class="card-subtitle">RAG voice agent for aerospace · Team Lead<br>Oct – Nov 2025</p>
+        <span class="card-arrow">↗</span>
+      </div>
+
+      <!-- ── CARD 3: Agromercato ── -->
+      <div class="card" style="--card-accent: #25A244;" onclick="openModal('agromercato')">
+        <span class="card-tag">AI Product</span>
+        <h2 class="card-title">Agromercato.com</h2>
+        <p class="card-subtitle">WhatsApp AI agent for B2B food market<br>Mar – May 2025</p>
+        <span class="card-arrow">↗</span>
+      </div>
+
+      <!-- ── CARD 4: LocaLì ── -->
+      <div class="card" style="--card-accent: #7C5CBF;" onclick="openModal('locali')">
+        <span class="card-tag">Venture Thinking</span>
+        <h2 class="card-title">LocaLì</h2>
+        <p class="card-subtitle">Erasmus student platform · Pivot case study<br>2025–2026</p>
+        <span class="card-arrow">↗</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─────────────────── FOOTER ───────────────────────────────── -->
+<footer>
+  <div class="container" style="width:100%; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;">
+    <span class="footer-name">Federico Sassu Verderi</span>
+    <div class="footer-links">
+      <a href="https://www.linkedin.com/in/federico-sassu-verderi-0345a1231" target="_blank">LinkedIn</a>
+      <a href="mailto:Federico.sassu@student.h-farm.com">Email</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ─────────────────── OVERLAY + MODALS ─────────────────────── -->
+<div class="overlay" id="overlay" onclick="handleOverlayClick(event)">
+
+  <!-- ── MODAL: ROSS ── -->
+  <div class="modal" id="modal-ross" style="--modal-bg:#F5F0EB; --modal-accent:#3B6B5E; --modal-ink:#1A1714; --modal-ink-2:#4A4540; --modal-ink-3:#8A8480;">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <span class="modal-tag">Venture</span>
+
+    <!-- Hero: ROSS team at H-HACK -->
+    <img src="assets/ross/ross-team-hhack.png" alt="ROSS team at H-HACK, H-Farm Robotics Hackathon" class="modal-hero-img" />
+
+    <h2 class="modal-headline">We chose not to build a medical device.<br>That decision made everything else possible.</h2>
+
+    <p class="modal-hook">Italy has 14.6M people over 65. Most eldercare technology treats them as patients to monitor — cameras, SOS buttons, biometric wearables. Every product in this space optimises for caregiver anxiety, not for the person living in that house. ROSS starts from the opposite hypothesis: the elderly person is not a condition to manage. She's someone to accompany.</p>
+
+    <div class="modal-metrics">
+      <span class="metric-pill">€3.8B TAM Italy</span>
+      <span class="metric-pill">€23B TAM EU-27</span>
+      <span class="metric-pill">€1,480/yr vs €1,400/mo carer</span>
+      <span class="metric-pill">2 patents in progress</span>
+      <span class="metric-pill">#1 at H-HACK</span>
+      <span class="metric-pill">HUMAN+ Healthcare Dialogue 2026</span>
+    </div>
+
+    <div class="modal-section">
+      <p class="modal-section-label">The insight</p>
+      <div class="modal-section-body">
+        <p>The eldercare market is saturated with products the elderly reject — because they feel like surveillance. ElliQ, Paro, SOS buttons, GPS bracelets: our buyer (the adult child) has looked at all of them and excluded them, because he knows his mother won't accept them. The gap isn't technology. It's positioning.</p>
+        <p>The decision — "companion, not device" — isn't just marketing. It's the foundation of our regulatory strategy (AI Act Art. 50, non-MDR), our IP architecture (no biometric sensors, ever), and our technical design. The word "monitoring" is banned from every line of code, every pitch deck, every caregiver app label.</p>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <p class="modal-section-label">What we built</p>
+      <div class="modal-section-body">
+        <p>ROSS runs on a local-first architecture: on-device LLM (small, quantized, LoRA-adapted), speech-to-text and TTS entirely local, zero biometric sensors. The core is a biographical knowledge base — a structured map of the user's people, places, events, routines, and memories — which ROSS uses to hold real conversations, not generic chatbot exchanges.</p>
+        <p>Three presence modes: Active (ROSS approaches with narrative intent — guided by episodic memory, not biometric triggers), Silent (non-biometric absence detection sends Marco a narrative sentence, not an alert), Reactive (responds when Maria calls it). Every day, the family receives a Daily Report: a narrative letter about her day. Not a dashboard. A letter.</p>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <p class="modal-section-label">My role</p>
+      <div class="modal-section-body">
+        <p>I run the commercial and financial engine of ROSS. Financial models, unit economics, cap table, fundraising structure. Pricing hypothesis: €1,000 device + €40/month — less than one month of a live-in carer at €1,400/month average in Italy, for a product that works 24/7 without requiring Maria to accept a stranger in her home.</p>
+        <p>Market sizing: TAM Italy ~€3.8B (2.55M families), SAM ~€941M, SOM ~€34M in three years. TAM EU-27 ~€23B. I manage investor relations, own the WTP research methodology, and will structure the fundraising round.</p>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <p class="modal-section-label">Where we are</p>
+      <div class="modal-section-body">
+        <p>Selected top project at H-HACK (H-Farm Robotics Hackathon, April 2026) — the event screen read "The top projects making us say WOWWWWWWW." Now building through H-Farm's Venture Building Program. Patent 1 (conversational layer, F1–F10) in progress. Patent 2 (NLG for caregiver, app, hardware) in parallel development. Trademark deposit (EUIPO/UIBM, classes 9/28/42/44) before first external pilot.</p>
+        <p>The team presented ROSS at HUMAN+ Healthcare Dialogue 2026. We're closing the team (AI Full Stack Engineer, freelance → equity option), engaging patent counsel, and running first Wizard-of-Oz tests with elderly users before committing to hardware form factor.</p>
+      </div>
+    </div>
+
+    <!-- Gallery: ROSS images -->
+    <div class="modal-gallery">
+      <img src="assets/ross/ross-user-journey.jpeg" alt="ROSS — Maria's daily experience map" class="full-width" />
+      <img src="assets/ross/ross-human-plus.jpg" alt="ROSS team at HUMAN+ Healthcare Dialogue 2026" onerror="this.style.display='none'" />
+      <img src="assets/ross/hhack-top-projects.jpg" alt="H-HACK — Top Projects" onerror="this.style.display='none'" />
+    </div>
+    <p class="img-caption">Maria's day with R.O.S.S. — from morning routine to the evening narrative report to Marco. · Team at HUMAN+ Healthcare Dialogue 2026.</p>
+
+    <p class="modal-credits">Team: Alessandro Di Mauro (Product & Comms), Alessandra Beretta (Institutional Relations & Ops), Luca Marzotto (Tech Architecture). Built within H-Farm's ecosystem.</p>
+
+    <div class="modal-meta">
+      <span class="meta-item"><strong>Period:</strong> April 2026 – present</span>
+      <span class="meta-item"><strong>Role:</strong> Co-founder & Finance/Commercial Development Lead</span>
+      <span class="meta-item"><strong>Team:</strong> 4 co-founders + incoming AI engineer</span>
+    </div>
+  </div>
+
+  <!-- ── MODAL: MANTA AI ── -->
+  <div class="modal dark" id="modal-manta">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <span class="modal-tag">AI Build</span>
+
+    <h2 class="modal-headline">500 pages of technical manuals.<br>Queryable in seconds, by voice.</h2>
+
+    <p class="modal-hook">MANTA Group supplies Leonardo and Boeing. Their operators work on the floor with 500+ pages of technical manuals — printed, indexed by hand, searched by memory. We had one month to change that.</p>
+
+    <div class="modal-metrics">
+      <span class="metric-pill">500+ pages indexed</span>
+      <span class="metric-pill">1-month sprint to working MVP</span>
+      <span class="metric-pill">Pitched to 12 companies</span>
+      <span class="metric-pill">RAG + Voiceflow stack</span>
+    </div>
+
+    <div class="modal-section">
+      <p class="modal-section-label">The problem</p>
+      <div class="modal-section-body">
+        <p>Manual lookup on an aerospace manufacturing floor is slow, error-prone, and breaks flow. The information exists — it's trapped in PDFs. The question was how to make it accessible the way operators actually work: hands busy, eyes on the part, no time to type a search query.</p>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <p class="modal-section-label">What we built</p>
+      <div class="modal-section-body">
+        <p>A functional RAG-based AI voice agent. Voiceflow for the voice layer, a RAG pipeline ingesting the full technical documentation. Operators query 500+ pages via voice or text — answer in seconds, not minutes. No new hardware. No retraining. The knowledge base is the documentation MANTA already had.</p>
+        <p>Led a cross-university team of 4 (H-Farm College × Università di Puglia). Delivered a working MVP in a 1-month sprint. Pitched to a jury of representatives from 12 participating companies.</p>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <p class="modal-section-label">Why it matters</p>
+      <div class="modal-section-body">
+        <p>The same architecture — voice + retrieval + clean interface — can replace workflows that haven't changed in decades, in industries that have never had a reason to change them. Every knowledge-intensive field where the person doing the work can't stop to type is a version of this problem.</p>
+      </div>
+    </div>
+
+    <p class="modal-credits">Challenge: Impact Puglia — H-Farm College × Università di Puglia. Cross-university team of 4.</p>
+
+    <div class="modal-meta">
+      <span class="meta-item"><strong>Period:</strong> October – November 2025</span>
+      <span class="meta-item"><strong>Role:</strong> Team Lead</span>
+      <span class="meta-item"><strong>Team:</strong> 4 people</span>
+    </div>
+  </div>
+
+  <!-- ── MODAL: AGROMERCATO ── -->
+  <div class="modal green" id="modal-agromercato">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <span class="modal-tag">AI Product</span>
+
+    <!-- Hero: H-Farm Pre-Accelerator Spring 2026 -->
+    <img src="assets/agromercato/preaccelerator-cover.jpg" alt="H-Farm Pre-Accelerator Spring Edition 2026 — Young Minds, Big Startups Ideas" class="modal-hero-img" style="object-position: top;" />
+
+    <h2 class="modal-headline">The best interface for wholesale food buyers wasn't an app. It was WhatsApp.</h2>
+
+    <p class="modal-hook">A €150M+ wholesale produce market. Operators taking orders the same way they have for decades — phone calls, WhatsApp voice notes, paper slips. We were asked to design the digital layer. The research told us something that changed the design entirely.</p>
+
+    <div class="modal-metrics">
+      <span class="metric-pill">€150M+ pilot market</span>
+      <span class="metric-pill">Research-validated channel</span>
+      <span class="metric-pill">B2B marketplace + AI agent</span>
+      <span class="metric-pill">H-Farm Startup Centre</span>
+    </div>
+
+    <div class="modal-section">
+      <p class="modal-section-label">The research finding</p>
+      <div class="modal-section-body">
+        <p>The assumption was that Agromercato.com needed a new app. Primary research said otherwise: WhatsApp was already the dominant channel on both sides of the transaction. Wholesalers used it to receive orders. Buyers used it to send them. Building a new app would mean asking people to change a behaviour that already worked.</p>
+        <p>The AI-native answer: don't fight the channel. Build the intelligence layer inside it.</p>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <p class="modal-section-label">What we designed</p>
+      <div class="modal-section-body">
+        <p>A WhatsApp AI agent that centralises incoming orders for wholesalers and simplifies purchasing for professional buyers — without changing the interface either side already uses. The agent structures unstructured order messages, routes them correctly, and reduces coordination overhead on both sides.</p>
+        <p>Built in partnership with Abilita Srls as part of the scaling strategy for Agromercato.com, starting from a pilot with the Mercato Agroalimentare della Sardegna (€150M+ annual turnover).</p>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <p class="modal-section-label">The principle</p>
+      <div class="modal-section-body">
+        <p>The most AI-native choice is often not to build a new interface — it's to make the existing one intelligent. WhatsApp is infrastructure. The agent is the product. This distinction matters when building for markets where behaviour change is the biggest adoption barrier.</p>
+      </div>
+    </div>
+
+    <p class="modal-credits">Built within H-Farm Startup Centre Pre-Acceleration Program, in partnership with Abilita Srls.</p>
+
+    <div class="modal-meta">
+      <span class="meta-item"><strong>Period:</strong> March – May 2025</span>
+      <span class="meta-item"><strong>Role:</strong> AI Product Designer & Strategy Lead</span>
+    </div>
+  </div>
+
+
+  <!-- ── MODAL: LOCALI ── -->
+  <div class="modal purple" id="modal-locali">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <span class="modal-tag">Venture Thinking</span>
+
+    <h2 class="modal-headline">We killed our first startup when the financial model didn't close. Then we built this.</h2>
+
+    <p class="modal-hook">We started with CheckTheStreet — an urban safety app for students navigating Italian cities at night. We built the product, mapped the personas, designed the B2B2C model. Then we built the financial model. €2 per enrolled student, universities paying. 36-month projection: revenues couldn't cover operating costs. And the content verification problem — an open crowdsourced safety platform in the wrong hands becomes a misinformation weapon. We couldn't solve it early-stage. So we didn't defend the solution. We questioned the problem.</p>
+
+    <div class="modal-metrics">
+      <span class="metric-pill">TAM €5B global</span>
+      <span class="metric-pill">SAM €400M Europe</span>
+      <span class="metric-pill">34% integration rate (ESNsurvey XV)</span>
+      <span class="metric-pill">+10.7% YoY growth</span>
+      <span class="metric-pill">Live MVP</span>
+    </div>
+
+    <div class="modal-section">
+      <p class="modal-section-label">The pivot</p>
+      <div class="modal-section-body">
+        <p>We asked: who experiences the information gap most intensely? Not the Italian student who partially knows the city and updates over time. The international student — arriving with zero local context, zero network, often a language barrier, for 6–12 months. The same problem, more acute, on a ticking clock.</p>
+        <p>From that question came LocaLì: not a safety tool, but the student layer of the city. Map &amp; Discovery (finding the places locals know but tourists don't), Student Deals (aggregating the discounts scattered across ESN pages and window stickers nobody reads), Safe &amp; Chill (crowdsourced contextual safety from students who just walked that route).</p>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <p class="modal-section-label">The problem is real</p>
+      <div class="modal-section-body">
+        <p>ESNsurvey XV (2024, N=17,855): only 34% of international students actively integrate with the city they arrive in. The 66% who don't — don't lack motivation. They lack tools.</p>
+        <p>The market doesn't need to be created: 50,000 international students arrive in Italy every year (+10.7% YoY), all starting from zero. Italy is the second-largest Erasmus destination in Europe — a natural beachhead for France, Spain, Germany, Netherlands. I was the user: I did Erasmus in Vilnius and navigated an unknown city through fragmented WhatsApp groups and tourist circuits. That experience built the first hypothesis.</p>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <p class="modal-section-label">The model</p>
+      <div class="modal-section-body">
+        <p>B2C freemium: Guest mode (free, see the map, hit a wall when you want to act) → Monthly €2.99 → Semester Pass €9.99. The conversion trigger is intentional friction at the moment of intent, not a time limit.</p>
+        <p>Market sizing built bottom-up from the student's digitally addressable wallet (€700–1,000/stay, €800 central estimate): TAM €5B (6.3M students globally), SAM €400M (Europe), SOM €40M (Italy beachhead, 50K students/year).</p>
+      </div>
+    </div>
+
+    <div style="display:flex; flex-wrap:wrap; gap:10px; margin-top:4px; margin-bottom:28px;">
+      <a href="https://localit.lovable.app" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; color:var(--modal-accent); font-weight:600; font-size:0.9rem; text-decoration:none; border:1px solid var(--modal-accent); border-radius:6px; padding:8px 16px; transition:background 220ms;">
+        Live app: localit.lovable.app ↗
+      </a>
+      <a href="https://checkthestreet.lovable.app" target="_blank" rel="noopener" style="display:inline-flex; align-items:center; gap:8px; color:var(--modal-ink-3); font-weight:500; font-size:0.85rem; text-decoration:none; border:1px solid var(--modal-ink-3); border-radius:6px; padding:8px 16px; opacity:0.7;">
+        CheckTheStreet — the idea we killed ↗
+      </a>
+    </div>
+
+    <p class="modal-credits">Entrepreneurship in Digital Age course — MSc Digital Transformation &amp; Entrepreneurship, H-Farm College / University of Chichester, A.Y. 2025/2026.</p>
+
+    <div class="modal-meta">
+      <span class="meta-item"><strong>Period:</strong> 2025–2026</span>
+      <span class="meta-item"><strong>Role:</strong> Co-founder — venture design, financial modeling, market sizing</span>
+      <span class="meta-item"><strong>Team:</strong> 3</span>
+    </div>
+  </div>
+
+</div><!-- /overlay -->
+
+<script>
+  const overlay = document.getElementById('overlay');
+  let currentModal = null;
+
+  function openModal(id) {
+    if (currentModal) currentModal.style.display = 'none';
+    const m = document.getElementById('modal-' + id);
+    if (!m) return;
+    // Hide all modals first
+    document.querySelectorAll('.modal').forEach(el => el.style.display = 'none');
+    m.style.display = 'block';
+    currentModal = m;
+    overlay.classList.add('open');
+    document.body.style.overflow = 'hidden';
+    m.scrollTop = 0;
+  }
+
+  function closeModal() {
+    overlay.classList.remove('open');
+    document.body.style.overflow = '';
+    setTimeout(() => {
+      if (currentModal) currentModal.style.display = 'none';
+      currentModal = null;
+    }, 250);
+  }
+
+  function handleOverlayClick(e) {
+    if (e.target === overlay) closeModal();
+  }
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeModal();
+  });
+
+  // Hide all modals on load
+  document.querySelectorAll('.modal').forEach(el => el.style.display = 'none');
+</script>
+
+</body>
+</html>

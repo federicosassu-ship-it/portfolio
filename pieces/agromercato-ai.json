@@ -1,0 +1,87 @@
+{
+  "id": "agromercato-ai",
+  "experience_id": "agromercato-whatsapp-ai",
+  "version": 1,
+  "created_at": "2026-05-21",
+  "updated_at": "2026-05-21",
+
+  "card": {
+    "title": "Agromercato.com",
+    "subtitle": "WhatsApp AI agent for B2B food market · H-Farm Startup Centre · Mar–May 2025",
+    "tag": "AI Product",
+    "thumbnail_asset": null,
+    "external_link_indicator": "none"
+  },
+
+  "interior": {
+    "headline": "The best interface for wholesale food buyers wasn't an app. It was WhatsApp.",
+    "hook": "A €150M+ wholesale produce market. Dozens of operators taking orders the same way they have for decades — phone calls, WhatsApp voice notes, paper slips. We were asked to design the digital layer. The research told us something that changed the design entirely.",
+
+    "sections": [
+      {
+        "label": "The research finding",
+        "body": "The assumption was that Agromercato.com needed a new app — a B2B marketplace where buyers (restaurants, retailers, procurement teams) could place orders digitally. Primary research said otherwise: WhatsApp was already the dominant communication channel on both sides of the transaction. Wholesalers used it to receive orders. Buyers used it to send them. Building a new app would mean asking people to change a behaviour that already worked for them.\n\nThe AI-native answer: don't fight the channel. Build the intelligence layer inside it."
+      },
+      {
+        "label": "What we designed",
+        "body": "A WhatsApp AI agent that centralises incoming orders for wholesalers and simplifies purchasing for professional buyers — without changing the interface either side already uses. The agent sits in the existing communication flow, structures unstructured order messages, routes them correctly, and reduces the coordination overhead on both sides.\n\nThis was part of the scaling strategy for Agromercato.com, built in partnership with Abilita Srls — the company behind the platform — starting from a pilot at the Mercato Agroalimentare della Sardegna (€150M+ annual turnover)."
+      },
+      {
+        "label": "The principle",
+        "body": "The most AI-native choice is often not to build a new interface — it's to make the existing one intelligent. WhatsApp is infrastructure. The agent is the product. This distinction matters when you're building for markets where behaviour change is the biggest adoption barrier."
+      }
+    ],
+
+    "credits": "Built within H-Farm Startup Centre Pre-Acceleration Program, in partnership with Abilita Srls.",
+
+    "metrics_highlight": [
+      "€150M+ pilot market turnover",
+      "Research-validated channel choice",
+      "B2B marketplace + AI agent design",
+      "H-Farm Startup Centre"
+    ]
+  },
+
+  "visual_identity": {
+    "palette": {
+      "bg": "#F0F7F0",
+      "surface": "#FAFDF9",
+      "ink": "#1A2B1A",
+      "accent": "#25A244"
+    },
+    "typography": {
+      "display": "Inter, system-ui, sans-serif",
+      "body": "Inter, system-ui, sans-serif"
+    },
+    "treatment": "minimal",
+    "mood": "calm",
+    "rationale": "Green palette — agricultural context, WhatsApp visual language. Clean and grounded."
+  },
+
+  "assets": {
+    "hero": {
+      "src": null,
+      "alt": "Agromercato.com WhatsApp AI agent",
+      "caption": "An AI agent inside the channel that already works — not a new app asking for behaviour change."
+    },
+    "gallery": [],
+    "embeds": []
+  },
+
+  "links": [],
+
+  "meta": {
+    "experience_period": "March–May 2025",
+    "your_role": "AI Product Designer & Strategy Lead",
+    "team_size": 3,
+    "tags": ["AI agent", "WhatsApp", "B2B", "food sector", "product design", "H-Farm"],
+    "anonymized": false,
+    "redaction_notes": null,
+    "primary_or_secondary": "secondary"
+  },
+
+  "ranking": {
+    "affinity_score": 8.0,
+    "display_priority": 3
+  }
+}
