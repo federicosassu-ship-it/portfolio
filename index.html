@@ -60,7 +60,26 @@
       flex-wrap: wrap;
     }
 
-    .header-left { flex: 1; min-width: 280px; }
+    .header-left {
+      flex: 1;
+      min-width: 280px;
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+    }
+
+    .header-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      border: 2px solid var(--border);
+      flex-shrink: 0;
+      margin-top: 4px;
+    }
+
+    .header-text { flex: 1; }
 
     .name {
       font-family: var(--font-display);
@@ -551,8 +570,11 @@
   <div class="container">
     <div class="header-inner">
       <div class="header-left">
-        <h1 class="name">Federico Sassu<br>Verderi</h1>
-        <p class="headline">I build AI-native companies. Currently: an AI companion for the elderly that treats people as people, not conditions to manage.</p>
+        <img src="assets/federico-profile.jpg" alt="Federico Sassu Verderi" class="header-avatar" />
+        <div class="header-text">
+          <h1 class="name">Federico Sassu<br>Verderi</h1>
+          <p class="headline">I build AI-native companies. Currently: an AI companion for the elderly that treats people as people, not conditions to manage.</p>
+        </div>
       </div>
       <div class="header-links">
         <a href="https://www.linkedin.com/in/federico-sassu-verderi-0345a1231" target="_blank" rel="noopener">
@@ -644,8 +666,8 @@
     <button class="modal-close" onclick="closeModal()">✕</button>
     <span class="modal-tag">Venture</span>
 
-    <!-- Hero: ROSS team at H-HACK -->
-    <img src="assets/ross/ross-team-hhack.png" alt="ROSS team at H-HACK, H-Farm Robotics Hackathon" class="modal-hero-img" />
+    <!-- Hero: ROSS team at HUMAN+ Healthcare Dialogue -->
+    <img src="assets/ross/ross-human-plus.jpg" alt="ROSS team at HUMAN+ Healthcare Dialogue 2026" class="modal-hero-img" />
 
     <h2 class="modal-headline">We chose not to build a medical device.<br>That decision made everything else possible.</h2>
 
@@ -694,11 +716,12 @@
 
     <!-- Gallery: ROSS images -->
     <div class="modal-gallery">
+      <img src="assets/ross/hhack-top-projects.jpg" alt="H-HACK — The top projects making us say WOWWWWWWW" class="full-width" />
+      <img src="assets/ross/ross-team-hhack.png" alt="ROSS team at H-HACK hackathon" />
+      <img src="assets/ross/ross-team-outdoor.jpg" alt="ROSS team at H-Farm" />
       <img src="assets/ross/ross-user-journey.jpeg" alt="ROSS — Maria's daily experience map" class="full-width" />
-      <img src="assets/ross/ross-human-plus.jpg" alt="ROSS team at HUMAN+ Healthcare Dialogue 2026" onerror="this.style.display='none'" />
-      <img src="assets/ross/hhack-top-projects.jpg" alt="H-HACK — Top Projects" onerror="this.style.display='none'" />
     </div>
-    <p class="img-caption">Maria's day with R.O.S.S. — from morning routine to the evening narrative report to Marco. · Team at HUMAN+ Healthcare Dialogue 2026.</p>
+    <p class="img-caption">H-HACK 2026 — selected among the top projects. · ROSS team. · Maria's day with R.O.S.S.</p>
 
     <p class="modal-credits">Team: Alessandro Di Mauro (Product & Comms), Alessandra Beretta (Institutional Relations & Ops), Luca Marzotto (Tech Architecture). Built within H-Farm's ecosystem.</p>
 
@@ -797,6 +820,14 @@
         <p>The most AI-native choice is often not to build a new interface — it's to make the existing one intelligent. WhatsApp is infrastructure. The agent is the product. This distinction matters when building for markets where behaviour change is the biggest adoption barrier.</p>
       </div>
     </div>
+
+    <!-- Gallery: Agromercato images -->
+    <div class="modal-gallery">
+      <img src="assets/agromercato/agromercato-conference.jpg" alt="Ecommerce Food Conference — prima presentazione pubblica di Agromercato.com" />
+      <img src="assets/agromercato/agromercato-pitch.jpg" alt="Federico presenting Agromercato.com" />
+      <img src="assets/agromercato/agromercato-hfarm-group.jpg" alt="H-Farm Startup Centre cohort — Spring 2025" class="full-width" />
+    </div>
+    <p class="img-caption">Ecommerce Food Conference — prima presentazione pubblica del prototipo. · H-Farm Startup Centre cohort, Spring 2025.</p>
 
     <p class="modal-credits">Built within H-Farm Startup Centre Pre-Acceleration Program, in partnership with Abilita Srls.</p>
 
