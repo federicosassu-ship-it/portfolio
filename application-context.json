@@ -1,0 +1,49 @@
+{
+  "application_name": "nAItive Fellowship — H-FARM x Leonid Boguslavsky, Venice",
+  "program_url": "https://joinnaitive.com",
+  "deadline": "2026-05-25",
+  "submitted_artifacts_required": ["Form online (~30 min)", "CV", "Portfolio / GitHub"],
+  "what_they_evaluate": [
+    "People, not startups or ideas — 'We select people. Not startups. Not ideas.'",
+    "Founder quality and personal potential over existing business concept",
+    "Capacity to build AI-native companies through orchestration rather than headcount",
+    "Resilience and entrepreneurial mindset"
+  ],
+  "what_they_emphasize": [
+    "[inferred] Genuine AI-native thinking — not 'AI-enhanced' but AI-first by design",
+    "[inferred] Bias toward building and shipping, not just ideating",
+    "[inferred] Ability to scale through systems/orchestration, not team size",
+    "[inferred] Intellectual curiosity and coachability (fellowship model, not accelerator)",
+    "[inferred] Founders who are early — idea stage or pre-idea is acceptable",
+    "[confirmed] Already-built projects are a strong signal — Federico has something"
+  ],
+  "target_persona": "Early-stage AI-native founder with strong personal qualities, resilience, and building orientation — idea or no idea both acceptable",
+  "audience_register": "startup / founder-to-founder — direct, honest, non-academic",
+  "review_format": "Async form (~30 min) + portfolio review, then presumably interview round",
+  "test_or_followup": "Unknown — likely interview after application review",
+  "competitive_density": "20 fellows per cohort — highly selective [admit rate unknown]",
+  "cohort_size": 20,
+  "program_duration": "6 months, full-time",
+  "equity_taken": "0%",
+  "funding": "Fully funded",
+  "location": "H-FARM Campus, Venice, Italy",
+  "founders": "Leonid Boguslavsky & H-FARM",
+  "candidate": {
+    "name": "Federico Sassu Verderi",
+    "linkedin": "https://www.linkedin.com/in/federico-sassu-verderi-0345a1231",
+    "background": "Business / Strategy",
+    "stage": "Has already built something (details in CV)",
+    "public_portfolio": false,
+    "known_projects": ["agromercato.com (H-FARM Startup Center pre-accelerator)"],
+    "hfarm_connection": "STRONG — completed H-FARM digital transformation & entrepreneurship path + participated in H-FARM Startup Center pre-accelerator with agromercato.com",
+    "motivation": "Wants to develop competitive advantage in AI startup building. Confirmed founder-identity. Wants right competencies, right environment, ambitious peers. Wants to create real impact.",
+    "deadline_notes": "Application deadline May 25 — 4 days from today"
+  },
+  "strategic_notes": [
+    "CRITICAL ADVANTAGE: Federico has an existing H-FARM connection — nAItive is co-founded by H-FARM. He's essentially an H-FARM ecosystem candidate.",
+    "agromercato.com is likely the main 'built' project — needs to be positioned as proof of founder DNA, not just student project",
+    "No public portfolio exists — need to build from scratch",
+    "Business/Strategy background means we need to show HOW he thinks about AI, not just technical knowledge",
+    "4-day runway is tight — prioritize the highest-impact artifacts first"
+  ]
+}

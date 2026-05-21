@@ -1,0 +1,122 @@
+{
+  "candidate": "Federico Sassu Verderi",
+  "application": "nAItive Fellowship — H-FARM x Leonid Boguslavsky",
+  "generated": "2026-05-21",
+
+  "positioning_one_sentence": "I'm a 22-year-old founder building ROSS — an AI companion for the elderly already in H-Farm's Venture Building Program — and I've been building things since I was 17, because that's who I am.",
+
+  "through_line": {
+    "origin": "BBQuick at 17 — launched a dropshipping store from his bedroom, ran Meta Ads alone, handled product sourcing and fulfilment. No MBA, no mentor, no validation from anyone. Just went and did it. It confirmed something that hasn't changed since.",
+    "growth": "Three increasingly sophisticated AI builds: WhatsApp AI agent (insight: don't fight the channel, make it intelligent — research-validated, €150M+ pilot market). MANTA AI (functional RAG MVP in a 30-day sprint, cross-university team of 4, pitched to 12 companies). ROSS (full AI venture — on-device architecture, biographical knowledge base, regulatory positioning, IP strategy, market sizing, 4 co-founders, selected #1 at H-HACK).",
+    "bottleneck": "ROSS is real and needs to become a fundable, scalable company. The gap is not technical — it's the environment, the peers, and the rigour that comes from being surrounded by founders doing the same thing at the same level of seriousness.",
+    "future": "A round, a launch, a product that Maria actually uses in her home."
+  },
+
+  "key_proofs": [
+    {
+      "claim": "Founder DNA from age 17",
+      "evidence": "BBQuick — independent e-commerce, 2020",
+      "where": "CV side-projects, portfolio mention"
+    },
+    {
+      "claim": "AI-native product thinking (not AI-enhanced)",
+      "evidence": "WhatsApp AI agent — chose existing channel over new app based on primary research",
+      "where": "Portfolio piece: Agromercato AI"
+    },
+    {
+      "claim": "Shipping functional AI under time pressure",
+      "evidence": "MANTA AI — RAG voice agent, 1-month sprint, 500+ pages, 12 companies",
+      "where": "Portfolio piece: MANTA AI"
+    },
+    {
+      "claim": "Serious AI venture in progress",
+      "evidence": "ROSS — 4 co-founders, on-device AI, patents, H-Farm venture building, H-HACK #1",
+      "where": "Portfolio piece: ROSS (flagship)"
+    },
+    {
+      "claim": "Commercial/financial rigor",
+      "evidence": "ROSS: TAM €3.8B, SAM €941M, SOM €34M, pricing hypothesis, WTP research, investor relations owner",
+      "where": "Portfolio piece: ROSS, section 'My role'"
+    },
+    {
+      "claim": "H-FARM ecosystem native",
+      "evidence": "MSc H-Farm College + Startup Centre pre-accelerator + H-HACK + Venture Building",
+      "where": "CV education + all project contexts"
+    }
+  ],
+
+  "what_to_emphasize": [
+    "ROSS above everything — it's not a project, it's a company being built",
+    "The pattern of building (BBQuick → WhatsApp agent → MANTA → ROSS): each more sophisticated, each AI-native, each from a real problem",
+    "Commercial/financial acumen as a differentiator: most AI founders can't run the business side",
+    "H-FARM native status: applying from inside, not from outside",
+    "Honest ambition: not 'I want to learn AI', but 'I'm building a specific company and I need this environment to do it right'"
+  ],
+
+  "what_to_de_emphasize": [
+    "Nivea internship and G7 support role — not relevant, leave out of narrative",
+    "LUX Challenge — nice result (2nd) but doesn't support the AI-native narrative",
+    "Generic 'passion for AI' language — Federico's arc shows the passion, no need to state it",
+    "Academic performance / grades — irrelevant for this application",
+    "English level concerns — nAItive says language is not a barrier; don't mention it"
+  ],
+
+  "tagline_options": [
+    {
+      "text": "I started a company at 17 because waiting felt wrong. I haven't stopped since.",
+      "notes": "RECOMMENDED — opens the identity, sets up the whole arc, personal and specific"
+    },
+    {
+      "text": "I don't build AI products. I build things where AI is the only way they could exist.",
+      "notes": "Strong positioning — but slightly abstract; works better inside an essay than as opener"
+    },
+    {
+      "text": "ROSS is not a student project. It's a company being built. nAItive is where I build it right.",
+      "notes": "Direct and honest — good for 'why nAItive' section specifically"
+    },
+    {
+      "text": "I run the commercial engine of an AI venture that's already in H-Farm's Venture Building Program. I'm applying because the environment matters as much as the work.",
+      "notes": "Grounded and specific — positions Federico's role clearly"
+    }
+  ],
+
+  "application_texts": {
+
+    "who_you_are": {
+      "prompt_hint": "Personal statement / Who are you as a founder",
+      "word_count": 155,
+      "language": "English",
+      "text": "I started building things at 17. Not because someone told me to — because waiting felt wrong. I launched a dropshipping e-commerce store from my bedroom: sourced the products, ran the Meta Ads, handled fulfilment, alone. It didn't become a big business. But it confirmed something that hasn't changed since: I'm a founder.\n\nSince then, I've been building things with increasing sophistication. A WhatsApp AI agent for a €150M wholesale food market. A RAG voice agent for an aerospace manufacturer supplying Leonardo and Boeing — functional MVP in 30 days. And now ROSS: an AI companion for the elderly, four co-founders, on-device architecture, patents in progress, already in H-Farm's Venture Building Program.\n\nI'm a commercial and financial founder. I don't write the models — I build the case for why they should exist, size the market, structure the round, own the unit economics. That's my role in ROSS, and it's the role I've been building toward since I was 17."
+    },
+
+    "what_you_are_building": {
+      "prompt_hint": "Describe your project / startup / idea",
+      "word_count": 210,
+      "language": "English",
+      "text": "R.O.S.S. is an AI companion for the elderly. Not a medical device — a presence. This distinction is not marketing: it's the foundation of our regulatory strategy, our IP architecture, and every technical decision we've made.\n\nThe eldercare market treats elderly people as patients to monitor. Cameras, biometric wearables, SOS buttons. Every product in this space has failed with the exact user we're building for — because she doesn't want to be monitored. She wants to be accompanied.\n\nROSS runs on a local-first architecture: on-device LLM, speech-to-text and TTS entirely local, zero biometric sensors. The core is a biographical knowledge base — a structured map of the user's people, places, events, and routines — which ROSS uses to hold real conversations, not generic chatbot exchanges. Every day, the family receives a narrative letter about her day. Not a dashboard. A letter.\n\nWe're 4 co-founders. I run finance and commercial development: TAM Italy ~€3.8B, SAM ~€941M, pricing at €1,000 + €40/month — less than one month of a live-in carer. We were selected as top project at H-HACK in April 2026 and are now building inside H-Farm's Venture Building Program, with two patent filings in progress.\n\nROSS is not a project. It's a company being built."
+    },
+
+    "why_naitive": {
+      "prompt_hint": "Why this program / why now",
+      "word_count": 160,
+      "language": "English",
+      "text": "I'm applying from inside the H-FARM ecosystem. MSc here, Startup Centre pre-accelerator, H-HACK, now Venture Building. The environment shaped how I think about building. nAItive is the next layer — and the right one at the right moment.\n\nROSS needs to go from venture building to fundable company. What I need now is not a course or a mentor session. I need six months surrounded by founders who are building AI-native companies with the same level of seriousness — and who will push me to think more rigorously about the things that are easy to skip when you're moving fast inside a team.\n\nSpecifically: how the best AI-native companies think about scaling through orchestration. How to connect architecture decisions to business model decisions. How to build the commercial foundation of a deep-tech venture before the product is finished, not after.\n\nnAItive is the program where I build ROSS right. That's the honest reason I'm applying."
+    },
+
+    "one_thing_that_defines_you": {
+      "prompt_hint": "One defining trait / what makes you a founder",
+      "word_count": 82,
+      "language": "English",
+      "text": "I started a company at 17 because waiting felt wrong. I've never stopped. Every project since has been a slightly more sophisticated version of the same instinct: see a real problem, find the AI-native solution, build it, ship it. I don't wait for the right moment. ROSS is proof: four co-founders, a real architecture, a regulatory strategy, two patents in progress — before we've raised a single euro."
+    }
+  },
+
+  "coherence_check": {
+    "all_claims_have_proofs": true,
+    "narrative_sounds_specific": true,
+    "deemphasized_material_doesnt_contradict": true,
+    "avoids_program_flattery_and_platitudes": true,
+    "tone_is_founder_to_founder_not_academic": true,
+    "notes": "The four texts can stand independently or be combined. 'Who you are' + 'One thing that defines you' work as an opening pair. 'What you're building' is self-contained. 'Why nAItive' must come last — it refers to ROSS as context."
+  }
+}

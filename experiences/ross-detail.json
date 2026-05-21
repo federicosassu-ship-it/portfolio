@@ -1,0 +1,97 @@
+{
+  "id": "ross-cofounder",
+  "title": "R.O.S.S. — AI Companion for Elderly Care",
+  "type": "project",
+  "role": "Co-founder & Finance/Commercial Development Lead",
+  "context": "H-HACK, H-Farm Robotics Hackathon → H-Farm Venture Building Program",
+  "period": {"from": "2026-04", "to": "present"},
+  "status": "Active — in H-Farm Venture Building Program",
+  "naitive_fit_score": "10/10",
+
+  "what_it_is": "R.O.S.S. is an AI-powered family companion for the elderly. Not a medical device, not a monitoring system — a domestic presence that accompanies elderly people in their daily routine, remembers with them, and reassures their family through narrative, not surveillance. Built on a local-first AI architecture with a biographical knowledge base.",
+
+  "core_insight": "The eldercare market is saturated with products that treat the elderly as patients to monitor. ROSS exists because there's another possibility: the elderly person as someone to accompany. This distinction is not marketing — it's the foundation of the entire product, regulatory positioning (AI Act Art. 50, non-MDR), and IP strategy.",
+
+  "three_presence_modes": {
+    "active": "ROSS moves toward Maria with narrative intent — guided by episodic memory. It approaches because it has something to share or remember with her. No biometric triggers, no surveillance.",
+    "silent": "ROSS detects anomalous absence (from voice interaction absence, not biometric sensors) and sends Marco a narrative sentence, not an alert. Discretion, not alarm.",
+    "reactive": "ROSS responds when Maria calls it. Availability, not automatism."
+  },
+
+  "key_features": [
+    "F1: Biographically personalised conversation (using ontologia biografica)",
+    "F2: Real-time conversational adaptation (ISCS — Indice di Stato Cognitivo di Sessione)",
+    "F3: Structured guided reminiscence",
+    "F4: Adaptive mnemonic games (built on biography, not generic exercises)",
+    "F5: Portfolio of 6 vocal interactive games (biographically personalised)",
+    "F6: Contextualised music listening (biographical triggers)",
+    "F9: Emergent interest detection (from conversation patterns)",
+    "F11: Daily Report — narrative letter to caregiver (not a dashboard)",
+    "F12: Non-biometric anomalous absence detection",
+    "F13: Caregiver mobile app (onboarding, Daily Report, consent management)",
+    "F14: Movement with narrative intent (deferred post-2027, IP timing)",
+    "F15: Physical device form factor (design patent in progress)",
+    "F16: Smart home integration"
+  ],
+
+  "technical_architecture": {
+    "core": "On-device AI — local-first architecture. Everything stays on Maria's device.",
+    "ai_stack": "Small language model (optimized/quantized, LoRA/PEFT adaptation), speech-to-text, text-to-speech, all local",
+    "key_component": "Ontologia biografica — structured biographical knowledge base (people, places, events, routines, preferences, memories of Maria)",
+    "cloud": "Only the text of the Daily Report (with explicit double consent) — never audio, transcripts, or raw data",
+    "privacy": "GDPR Art. 9 compliant. Maria can delete all her data with a single voice command.",
+    "tools_mentioned": "Voiceflow (for dialogue prototyping), Whisper + TTS pipeline"
+  },
+
+  "regulatory_positioning": {
+    "ai_act": "Art. 50 — limited risk (not high risk). Mandatory AI disclosure to Maria in onboarding.",
+    "mdr": "Non-MDR — deliberately and actively maintained. No biometric sensors, no clinical claims, no therapeutic monitoring.",
+    "gdpr": "Art. 9 data (voice as special category). DPIA required before any pilot with real users. Double explicit consent (Maria + Marco separately).",
+    "glossary_constraint": "Banned words in all product, code, and comms: paziente (patient), terapia (therapy), robot, monitoraggio (monitoring), controllo (control). Required words: accompagna, rassicura, ricorda, compagno, presenza, routine."
+  },
+
+  "ip_strategy": {
+    "patent_1": "Conversational layer — covers F1-F10. Must be filed before any public demo of technical details.",
+    "patent_2": "NLG for caregiver, app, hardware (F11, F12, F13, F15) — in development.",
+    "design_patent": "Physical device form (F15).",
+    "deferred": "Navigation patent (F14) deferred post-2027 due to AVA Robotics patents expiring 2026-2027.",
+    "trademark": "EUIPO/UIBM in classes 9, 28, 42, 44 — explicitly NOT class 10 (medical devices)."
+  },
+
+  "market": {
+    "tam_italy": "~2.55M families, ~€3.8B",
+    "sam_italy": "~636K families, ~€941M",
+    "som_3yr": "~19K units cumulative, ~€34M (0.5%→1.2%→3% SAM penetration)",
+    "pricing_hypothesis": "€1,000 device + €40/month subscription (~€1,480 first year = less than one month of a live-in carer at €1,400/month)",
+    "tam_eu": "~15.8M families, ~€23B TAM",
+    "buyer": "Marco — adult child 40-60, not Maria herself. Purchase trigger: specific incident (fall, disorientation, worrying call).",
+    "competitors": "ElliQ (cloud-dependent, US only), Paro (no cognitive function), SOS buttons (passive), Apple Watch (requires wearing)",
+    "gap": "No consumer product combines physical presence + zero-friction interface for elderly + narrative reassurance for caregiver."
+  },
+
+  "team": {
+    "federico": "Finance & Commercial Development — financial models, investor relations (angel/VC/accelerators), unit economics, projections, cap table, fundraising rounds, pricing (D-05 owner), WTP research (G-01 owner)",
+    "alessandro": "Product, Positioning, Communication — go-to-market, pitch, brand, commercial partners",
+    "alessandra": "Institutional Relations & Operations — medical gatekeepers, RSA partnerships, caregiver relations, roadmap/backlog",
+    "luca": "Architecture & Technical Development — AI stack, on-device, GDPR compliance, tech team",
+    "incoming": "AI Full Stack Engineer (freelance ~6mo, potential equity) — prototyping, backend, agentic systems, voice layer"
+  },
+
+  "current_status": {
+    "stage": "Post-hackathon, in H-Farm Venture Building Program",
+    "recognition": "Selected top project at H-HACK (H-Farm Robotics Hackathon)",
+    "patent": "Patent application in progress (Art. 56 CPI provisional deposit)",
+    "open_decisions": "Form factor (stationary vs walker), SoC selection, DPO engagement, legal counsel engagement, pricing validation",
+    "next_milestone": "Patent deposit → trademark clearance → DPIA → pilot with real users"
+  },
+
+  "federico_specific_contributions": [
+    "Financial model and unit economics (pricing hypothesis, TAM/SAM/SOM)",
+    "Market sizing and competitive analysis (Section 6)",
+    "WTP research design (G-01)",
+    "Investor relations and fundraising strategy",
+    "Cap table and round structuring",
+    "Pricing decision owner (D-05)",
+    "Negotiation with external counterparts"
+  ]
+}

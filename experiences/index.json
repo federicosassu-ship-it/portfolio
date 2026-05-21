@@ -1,0 +1,145 @@
+{
+  "experiences": [
+    {
+      "id": "ross-cofounder",
+      "title": "ROSS — AI Robot Companion for Elderly Care",
+      "type": "project",
+      "role": "Co-founder & Business Lead",
+      "context": "H-HACK, H-Farm Robotics Hackathon → H-Farm Venture Building Program",
+      "period": {"from": "2026-04", "to": "present"},
+      "one_line_description": "AI-powered robot companion that slows cognitive decline in elderly patients through adaptive stimulation personalised on a biographical knowledge base. Selected top project at H-HACK, now in H-Farm venture building with patent application in progress.",
+      "ai_relevance": "FLAGSHIP — full AI-native product: personalised knowledge base, adaptive stimulation system, robotics + AI",
+      "naitive_fit_score": "10/10",
+      "raw_inputs": [
+        {"source_type": "cv-bullet", "ref": "CV page 1, Projects section, ROSS"},
+        {"source_type": "conversation", "ref": "User confirmed 'has already built something'"}
+      ],
+      "extraction_completeness": "partial",
+      "gaps": ["No deck/demo link available", "Patent details unknown", "Technical stack details missing", "Any metrics/users?"]
+    },
+    {
+      "id": "manta-ai-team-lead",
+      "title": "MANTA AI — RAG Voice Agent for Aerospace",
+      "type": "project",
+      "role": "Team Lead",
+      "context": "Impact Puglia Challenge — H-Farm College x Università di Puglia",
+      "period": {"from": "2025-10", "to": "2025-11"},
+      "one_line_description": "Led cross-university team of 4 to build a functional RAG-based AI voice agent enabling MANTA Group (Leonardo & Boeing supplier) to query 500+ pages of technical manuals via voice/text in seconds.",
+      "ai_relevance": "HIGH — RAG architecture, Voiceflow, functional MVP shipped in 1-month sprint",
+      "naitive_fit_score": "9/10",
+      "raw_inputs": [
+        {"source_type": "cv-bullet", "ref": "CV page 2, Projects section, MANTA AI"}
+      ],
+      "extraction_completeness": "partial",
+      "gaps": ["No demo or repo link", "What was the specific challenge/prompt?", "Any follow-up from MANTA Group?"]
+    },
+    {
+      "id": "agromercato-whatsapp-ai",
+      "title": "Agromercato.com — WhatsApp AI Agent for B2B Food Market",
+      "type": "project",
+      "role": "AI Product Designer & Strategy Lead",
+      "context": "H-Farm Startup Centre Pre-Acceleration Program (partnered with Abilita Srls)",
+      "period": {"from": "2025-03", "to": "2025-05"},
+      "one_line_description": "Designed and validated a WhatsApp AI agent centralising wholesale food orders, as part of a B2B marketplace strategy for a €150M+ turnover pilot market. WhatsApp chosen based on primary research confirming it as dominant channel on both sides.",
+      "ai_relevance": "HIGH — AI agent design, channel validation, market-grounded product decision",
+      "naitive_fit_score": "8/10",
+      "raw_inputs": [
+        {"source_type": "cv-bullet", "ref": "CV page 1, H-Farm Startup Centre role"}
+      ],
+      "extraction_completeness": "partial",
+      "gaps": ["Was the agent actually built/functional or just designed?", "What tools used?", "Any user testing?"]
+    },
+    {
+      "id": "abilita-biz-dev",
+      "title": "Abilita Srls — Business Development & Market Intelligence",
+      "type": "job",
+      "role": "Business Development Analyst",
+      "context": "Abilita Srls, Cagliari (same company behind Agromercato.com)",
+      "period": {"from": "2025-08", "to": "2025-10"},
+      "one_line_description": "B2B market analysis across 3 Italian regions for food sector client Tramas, resulting in a validated database of 3,000 qualified contacts for market entry.",
+      "ai_relevance": "LOW — traditional BizDev; shows rigour and B2B market thinking",
+      "naitive_fit_score": "5/10",
+      "raw_inputs": [
+        {"source_type": "cv-bullet", "ref": "CV page 1, Abilita Srls role"}
+      ],
+      "extraction_completeness": "partial",
+      "gaps": ["Did this use any AI/automation tools?", "What was the outcome for Tramas?"]
+    },
+    {
+      "id": "lux-challenge",
+      "title": "LUX Challenge — Brand Innovation, 2nd Place",
+      "type": "project",
+      "role": "Team member (target research, buyer persona, CX design)",
+      "context": "H-Farm College x The Lux Collective (18 global resorts)",
+      "period": {"from": "2026-03", "to": "2026-04"},
+      "one_line_description": "Competed in luxury brand innovation challenge for SOCIO urban lifestyle brand, ranked 2nd. Led target research, buyer persona definition and customer experience design.",
+      "ai_relevance": "LOW — business/design; shows market thinking and competitive ranking",
+      "naitive_fit_score": "4/10",
+      "raw_inputs": [
+        {"source_type": "cv-bullet", "ref": "CV page 2, LUX Challenge"}
+      ],
+      "extraction_completeness": "full"
+    },
+    {
+      "id": "bbquick-cofounder",
+      "title": "BBQuick — E-commerce Co-founder at 17",
+      "type": "side-project",
+      "role": "Co-founder",
+      "context": "Independent, 2020",
+      "period": {"from": "2020-01", "to": "2020-12"},
+      "one_line_description": "Launched a dropshipping e-commerce store at 17, independently managing product sourcing, fulfilment, and Meta Ads. First proof of founder instinct: idea to launch, solo.",
+      "ai_relevance": "NONE — but powerful narrative signal: founder DNA from age 17",
+      "naitive_fit_score": "7/10 (narrative signal, not technical)",
+      "raw_inputs": [
+        {"source_type": "cv-bullet", "ref": "CV page 2, BBQuick"}
+      ],
+      "extraction_completeness": "rough",
+      "gaps": ["Any revenue/GMV?", "How long did it run?", "Why did it stop?"]
+    },
+    {
+      "id": "nivea-finance-intern",
+      "title": "Nivea S.p.a. — Finance & Administration Intern",
+      "type": "job",
+      "role": "Finance & Administration Intern",
+      "context": "Nivea S.p.a., Cagliari",
+      "period": {"from": "2024-11", "to": "2025-01"},
+      "one_line_description": "Pre-closing financial statement support, accounting reconciliation, ZES tax credit management.",
+      "ai_relevance": "NONE — traditional finance internship",
+      "naitive_fit_score": "2/10 — not relevant for nAItive",
+      "raw_inputs": [
+        {"source_type": "cv-bullet", "ref": "CV page 1, Nivea role"}
+      ],
+      "extraction_completeness": "full"
+    },
+    {
+      "id": "g7-one-group",
+      "title": "G7 Italy — Event Support",
+      "type": "job",
+      "role": "Organisational Support",
+      "context": "One Group srl, G7 Italy 2024",
+      "period": {"from": "2024-09", "to": "2024-09"},
+      "one_line_description": "Operational support for G7 Italy 4-day international event, assisting international delegates.",
+      "ai_relevance": "NONE",
+      "naitive_fit_score": "2/10 — minor signal of international exposure",
+      "raw_inputs": [
+        {"source_type": "cv-bullet", "ref": "CV page 1, One Group"}
+      ],
+      "extraction_completeness": "full"
+    },
+    {
+      "id": "hfarm-master",
+      "title": "H-Farm College — MSc Digital Transformation & Entrepreneurship",
+      "type": "study",
+      "role": "Student",
+      "context": "University of Chichester / H-Farm College, Roncade",
+      "period": {"from": "2025-09", "to": "present"},
+      "one_line_description": "Master's degree in Digital Transformation & Entrepreneurship at H-Farm College — the same institution co-founding nAItive.",
+      "ai_relevance": "MEDIUM — context that explains the H-FARM ecosystem, the projects spawned here (ROSS, MANTA, LUX)",
+      "naitive_fit_score": "8/10 (institutional fit signal)",
+      "raw_inputs": [
+        {"source_type": "cv-bullet", "ref": "CV page 1, Education"}
+      ],
+      "extraction_completeness": "full"
+    }
+  ]
+}
