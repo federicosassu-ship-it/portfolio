@@ -3,27 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Federico Sassu Verderi — Portfolio</title>
+  <title>Federico Sassu Verderi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:      #F7F4EF;
+      --bg:      #FAFAF8;
       --surface: #FFFFFF;
-      --ink:     #111010;
-      --ink-2:   #514E49;
-      --ink-3:   #9E9A94;
-      --border:  #E2DED8;
-      --tag-bg:  #EEEBE5;
+      --ink:     #0D0D0B;
+      --ink-2:   #4A4845;
+      --ink-3:   #9A9693;
+      --border:  #E5E1DB;
 
       --font-display: 'Lora', Georgia, serif;
       --font-body:    'Inter', system-ui, sans-serif;
 
-      --radius:    6px;
-      --radius-sm: 3px;
-      --t: 200ms ease;
+      --t: 180ms ease;
     }
 
     html { scroll-behavior: smooth; }
@@ -38,197 +35,225 @@
     }
 
     .container {
-      max-width: 920px;
+      max-width: 760px;
       margin: 0 auto;
-      padding: 0 32px;
+      padding: 0 40px;
+    }
+
+    hr {
+      border: none;
+      border-top: 1px solid var(--border);
     }
 
     /* ─── HEADER ─────────────────────────────────────────────── */
     header {
-      padding: 80px 0 64px;
-      border-bottom: 1px solid var(--border);
+      padding: 88px 0 56px;
     }
-
-    .header-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 40px;
-      flex-wrap: wrap;
-    }
-
-    .header-identity {
-      display: flex;
-      align-items: flex-start;
-      gap: 24px;
-    }
-
-    .header-avatar {
-      width: 84px;
-      height: 84px;
-      border-radius: var(--radius);
-      object-fit: cover;
-      object-position: center top;
-      flex-shrink: 0;
-    }
-
-    .header-text { flex: 1; }
 
     .name {
       font-family: var(--font-display);
-      font-size: clamp(2rem, 5vw, 3rem);
-      font-weight: 600;
-      letter-spacing: -0.025em;
-      line-height: 1.05;
-      margin-bottom: 10px;
+      font-size: clamp(3rem, 9vw, 6.5rem);
+      font-weight: 400;
+      font-style: italic;
+      letter-spacing: -0.03em;
+      line-height: 0.95;
+      color: var(--ink);
+      margin-bottom: 32px;
+    }
+
+    .header-meta {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px 32px;
     }
 
     .header-role {
-      font-size: 0.875rem;
-      color: var(--ink-3);
-      line-height: 1.55;
-      max-width: 420px;
-    }
-
-    .header-links {
-      display: flex;
-      flex-direction: column;
-      align-items: flex-end;
-      gap: 10px;
-      padding-top: 6px;
-      flex-shrink: 0;
-    }
-
-    .header-links a {
-      color: var(--ink-3);
-      text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 500;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      transition: color var(--t);
-    }
-
-    .header-links a:hover { color: var(--ink); }
-    .header-links a svg { width: 14px; height: 14px; flex-shrink: 0; }
-
-    /* ─── INTRO ──────────────────────────────────────────────── */
-    .intro {
-      padding: 72px 0 64px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .eyebrow {
-      font-size: 0.68rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      margin-bottom: 28px;
-    }
-
-    .intro-text {
-      font-family: var(--font-display);
-      font-size: clamp(1.05rem, 2.2vw, 1.22rem);
-      line-height: 1.78;
-      color: var(--ink);
-      max-width: 700px;
-    }
-
-    .intro-text em {
-      font-style: italic;
-      color: var(--ink-2);
-    }
-
-    /* ─── WORK SECTION ───────────────────────────────────────── */
-    .work-section { padding: 64px 0 96px; }
-
-    /* ─── CARDS GRID ─────────────────────────────────────────── */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 2px;
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-    }
-
-    .card {
-      background: var(--surface);
-      padding: 36px 32px 32px;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      position: relative;
-      transition: background var(--t);
-      min-height: 200px;
-      border-right: 1px solid var(--border);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .card:hover { background: var(--bg); }
-
-    .card::after {
-      content: '';
-      position: absolute;
-      left: 0; top: 0; bottom: 0;
-      width: 3px;
-      background: var(--card-accent, var(--ink));
-      opacity: 0;
-      transition: opacity var(--t);
-    }
-
-    .card:hover::after { opacity: 1; }
-
-    .card-tag {
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-    }
-
-    .card-title {
-      font-family: var(--font-display);
-      font-size: 1.5rem;
-      font-weight: 600;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      line-height: 1.15;
-      flex: 1;
-    }
-
-    .card-subtitle {
-      font-size: 0.78rem;
+      font-size: 0.82rem;
       color: var(--ink-3);
       line-height: 1.5;
     }
 
-    .card-arrow {
-      font-size: 1rem;
-      color: var(--card-accent, var(--ink-3));
-      align-self: flex-end;
-      transition: transform var(--t);
-      margin-top: 8px;
+    .header-links {
+      display: flex;
+      gap: 20px;
+      flex-shrink: 0;
     }
 
-    .card:hover .card-arrow { transform: translate(3px, -3px); }
-
-    .card.primary {
-      grid-column: span 2;
-      min-height: auto;
-      padding: 44px 40px 36px;
+    .header-links a {
+      font-size: 0.78rem;
+      font-weight: 500;
+      color: var(--ink-3);
+      text-decoration: none;
+      transition: color var(--t);
     }
 
-    .card.primary .card-title { font-size: 2.1rem; }
+    .header-links a:hover { color: var(--ink); }
 
-    @media (max-width: 580px) {
-      .cards-grid { grid-template-columns: 1fr; }
-      .card.primary { grid-column: span 1; }
-      .card.primary .card-title { font-size: 1.65rem; }
+    /* ─── SECTION LABEL ──────────────────────────────────────── */
+    .section-label {
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      padding: 44px 0 36px;
+      display: block;
     }
+
+    /* ─── INTRO ──────────────────────────────────────────────── */
+    .intro-body {
+      font-family: var(--font-display);
+      font-size: clamp(0.98rem, 2vw, 1.15rem);
+      line-height: 1.85;
+      color: var(--ink-2);
+      padding-bottom: 64px;
+    }
+
+    .intro-body em {
+      font-style: italic;
+      color: var(--ink);
+    }
+
+    /* ─── PROJECT LIST ───────────────────────────────────────── */
+    .project-list {
+      padding-bottom: 88px;
+    }
+
+    .project-row {
+      display: grid;
+      grid-template-columns: 44px 1fr auto;
+      gap: 0 28px;
+      align-items: start;
+      padding: 28px 0;
+      border-bottom: 1px solid var(--border);
+      cursor: pointer;
+      transition: opacity var(--t);
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .project-row:first-child {
+      border-top: 1px solid var(--border);
+    }
+
+    .project-row:hover { opacity: 0.85; }
+
+    .project-number {
+      font-family: var(--font-body);
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: var(--ink-3);
+      letter-spacing: 0.04em;
+      line-height: 1;
+      padding-top: 6px;
+      transition: color var(--t);
+    }
+
+    /* Per-project accent on number hover */
+    .project-row[data-accent]:hover .project-number {
+      color: attr(data-accent);
+    }
+
+    /* Since CSS attr() doesn't work for color, we use JS-driven inline style via :hover — handled below with a small JS snippet */
+
+    .project-info {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .project-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.25rem, 3vw, 1.6rem);
+      font-weight: 600;
+      font-style: italic;
+      color: var(--ink);
+      letter-spacing: -0.015em;
+      line-height: 1.15;
+    }
+
+    .project-subtitle {
+      font-size: 0.78rem;
+      color: var(--ink-3);
+      line-height: 1.55;
+    }
+
+    .project-right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 8px;
+      padding-top: 5px;
+    }
+
+    .project-tag {
+      font-size: 0.6rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--ink-3);
+      white-space: nowrap;
+    }
+
+    .project-arrow {
+      font-size: 0.9rem;
+      color: var(--ink-3);
+      line-height: 1;
+      transition: transform var(--t), color var(--t);
+    }
+
+    .project-row:hover .project-arrow {
+      transform: translate(3px, -3px);
+    }
+
+    @media (max-width: 540px) {
+      .container { padding: 0 24px; }
+      header { padding: 60px 0 40px; }
+      .project-row {
+        grid-template-columns: 36px 1fr;
+        grid-template-rows: auto auto;
+      }
+      .project-right {
+        grid-column: 2;
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        padding-top: 0;
+      }
+    }
+
+    /* ─── FOOTER ─────────────────────────────────────────────── */
+    footer {
+      padding: 44px 0 64px;
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-name {
+      font-size: 0.78rem;
+      color: var(--ink-3);
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 24px;
+    }
+
+    .footer-links a {
+      font-size: 0.78rem;
+      color: var(--ink-3);
+      text-decoration: none;
+      transition: color var(--t);
+    }
+
+    .footer-links a:hover { color: var(--ink); }
 
     /* ─── OVERLAY ────────────────────────────────────────────── */
     .overlay {
@@ -258,7 +283,7 @@
     /* ─── MODAL ──────────────────────────────────────────────── */
     .modal {
       background: var(--modal-bg, var(--surface));
-      border-radius: var(--radius) var(--radius) 0 0;
+      border-radius: 6px 6px 0 0;
       width: 100%;
       max-width: 760px;
       max-height: 92vh;
@@ -273,7 +298,7 @@
 
     @media (min-width: 600px) {
       .modal {
-        border-radius: var(--radius);
+        border-radius: 6px;
         transform: translateY(0) scale(0.975);
       }
     }
@@ -345,7 +370,7 @@
     .metric-pill {
       background: transparent;
       border: 1px solid var(--modal-border, var(--border));
-      border-radius: var(--radius-sm);
+      border-radius: 3px;
       padding: 6px 12px;
       font-size: 0.75rem;
       font-weight: 600;
@@ -379,7 +404,7 @@
       aspect-ratio: 3/2;
       object-fit: cover;
       object-position: center top;
-      border-radius: var(--radius);
+      border-radius: 6px;
       display: block;
       margin-bottom: 36px;
     }
@@ -391,7 +416,7 @@
       grid-template-columns: 1fr 1fr;
       gap: 6px;
       margin: 32px 0 8px;
-      border-radius: var(--radius);
+      border-radius: 6px;
       overflow: hidden;
     }
 
@@ -435,7 +460,7 @@
       font-size: 0.85rem;
       text-decoration: none;
       border: 1.5px solid var(--modal-accent, var(--ink));
-      border-radius: var(--radius-sm);
+      border-radius: 3px;
       padding: 9px 18px;
       transition: background var(--t), color var(--t);
     }
@@ -454,7 +479,7 @@
       font-weight: 500;
       text-decoration: none;
       border: 1px solid var(--modal-border, var(--border));
-      border-radius: var(--radius-sm);
+      border-radius: 3px;
       padding: 9px 18px;
       opacity: 0.75;
       transition: opacity var(--t);
@@ -488,40 +513,6 @@
       font-weight: 600;
       color: var(--modal-ink-2, var(--ink-2));
     }
-
-    /* ─── FOOTER ─────────────────────────────────────────────── */
-    footer {
-      padding: 40px 0;
-      border-top: 1px solid var(--border);
-    }
-
-    .footer-inner {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 16px;
-    }
-
-    .footer-name {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--ink-3);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 24px;
-    }
-
-    .footer-links a {
-      font-size: 0.78rem;
-      color: var(--ink-3);
-      text-decoration: none;
-      transition: color var(--t);
-    }
-
-    .footer-links a:hover { color: var(--ink); }
 
     /* ─── MODAL VARIANTS ─────────────────────────────────────── */
 
@@ -571,33 +562,24 @@
 <!-- ─────────────────── HEADER ──────────────────────────────── -->
 <header>
   <div class="container">
-    <div class="header-inner">
-      <div class="header-identity">
-        <img src="assets/federico-profile.jpg" alt="Federico Sassu Verderi" class="header-avatar" />
-        <div class="header-text">
-          <h1 class="name">Federico Sassu<br>Verderi</h1>
-          <p class="header-role">Commercial and financial co-founder · R.O.S.S.<br>H-Farm Venture Building Program</p>
-        </div>
-      </div>
-      <div class="header-links">
-        <a href="https://www.linkedin.com/in/federico-sassu-verderi-0345a1231" target="_blank" rel="noopener">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5a1.78 1.78 0 01-1.8 1.75zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/></svg>
-          LinkedIn
-        </a>
-        <a href="mailto:Federico.sassu@student.h-farm.com">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-          Email
-        </a>
-      </div>
+    <h1 class="name">Federico<br>Sassu Verderi</h1>
+    <div class="header-meta">
+      <p class="header-role">Co-founder, R.O.S.S. &nbsp;·&nbsp; H-Farm Venture Building Program</p>
+      <nav class="header-links">
+        <a href="https://www.linkedin.com/in/federico-sassu-verderi-0345a1231" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:Federico.sassu@student.h-farm.com">Email</a>
+      </nav>
     </div>
   </div>
 </header>
 
+<hr />
+
 <!-- ─────────────────── INTRO ────────────────────────────────── -->
-<section class="intro">
+<section>
   <div class="container">
-    <p class="eyebrow">Who I am</p>
-    <p class="intro-text">
+    <span class="section-label">Who I am</span>
+    <p class="intro-body">
       I started at 17 with a dropshipping store. Alone: product sourcing, logistics, Meta Ads campaigns.
       No blueprint, no capital, no one telling me to do it. It didn't become a big business —
       but it confirmed something that hasn't changed since: <em>I start things.</em>
@@ -612,59 +594,78 @@
   </div>
 </section>
 
+<hr />
+
 <!-- ─────────────────── WORK ─────────────────────────────────── -->
-<section class="work-section">
+<section>
   <div class="container">
-    <p class="eyebrow" style="margin-bottom: 24px;">Selected work</p>
-    <div class="cards-grid">
+    <span class="section-label">Selected work</span>
 
-      <!-- ROSS — primary, full width -->
-      <div class="card primary" style="--card-accent:#3B6B5E;" onclick="openModal('ross')">
-        <span class="card-tag">Venture</span>
-        <h2 class="card-title">R.O.S.S.</h2>
-        <p class="card-subtitle">AI companion for the elderly · Co-founder &amp; Finance/Commercial Lead · April 2026 – present</p>
-        <span class="card-arrow">↗</span>
+    <div class="project-list">
+
+      <div class="project-row" onclick="openModal('ross')" data-accent="#3B6B5E">
+        <span class="project-number">01</span>
+        <div class="project-info">
+          <span class="project-title">R.O.S.S.</span>
+          <span class="project-subtitle">AI companion for the elderly &nbsp;·&nbsp; Co-founder &amp; Finance/Commercial Lead &nbsp;·&nbsp; Apr 2026–present</span>
+        </div>
+        <div class="project-right">
+          <span class="project-tag">Venture</span>
+          <span class="project-arrow">↗</span>
+        </div>
       </div>
 
-      <!-- MANTA AI -->
-      <div class="card" style="--card-accent:#4A9EBF;" onclick="openModal('manta')">
-        <span class="card-tag">AI Build</span>
-        <h2 class="card-title">MANTA AI</h2>
-        <p class="card-subtitle">RAG voice agent · Aerospace · Team Lead<br>Oct – Nov 2025</p>
-        <span class="card-arrow">↗</span>
+      <div class="project-row" onclick="openModal('manta')" data-accent="#4A9EBF">
+        <span class="project-number">02</span>
+        <div class="project-info">
+          <span class="project-title">MANTA AI</span>
+          <span class="project-subtitle">RAG voice agent for aerospace &nbsp;·&nbsp; Team Lead &nbsp;·&nbsp; Oct–Nov 2025</span>
+        </div>
+        <div class="project-right">
+          <span class="project-tag">AI Build</span>
+          <span class="project-arrow">↗</span>
+        </div>
       </div>
 
-      <!-- Agromercato -->
-      <div class="card" style="--card-accent:#25A244;" onclick="openModal('agromercato')">
-        <span class="card-tag">AI Product</span>
-        <h2 class="card-title">Agromercato.com</h2>
-        <p class="card-subtitle">WhatsApp AI agent · B2B food wholesale<br>Mar – May 2025</p>
-        <span class="card-arrow">↗</span>
+      <div class="project-row" onclick="openModal('agromercato')" data-accent="#25A244">
+        <span class="project-number">03</span>
+        <div class="project-info">
+          <span class="project-title">Agromercato.com</span>
+          <span class="project-subtitle">WhatsApp AI agent &nbsp;·&nbsp; B2B food wholesale &nbsp;·&nbsp; Mar–May 2025</span>
+        </div>
+        <div class="project-right">
+          <span class="project-tag">AI Product</span>
+          <span class="project-arrow">↗</span>
+        </div>
       </div>
 
-      <!-- LocaLì -->
-      <div class="card" style="--card-accent:#7C5CBF;" onclick="openModal('locali')">
-        <span class="card-tag">Venture Thinking</span>
-        <h2 class="card-title">LocaLì</h2>
-        <p class="card-subtitle">Erasmus student platform · Pivot case study<br>2025 – 2026</p>
-        <span class="card-arrow">↗</span>
+      <div class="project-row" onclick="openModal('locali')" data-accent="#7C5CBF">
+        <span class="project-number">04</span>
+        <div class="project-info">
+          <span class="project-title">LocaLì</span>
+          <span class="project-subtitle">Erasmus student platform &nbsp;·&nbsp; Pivot case study &nbsp;·&nbsp; 2025–2026</span>
+        </div>
+        <div class="project-right">
+          <span class="project-tag">Venture Thinking</span>
+          <span class="project-arrow">↗</span>
+        </div>
       </div>
-
-      <!-- LocaLì — same width as Manta/Agromercato, so 4th card needs to fill 2nd col of row 2 -->
 
     </div>
   </div>
 </section>
+
+<hr />
 
 <!-- ─────────────────── FOOTER ───────────────────────────────── -->
 <footer>
   <div class="container">
     <div class="footer-inner">
       <span class="footer-name">Federico Sassu Verderi</span>
-      <div class="footer-links">
+      <nav class="footer-links">
         <a href="https://www.linkedin.com/in/federico-sassu-verderi-0345a1231" target="_blank" rel="noopener">LinkedIn</a>
         <a href="mailto:Federico.sassu@student.h-farm.com">Email</a>
-      </div>
+      </nav>
     </div>
   </div>
 </footer>
@@ -951,6 +952,22 @@
 
   document.addEventListener('keydown', e => {
     if (e.key === 'Escape') closeModal();
+  });
+
+  // Accent color on hover for project numbers
+  document.querySelectorAll('.project-row').forEach(row => {
+    const accent = row.dataset.accent;
+    const num = row.querySelector('.project-number');
+    const arrow = row.querySelector('.project-arrow');
+    if (!accent || !num) return;
+    row.addEventListener('mouseenter', () => {
+      num.style.color = accent;
+      if (arrow) arrow.style.color = accent;
+    });
+    row.addEventListener('mouseleave', () => {
+      num.style.color = '';
+      if (arrow) arrow.style.color = '';
+    });
   });
 
   document.querySelectorAll('.modal').forEach(el => el.style.display = 'none');
