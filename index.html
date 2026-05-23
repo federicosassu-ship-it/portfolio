@@ -630,6 +630,49 @@
 
     .modal-link-secondary:hover { opacity: 1; }
 
+    /* Pitch deck CTA */
+    .deck-cta-wrap {
+      margin: 32px 0;
+      padding-top: 24px;
+      border-top: 1px solid var(--modal-border, var(--border));
+    }
+
+    .deck-cta-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--modal-ink-3, var(--ink-3));
+      margin-bottom: 12px;
+    }
+
+    .deck-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--modal-ink, var(--ink));
+      color: var(--modal-bg, var(--surface));
+      font-family: var(--font-body);
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 11px 22px;
+      border-radius: 20px;
+      transition: opacity var(--t);
+    }
+
+    .deck-btn:hover { opacity: 0.8; }
+
+    /* Logo-style hero (contain, branded bg) */
+    .modal-hero.logo-frame {
+      aspect-ratio: auto;
+      height: 220px;
+      object-fit: contain;
+      padding: 28px;
+      background: var(--modal-border, #F0EBE3);
+      border-radius: 8px;
+    }
+
     .modal-credits {
       margin-top: 36px;
       padding-top: 24px;
@@ -796,7 +839,7 @@
         </div>
         <div class="card-body">
           <h2 class="card-title">R.O.S.S.</h2>
-          <p class="card-desc">AI companion for the elderly. Not a monitoring device — a domestic presence. I run the commercial and financial engine: market sizing, unit economics, investor relations.</p>
+          <p class="card-desc">AI companion for elderly patients with cognitive decline. On-device AI. Built in 24h at H-HACK — selected among top projects, now in H-Farm's venture building program.</p>
           <div class="card-footer">
             <span class="card-footer-meta">2026 → present · R.O.S.S.</span>
             <span class="card-footer-link">Open ↗</span>
@@ -877,67 +920,63 @@
   <!-- ── MODAL: ROSS ── -->
   <div class="modal" id="modal-ross">
     <button class="modal-close" onclick="closeModal()">✕</button>
-    <span class="modal-tag">Venture · H-Farm</span>
+    <span class="modal-tag">Venture · H-Farm Venture Building</span>
 
-    <img src="assets/ross/ross-human-plus.jpg" alt="ROSS team at HUMAN+ Healthcare Dialogue 2026" class="modal-hero tall" />
+    <img src="assets/ross/rossana-splash.png" alt="Rossana — R.O.S.S. companion" class="modal-hero logo-frame" />
 
-    <h2 class="modal-headline">We chose not to build a medical device. That decision made everything else possible.</h2>
+    <h2 class="modal-headline">An AI robot companion designed to slow cognitive decline in elderly patients.</h2>
 
-    <p class="modal-hook">Italy has 14.6M people over 65. Most eldercare technology treats them as patients to monitor. R.O.S.S. starts from the opposite hypothesis: the elderly person is not a condition to manage — she's someone to accompany.</p>
+    <p class="modal-hook">ROSS was born in 24 hours at H-HACK, H-Farm's robotics hackathon, from a brief that asked: how can robotics assist elderly people? We focused on cognitive decline — a problem I understood not just technically, but personally. The result was selected among the top projects and entered H-Farm's venture building program.</p>
 
     <div class="modal-metrics">
-      <span class="metric-pill">€3.8B TAM Italy</span>
-      <span class="metric-pill">#1 at H-HACK</span>
+      <span class="metric-pill">On-device AI</span>
       <span class="metric-pill">2 patents in progress</span>
-      <span class="metric-pill">€1,480/yr vs €1,400/mo carer</span>
+      <span class="metric-pill">H-Farm Venture Building</span>
     </div>
 
     <div class="modal-section">
-      <p class="modal-section-label">The insight</p>
+      <p class="modal-section-label">The problem</p>
       <div class="modal-section-body">
-        <p>The eldercare market is saturated with products the elderly reject — because they feel like surveillance. Our buyer (the adult child) has looked at all of them and excluded them. The gap isn't technology. It's positioning.</p>
-        <p>"Companion, not device" isn't marketing. It's the foundation of our regulatory strategy (AI Act Art. 50, non-MDR), our IP architecture (zero biometric sensors), and our technical design.</p>
+        <p>Cognitive decline affects millions of elderly people worldwide. The people who live with it don't just lose memory — they lose the thread of their own story. Existing solutions focus on monitoring and medical intervention. ROSS starts from a different question: what if the most powerful tool wasn't clinical, but relational?</p>
       </div>
     </div>
 
     <div class="modal-section">
       <p class="modal-section-label">What we built</p>
       <div class="modal-section-body">
-        <p>Local-first architecture: on-device LLM (quantized, LoRA-adapted), speech-to-text and TTS entirely local. The core is a biographical knowledge base — a structured map of the user's people, places, routines, and memories.</p>
-        <p>Three presence modes (Active, Silent, Reactive). Every day, the family receives a Daily Report — a narrative letter about her day. Not a dashboard. A letter.</p>
+        <p>An AI robot companion that interacts with elderly patients through adaptive cognitive stimulation, personalised on a biographical knowledge base — family members, hobbies, life history — that guides every conversation. During the 24 hours of H-HACK we developed the concept, the interaction design, and a working prototype of the app interface.</p>
+        <p>All voice processing runs on-device. The only thing that reaches the caregiver's app is a daily narrative summary — a letter, not a dashboard — and only with explicit consent.</p>
       </div>
     </div>
 
     <div class="modal-section">
-      <p class="modal-section-label">My role</p>
+      <p class="modal-section-label">After the hackathon</p>
       <div class="modal-section-body">
-        <p>I run the commercial and financial engine. Financial models, unit economics, cap table, fundraising structure. Pricing hypothesis: €1,000 device + €40/month — less than one month of a live-in carer.</p>
-        <p>Market sizing: TAM Italy ~€3.8B (2.55M families), TAM EU-27 ~€23B. I manage investor relations and own the WTP research methodology.</p>
+        <p>Selected among the top projects, we continued development under H-Farm's venture building program. The focus of the first month shifted from product to protection: prior art research and patent application to secure the core architecture before moving further.</p>
       </div>
     </div>
 
-    <div class="modal-section">
-      <p class="modal-section-label">Where we are</p>
-      <div class="modal-section-body">
-        <p>Selected top project at H-HACK (H-Farm Robotics Hackathon, April 2026). Building through H-Farm's Venture Building Program. Patent 1 (conversational layer) in progress; Patent 2 (NLG, caregiver app, hardware) in parallel development.</p>
-        <p>Presented at HUMAN+ Healthcare Dialogue 2026. Closing the team with an AI Full Stack Engineer and running first Wizard-of-Oz tests with elderly users.</p>
-      </div>
+    <div class="deck-cta-wrap">
+      <p class="deck-cta-label">Materials</p>
+      <a href="assets/ross/ross-pitch-deck.pdf" target="_blank" class="deck-btn">
+        Pitch deck (PDF) ↗
+      </a>
     </div>
 
     <div class="modal-gallery">
-      <img src="assets/ross/rossana-splash.png" alt="Rossana — welcome screen" />
+      <img src="assets/ross/rossana-onboarding-maria.png" alt="Rossana — building Maria's biographical profile" />
+      <img src="assets/ross/rossana-caregiver-home.png" alt="Rossana — Marco's daily narrative report" />
       <img src="assets/ross/rossana-persone.png" alt="Rossana — Le persone di Maria" />
-      <img src="assets/ross/rossana-caregiver-home.png" alt="Rossana — Daily Report for caregiver" />
-      <img src="assets/ross/hhack-top-projects.jpg" alt="H-HACK — top projects" class="wide" style="object-position: center 30%;" />
+      <img src="assets/ross/hhack-top-projects.jpg" alt="H-HACK — selected among top projects" class="wide" style="object-position: center 30%;" />
     </div>
-    <p class="img-caption">R.O.S.S. product mockups (Rossana app interface) · H-HACK 2026 — selected among the top projects.</p>
+    <p class="img-caption">Rossana app — concept &amp; interface designed during 24h at H-HACK · Selected among the top projects · April 2026</p>
 
-    <p class="modal-credits">Team: Alessandro Di Mauro (Product &amp; Comms), Alessandra Beretta (Institutional Relations &amp; Ops), Luca Marzotto (Tech Architecture). Built within H-Farm's ecosystem.</p>
+    <p class="modal-credits">Federico Sassu Verderi — Co-founder &amp; Business Lead · Team: Alessandro Di Mauro (Product &amp; Comms), Alessandra Beretta (Institutional Relations &amp; Ops), Luca Marzotto (Tech Architecture).</p>
 
     <div class="modal-meta">
       <span class="meta-item"><strong>Period:</strong> April 2026 – present</span>
-      <span class="meta-item"><strong>Role:</strong> Co-founder &amp; Finance/Commercial Development Lead</span>
-      <span class="meta-item"><strong>Team:</strong> 4 co-founders + incoming AI engineer</span>
+      <span class="meta-item"><strong>Role:</strong> Co-founder &amp; Business Lead</span>
+      <span class="meta-item"><strong>Team:</strong> 4 people</span>
     </div>
   </div>
 
