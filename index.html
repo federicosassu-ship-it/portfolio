@@ -359,9 +359,10 @@
     .card.card-manta .card-footer-link { color: #96AABF; }
 
     .card.card-agromercato {
-      background: #FEFCF8;
-      border-color: #E8E0CF;
+      background: #EDF4ED;
+      border-color: #C8DACC;
     }
+    .card.card-agromercato .card-body { background: #EDF4ED; }
 
     /* Responsive */
     @media (max-width: 900px) {
@@ -865,15 +866,15 @@
 
       <!-- AGROMERCATO -->
       <article class="card card-agromercato" onclick="openModal('agromercato')">
-        <div class="card-image-wrap">
-          <img src="assets/agromercato/agromercato-poster-mercato.png" alt="Il mercato come lo vuoi tu — Agromercato campaign" style="object-position: center;" />
-          <span class="card-badge" style="background:#25A244;">Pre-Accelerator · H-Farm</span>
+        <div class="card-image-wrap" style="display:flex; align-items:center; justify-content:center; background:#EDF4ED;">
+          <img src="assets/agromercato/agromercato-logo-transparent.png" alt="Agromercato.com logo" style="width:200px; height:auto; object-fit:contain;" />
+          <span class="card-badge" style="background:#25A244;">Pre-Acceleration · H-Farm</span>
         </div>
         <div class="card-body">
           <h2 class="card-title">Agromercato.com</h2>
-          <p class="card-desc">First startup incubation at H-Farm Startup Centre. Three months building and validating the strategy for a B2B wholesale food marketplace. Market research, financial model, pitch at Ecommerce Food Forum Bologna.</p>
+          <p class="card-desc">B2B wholesale food marketplace. Three months at H-Farm Startup Centre: primary research with 100+ operators, WhatsApp AI agent strategy, pilot target €150M+ market.</p>
           <div class="card-footer">
-            <span class="card-footer-meta">Mar–May 2025 · H-Farm</span>
+            <span class="card-footer-meta">Mar–May 2025 · H-Farm Startup Centre</span>
             <span class="card-footer-link">Open ↗</span>
           </div>
         </div>
@@ -1059,55 +1060,63 @@
   <!-- ── MODAL: AGROMERCATO ── -->
   <div class="modal" id="modal-agromercato">
     <button class="modal-close" onclick="closeModal()">✕</button>
-    <span class="modal-tag">Incubation · H-Farm Startup Centre</span>
+    <span class="modal-tag">Pre-Acceleration · H-Farm Startup Centre</span>
 
-    <img src="assets/agromercato/agromercato-poster-mercato.png" alt="Agromercato campaign poster" class="modal-hero" style="object-position: center; object-fit: contain; background: #fff; padding: 18px;" />
+    <div style="display:flex; align-items:center; justify-content:center; background:#E4F0E4; border-radius:10px; padding:36px 24px; margin-bottom:32px;">
+      <img src="assets/agromercato/agromercato-logo-transparent.png" alt="Agromercato.com logo" style="width:300px; height:auto; object-fit:contain;" />
+    </div>
 
-    <h2 class="modal-headline">My first real startup experience: research, financial model, pitch deck, and an insight about the channel nobody had questioned.</h2>
+    <h2 class="modal-headline">Bringing a B2B wholesale marketplace into its first acceleration program — and redefining its go-to-market from the ground up.</h2>
 
-    <p class="modal-hook">Three months at H-Farm Startup Centre's Pre-Acceleration Program, working on Agromercato.com — a B2B wholesale food marketplace. Pilot: the Mercato Agroalimentare della Sardegna, €150M+ annual turnover.</p>
+    <p class="modal-hook">Agromercato.com was a pre-launch B2B marketplace connecting wholesale produce operators with professional buyers — restaurants, retailers, procurement teams — built to digitise a market still running on phone calls and paper orders. I proactively brought the project into H-Farm's pre-acceleration program, seeing an opportunity to stress-test the model and define a real go-to-market strategy before launch.</p>
 
     <div class="modal-metrics">
-      <span class="metric-pill">€150M+ pilot market</span>
-      <span class="metric-pill">3-month program</span>
-      <span class="metric-pill">First public pitch</span>
+      <span class="metric-pill">100+ operators surveyed</span>
+      <span class="metric-pill">Primary research on both sides</span>
+      <span class="metric-pill">WhatsApp AI agent designed</span>
+      <span class="metric-pill">Pilot: €150M+ market</span>
     </div>
 
     <div class="modal-section">
-      <p class="modal-section-label">The program</p>
+      <p class="modal-section-label">The research</p>
       <div class="modal-section-body">
-        <p>Three months of structured startup methodology — weekly sessions plus 1:1 mentor consultations booked on demand. Everything taught was applied immediately to the real project: market research (qualitative and quantitative), interviews with wholesalers, business model definition, financial model, pitch preparation.</p>
+        <p>Before defining any strategy, we went to the market directly. Qualitative interviews with wholesale operators, direct observation on the floor, and a survey across more than 100 commercial businesses. The finding that changed everything: over 70% of operators and their buyers were already using WhatsApp as their default channel for orders and communication. The market wasn't waiting for a new platform — it was waiting for something that worked inside the tools it already used.</p>
       </div>
     </div>
 
     <div class="modal-section">
-      <p class="modal-section-label">The key insight</p>
+      <p class="modal-section-label">The strategy</p>
       <div class="modal-section-body">
-        <p>Primary research revealed that WhatsApp was already the dominant channel on both sides of the transaction. Wholesalers received orders on it. Buyers sent them on it. Building a new app would mean asking people to change a behaviour that already worked.</p>
-        <p>The right answer was to make the existing channel intelligent — not to replace it. We designed the concept; we did not build it. The product thinking was the deliverable.</p>
+        <p>From that insight, we designed a WhatsApp AI agent as the core go-to-market channel — a solution that could centralise incoming orders for wholesalers and simplify purchasing for buyers without requiring a behaviour change. The scaling strategy was built around a pilot with the Mercato Agroalimentare della Sardegna, one of the largest wholesale food markets in Italy, as the beachhead to validate the model before expanding.</p>
       </div>
     </div>
 
-    <div class="modal-section">
-      <p class="modal-section-label">What I took from it</p>
-      <div class="modal-section-body">
-        <p>First exposure to the full early-stage methodology, learned by doing. Pitched at the Ecommerce Food Forum in Bologna — first public pitch in front of an industry audience. Delivered a pitch deck to a jury at the end of the program.</p>
+    <!-- Pitch photos -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:28px 0 8px;">
+      <img src="assets/agromercato/agromercato-final-pitch.png" alt="Final pitch presentation — H-Farm Startup Centre" style="width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top; border-radius:6px;" />
+      <img src="assets/agromercato/agromercato-final-pitch-post.png" alt="Final pitch — H-Farm post" style="width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top; border-radius:6px;" />
+    </div>
+    <img src="assets/agromercato/agromercato-team.jpg" alt="H-Farm Startup Centre cohort — pre-acceleration program" style="width:100%; border-radius:6px; object-fit:cover; object-position:center 30%; margin:8px 0;" />
+    <p class="img-caption">Final pitch · H-Farm Startup Centre Pre-Acceleration Program cohort · Spring 2025</p>
+
+    <div class="deck-cta-wrap">
+      <p class="deck-cta-label">Materials</p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">
+        <a href="https://apps.apple.com/it/app/agromercato/id6756885267" target="_blank" rel="noopener" class="deck-btn">
+          App Store ↗
+        </a>
+        <a href="assets/agromercato/agromercato-pitch-deck.pdf" target="_blank" class="deck-btn" style="background:transparent; color:var(--modal-ink); border:1.5px solid var(--modal-border);">
+          Pitch deck (PDF) ↗
+        </a>
       </div>
     </div>
 
-    <div class="modal-gallery">
-      <img src="assets/agromercato/agromercato-conference.jpg" alt="Ecommerce Food Forum Bologna — first public pitch" class="wide" style="object-position: center 25%;" />
-      <img src="assets/agromercato/agromercato-pitch.jpg" alt="Presenting at H-Farm" class="landscape" style="object-position: center top;" />
-      <img src="assets/agromercato/agromercato-hfarm-group.jpg" alt="H-Farm Startup Centre cohort" class="landscape" style="object-position: center top;" />
-      <img src="assets/agromercato/agromercato-poster-frutta.png" alt="E se la frutta avesse le ruote? — campaign poster" class="landscape" style="object-fit: contain; background: #fff; padding: 12px;" />
-    </div>
-    <p class="img-caption">Ecommerce Food Forum Bologna · H-Farm Startup Centre cohort · Campaign artifacts.</p>
-
-    <p class="modal-credits">Built within H-Farm Startup Centre Pre-Acceleration Program, Spring 2025.</p>
+    <p class="modal-credits">Federico Sassu Verderi — Strategy &amp; Go-to-Market · H-Farm Startup Centre Pre-Acceleration Program, Spring 2025.</p>
 
     <div class="modal-meta">
       <span class="meta-item"><strong>Period:</strong> March – May 2025</span>
-      <span class="meta-item"><strong>Role:</strong> Pre-Accelerator Cohort</span>
+      <span class="meta-item"><strong>Role:</strong> Strategy &amp; Go-to-Market</span>
+      <span class="meta-item"><strong>Context:</strong> H-Farm Startup Centre Pre-Acceleration Program</span>
     </div>
   </div>
 
