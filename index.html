@@ -313,11 +313,11 @@
 
     /* Per-project card variants */
     .card.card-ross {
-      background: #F5F0EB;
-      border-color: #DDD8D2;
+      background: #F4EAE1;
+      border-color: #E8DDD5;
     }
 
-    .card.card-ross .card-body { background: #F5F0EB; }
+    .card.card-ross .card-body { background: #F4EAE1; }
 
     .card.card-manta {
       background: #0D1720;
@@ -833,8 +833,8 @@
 
       <!-- ROSS -->
       <article class="card card-ross" onclick="openModal('ross')">
-        <div class="card-image-wrap" style="display:flex; align-items:center; justify-content:center; background:#F5EEE8;">
-          <img src="assets/ross/ross-logo.png" alt="Rossana logo" style="width:140px; height:140px; object-fit:contain; display:block;" />
+        <div class="card-image-wrap" style="display:flex; align-items:center; justify-content:center; background:#F4EAE1;">
+          <img src="assets/ross/ross-logo.png" alt="Rossana logo" style="width:180px; height:180px; object-fit:contain; display:block;" />
           <span class="card-badge" style="background:#3B6B5E;">Venture · H-Farm</span>
         </div>
         <div class="card-body">
@@ -922,10 +922,8 @@
     <button class="modal-close" onclick="closeModal()">✕</button>
     <span class="modal-tag">Venture · H-Farm Venture Building</span>
 
-    <div style="display:flex; flex-direction:column; align-items:center; justify-content:center; background:#EDE8E2; border-radius:10px; padding:48px 24px 36px; margin-bottom:32px; gap:18px;">
-      <img src="assets/ross/ross-logo.png" alt="Rossana logo" style="width:140px; height:140px;" />
-      <span style="font-family:var(--font-display); font-size:1.55rem; font-weight:600; letter-spacing:-0.01em; color:#1A1714;">Rossana</span>
-      <span style="font-size:0.78rem; font-weight:500; letter-spacing:0.12em; text-transform:uppercase; color:#8A8480;">R.O.S.S. · AI Companion</span>
+    <div style="display:flex; align-items:center; justify-content:center; background:#F4EAE1; border-radius:10px; padding:40px 24px; margin-bottom:32px;">
+      <img src="assets/ross/ross-logo.png" alt="R.O.S.S. logo" style="width:200px; height:200px; object-fit:contain;" />
     </div>
 
     <h2 class="modal-headline">An AI robot companion designed to slow cognitive decline in elderly patients.</h2>
@@ -967,13 +965,19 @@
       </a>
     </div>
 
-    <div class="modal-gallery">
-      <img src="assets/ross/rossana-onboarding-maria.png" alt="Rossana — building Maria's biographical profile" />
-      <img src="assets/ross/rossana-caregiver-home.png" alt="Rossana — Marco's daily narrative report" />
-      <img src="assets/ross/rossana-persone.png" alt="Rossana — Le persone di Maria" />
-      <img src="assets/ross/hhack-top-projects.jpg" alt="H-HACK — selected among top projects" class="wide" style="object-position: center 30%;" />
+    <!-- MVP screens -->
+    <div class="modal-gallery" style="grid-template-columns: 1fr; gap: 8px;">
+      <img src="assets/ross/ross-screen-1.png" alt="Rossana app — onboarding e companion (lato Maria)" style="width:100%; aspect-ratio:16/7; object-fit:cover; object-position:center; border-radius:6px;" />
+      <img src="assets/ross/ross-screen-2.png" alt="Rossana app — dashboard e report (lato Marco)" style="width:100%; aspect-ratio:16/7; object-fit:cover; object-position:center; border-radius:6px;" />
     </div>
-    <p class="img-caption">Rossana app — concept &amp; interface designed during 24h at H-HACK · Selected among the top projects · April 2026</p>
+    <p class="img-caption">App prototype — Maria's companion side &amp; Marco's caregiver dashboard · Designed during 24h at H-HACK</p>
+
+    <!-- Team photos -->
+    <div class="modal-gallery" style="grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
+      <img src="assets/ross/ross-team-hackathon.png" alt="ROSS team at H-HACK" style="width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top; border-radius:6px;" />
+      <img src="assets/ross/ross-team-humanplus.jpg" alt="ROSS team at HUMAN+ Healthcare Dialogue 2026" style="width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top; border-radius:6px;" />
+    </div>
+    <p class="img-caption">H-HACK 2026 · HUMAN+ Healthcare Dialogue 2026</p>
 
     <p class="modal-credits">Federico Sassu Verderi — Co-founder &amp; Business Lead · Team: Alessandro Di Mauro (Product &amp; Comms), Alessandra Beretta (Institutional Relations &amp; Ops), Luca Marzotto (Tech Architecture).</p>
 
