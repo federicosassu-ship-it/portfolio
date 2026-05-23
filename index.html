@@ -849,17 +849,15 @@
 
       <!-- MANTA AI -->
       <article class="card card-manta" onclick="openModal('manta')">
-        <div class="card-image-wrap">
-          <div class="manta-cover">
-            MANTA AI
-            <span>Sprint · 1 month</span>
-          </div>
+        <div class="card-image-wrap" style="display:flex; align-items:center; justify-content:center; background:#0D1720;">
+          <img src="assets/manta-ai/manta-logo-transparent.png" alt="MANTA AI logo" style="width:200px; height:auto; object-fit:contain; filter:brightness(1.6) saturate(0.9);" />
+          <span class="card-badge" style="background:#4A9EBF;">Academic · H-Farm</span>
         </div>
         <div class="card-body">
           <h2 class="card-title">MANTA AI</h2>
-          <p class="card-desc">RAG voice agent for MANTA Group — aerospace supplier to Leonardo &amp; Boeing. 500+ pages of technical manuals queryable by voice. Delivered in a 1-month sprint, led a team of 4.</p>
+          <p class="card-desc">RAG voice agent for MANTA Group — aerospace supplier to Leonardo &amp; Boeing. 500+ pages of technical manuals queryable by voice. 1-month sprint, cross-university team of 4.</p>
           <div class="card-footer">
-            <span class="card-footer-meta">2025 · Impact Puglia Challenge</span>
+            <span class="card-footer-meta">Oct – Nov 2025 · Impact Puglia Challenge</span>
             <span class="card-footer-link">Open ↗</span>
           </div>
         </div>
@@ -996,41 +994,60 @@
   <!-- ── MODAL: MANTA AI ── -->
   <div class="modal" id="modal-manta">
     <button class="modal-close" onclick="closeModal()">✕</button>
-    <span class="modal-tag">AI Build · Sprint</span>
+    <span class="modal-tag">Academic Project · H-Farm College x Università di Puglia</span>
 
-    <h2 class="modal-headline">500 pages of technical manuals. Queryable in seconds, by voice.</h2>
+    <div style="display:flex; align-items:center; justify-content:center; background:#111E2E; border-radius:10px; padding:36px 24px; margin-bottom:32px;">
+      <img src="assets/manta-ai/manta-logo-transparent.png" alt="MANTA AI logo" style="width:260px; height:auto; object-fit:contain; filter:brightness(1.6) saturate(0.9);" />
+    </div>
 
-    <p class="modal-hook">MANTA Group supplies Leonardo and Boeing. Their operators work the floor with 500+ pages of printed technical manuals — indexed by hand, searched by memory. We had one month to change that.</p>
+    <h2 class="modal-headline">A RAG-based AI voice agent that turns MANTA Group's technical manuals into instant operational decisions.</h2>
+
+    <p class="modal-hook">MANTA AI was born from a one-month collaboration between H-Farm College and the University of Puglia, commissioned by MANTA Group — an aerospace manufacturer supplying Leonardo and Boeing. The brief asked us to solve a real operational problem: technical knowledge locked inside hundreds of pages of fragmented manuals, slowing down floor operators and putting audit readiness at risk.</p>
 
     <div class="modal-metrics">
-      <span class="metric-pill">500+ pages indexed</span>
       <span class="metric-pill">1-month sprint</span>
-      <span class="metric-pill">12 companies pitched</span>
+      <span class="metric-pill">500+ pages indexed</span>
+      <span class="metric-pill">Pitched to 12 company juries</span>
+      <span class="metric-pill">Cross-university team of 4</span>
     </div>
 
     <div class="modal-section">
       <p class="modal-section-label">The problem</p>
       <div class="modal-section-body">
-        <p>Manual lookup on an aerospace floor is slow and breaks flow. The information exists — it's trapped in PDFs. The question was how to make it accessible the way operators actually work: hands busy, eyes on the part.</p>
+        <p>In an aerospace manufacturing environment, procedures aren't optional — they're the difference between compliance and a costly non-conformity. But at MANTA, that knowledge lived in dozens of heterogeneous manuals. Every time an operator needed a critical piece of information, they had to stop, search, and interpret. Slow, error-prone, and impossible to trace.</p>
       </div>
     </div>
 
     <div class="modal-section">
       <p class="modal-section-label">What we built</p>
       <div class="modal-section-body">
-        <p>A functional RAG-based voice agent. Voiceflow for the voice layer, a RAG pipeline over the full technical documentation. Operators query 500+ pages via voice or text — answer in seconds, not minutes. No new hardware, no retraining.</p>
-        <p>Led a cross-university team of 4 (H-Farm College × Università di Puglia). Delivered a working MVP in a 1-month sprint. Pitched to a jury of representatives from 12 participating companies.</p>
+        <p>A RAG AI agent — accessible via voice call or text message — that ingests MANTA's technical documentation and returns precise, sourced answers in seconds. The operator asks a question. The agent queries the manuals, identifies the relevant procedure, and delivers a structured response: question, technical answer, document reference. No searching. No interpretation. No risk of transcription error.</p>
       </div>
     </div>
 
     <div class="modal-section">
-      <p class="modal-section-label">Why it matters</p>
+      <p class="modal-section-label">My role</p>
       <div class="modal-section-body">
-        <p>Voice + retrieval + clean interface can replace workflows that haven't changed in decades. Every knowledge-intensive field where the person doing the work can't stop to type is a version of this problem.</p>
+        <p>I led the team and managed the relationship with MANTA's quality control department directly — organizing meetings to map the operational problem, collecting the documentation needed to train the agent, and defining the solution scope together with the client based on their actual needs. I then prepared and delivered the final pitch, including the live demo, to a jury of representatives from 12 participating companies.</p>
       </div>
     </div>
 
-    <p class="modal-credits">Challenge: Impact Puglia — H-Farm College × Università di Puglia. Cross-university team of 4.</p>
+    <img src="assets/manta-ai/manta-pitch.jpg" alt="Final pitch presentation — MANTA AI" style="width:100%; border-radius:8px; object-fit:cover; margin: 28px 0 8px;" />
+    <p class="img-caption">Final pitch with live demo · Impact Puglia Challenge · November 2025</p>
+
+    <div class="deck-cta-wrap">
+      <p class="deck-cta-label">Materials</p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">
+        <a href="https://creator.voiceflow.com/share/6922d7d5d60769c741183308/development" target="_blank" rel="noopener" class="deck-btn" style="background:#4A9EBF;">
+          Try the MVP ↗
+        </a>
+        <a href="assets/manta-ai/manta-pitch-deck.pdf" target="_blank" class="deck-btn" style="background:transparent; color:var(--modal-ink); border:1.5px solid var(--modal-border);">
+          Pitch deck (PDF) ↗
+        </a>
+      </div>
+    </div>
+
+    <p class="modal-credits">Federico Sassu Verderi — Team Lead · Challenge: Impact Puglia — H-Farm College × Università di Puglia.</p>
 
     <div class="modal-meta">
       <span class="meta-item"><strong>Period:</strong> October – November 2025</span>
