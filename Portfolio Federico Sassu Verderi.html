@@ -148,11 +148,13 @@
     }
 
     /* ─── AMBIENT WAVE BACKGROUND ──────────────────────────── */
+    .ambient-bg,
+    .ambient-bg * { pointer-events: none; }
+
     .ambient-bg {
       position: fixed;
       inset: -6% -4%;
       z-index: 0;
-      pointer-events: none;
       overflow: hidden;
       mask-image: linear-gradient(to bottom,
         transparent 0%,
@@ -389,10 +391,12 @@
       line-height: 1.4;
     }
 
-    .chip:hover {
-      background: #F2F2F2;
-      border-color: rgba(0,0,0,0.22);
-      box-shadow: var(--shadow-sm);
+    @media (hover: hover) {
+      .chip:hover {
+        background: #F2F2F2;
+        border-color: rgba(0,0,0,0.22);
+        box-shadow: var(--shadow-sm);
+      }
     }
 
     .chip-name { font-weight: 500; color: #0A0A0A; }
@@ -463,12 +467,21 @@
       border: 1px solid rgba(0,0,0,0.09);
       min-height: 400px;
       transition: transform var(--t), box-shadow var(--t), border-color var(--t);
+      -webkit-tap-highlight-color: transparent;
+      touch-action: manipulation;
     }
 
-    .project-row:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-lg);
-      border-color: rgba(0,0,0,0.2);
+    @media (hover: hover) {
+      .project-row:hover {
+        transform: translateY(-3px);
+        box-shadow: var(--shadow-lg);
+        border-color: rgba(0,0,0,0.2);
+      }
+    }
+
+    .project-row:active {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-md);
     }
 
     .project-row.row-reverse { flex-direction: row-reverse; }
@@ -1876,6 +1889,28 @@
   // Click backdrop closes; click on image itself does not
   lightbox.addEventListener('click', closeLightbox);
   lbImg.addEventListener('click', e => e.stopPropagation());
+
+  // ── Project row tap handling (mobile-safe) ──
+  // The inline onclick already calls openModal, but on iOS Safari a sticky
+  // :hover state can swallow the first tap. Re-bind via touchend / click as
+  // a defensive layer, and ignore taps that originated on a real link.
+  document.querySelectorAll('.project-row[onclick]').forEach(row => {
+    const handler = row.getAttribute('onclick');
+    if (!handler) return;
+    const fire = (e) => {
+      // Allow real anchors (e.g. LocaLì "Live" link) to do their own thing
+      if (e.target.closest('a')) return;
+      e.preventDefault();
+      try { (new Function(handler)).call(row); } catch (err) { /* noop */ }
+    };
+    row.removeAttribute('onclick');
+    row.addEventListener('click', fire);
+    row.setAttribute('role', 'button');
+    row.setAttribute('tabindex', '0');
+    row.addEventListener('keydown', (e) => {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fire(e); }
+    });
+  });
 
   // ── Ambient wave background ──
   (function () {
