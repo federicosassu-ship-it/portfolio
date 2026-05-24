@@ -62,15 +62,12 @@
 
     /* ─── SITE NAV (Cassis fixed top bar) ───────────────────── */
     .site-nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 50;
+      position: relative;
+      z-index: 3;
       height: 60px;
       display: flex;
       align-items: center;
-      background: rgba(10,10,10,0.82);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
+      background: #0A0A0A;
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
@@ -130,7 +127,6 @@
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
       font-feature-settings: "cv02", "cv03", "cv04", "cv11";
-      padding-top: 60px;
     }
 
     /* Subtle hero wash (light theme) */
@@ -804,7 +800,6 @@
     }
 
     @media (max-width: 640px) {
-      body { padding-top: 56px; }
       header { padding: 64px 0 56px; }
       .header-avatar { width: 72px; height: 72px; }
       .name { font-size: clamp(2.4rem, 10vw, 3.2rem); }
