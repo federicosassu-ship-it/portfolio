@@ -71,6 +71,12 @@
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
 
+    .site-nav > .container {
+      max-width: none;
+      padding-left: clamp(1.25rem, 3vw, 2.5rem);
+      padding-right: clamp(1.25rem, 3vw, 2.5rem);
+    }
+
     .nav-inner {
       display: flex;
       justify-content: space-between;
@@ -851,14 +857,14 @@
       text-decoration-color: #0A0A0A;
     }
 
-    /* ─── OUTRO — closing black band with big CTA ───────────── */
+    /* ─── OUTRO — closing black band ────────────────────────── */
     .outro-band {
       position: relative;
       z-index: 1;
       background: #0A0A0A;
       color: #FFFFFF;
-      padding: 128px 0 64px;
-      margin-top: 96px;
+      padding: 72px 0 28px;
+      margin-top: 72px;
       overflow: hidden;
     }
 
@@ -867,8 +873,8 @@
       position: absolute;
       inset: 0;
       background:
-        radial-gradient(ellipse at 76% 25%, rgba(255,255,255,0.06) 0%, transparent 55%),
-        radial-gradient(ellipse at 18% 80%, rgba(255,255,255,0.04) 0%, transparent 55%);
+        radial-gradient(ellipse at 78% 28%, rgba(255,255,255,0.05) 0%, transparent 55%),
+        radial-gradient(ellipse at 18% 78%, rgba(255,255,255,0.035) 0%, transparent 55%);
       pointer-events: none;
     }
 
@@ -879,43 +885,28 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 22px;
+      gap: 24px;
     }
 
-    .outro-eyebrow {
-      font-size: 0.6875rem;
-      font-weight: 600;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.55);
-    }
-
-    .outro-headline {
-      font-size: clamp(2.75rem, 8vw, 5.5rem);
-      font-weight: 800;
-      letter-spacing: -0.045em;
-      line-height: 1;
-      color: #FFFFFF;
-    }
-
-    .outro-sub {
-      max-width: 580px;
-      font-size: clamp(0.9375rem, 1.4vw, 1.0625rem);
-      line-height: 1.6;
-      color: rgba(255,255,255,0.65);
+    .outro-statement {
+      max-width: 660px;
+      font-size: clamp(1.0625rem, 1.7vw, 1.3125rem);
+      font-weight: 500;
+      line-height: 1.5;
+      color: #F2F2F2;
+      letter-spacing: -0.01em;
     }
 
     .outro-cta {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      margin-top: 12px;
-      font-size: 1rem;
+      gap: 8px;
+      font-size: 0.9375rem;
       font-weight: 600;
       background: #FFFFFF;
       color: #0A0A0A;
       text-decoration: none;
-      padding: 18px 38px;
+      padding: 14px 28px;
       border-radius: 9999px;
       transition: transform var(--t), background var(--t);
     }
@@ -930,19 +921,19 @@
     .outro-credit {
       position: relative;
       z-index: 2;
-      margin-top: 88px;
-      padding: 28px 0 0;
+      margin-top: 56px;
+      padding: 18px 0 0;
       border-top: 1px solid rgba(255,255,255,0.08);
       text-align: center;
-      font-size: 0.8125rem;
-      color: rgba(255,255,255,0.45);
+      font-size: 0.75rem;
+      color: rgba(255,255,255,0.4);
     }
 
     @media (max-width: 640px) {
-      .outro-band { padding: 80px 0 48px; margin-top: 56px; }
-      .outro-headline { font-size: 2.75rem; }
-      .outro-cta { padding: 15px 30px; font-size: 0.9375rem; }
-      .outro-credit { margin-top: 56px; }
+      .outro-band { padding: 56px 0 22px; margin-top: 48px; }
+      .outro-statement { font-size: 1rem; }
+      .outro-cta { padding: 13px 24px; font-size: 0.875rem; }
+      .outro-credit { margin-top: 40px; }
     }
 
     /* ═══════════════════════════════════════════════════════════
@@ -1593,9 +1584,7 @@
 <!-- ─────────────────── OUTRO ────────────────────────────────── -->
 <section class="outro-band" aria-label="Get in touch">
   <div class="container outro-inner">
-    <span class="outro-eyebrow">Let's connect</span>
-    <h2 class="outro-headline">Get in touch.</h2>
-    <p class="outro-sub">Always open to a conversation about early stage ventures, product strategy, or anything you're trying to figure out.</p>
+    <p class="outro-statement">Every project here started with a problem I couldn't stop thinking about. If you're working on something in that spirit, I'd love to hear about it.</p>
     <a href="mailto:Federico.sassu@student.h-farm.com" class="outro-cta">Get in touch ↗</a>
   </div>
   <div class="container outro-credit">
