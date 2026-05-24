@@ -5,57 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Federico Sassu Verderi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Archivo:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;0,500;0,600;1,400;1,500;1,600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      /* Color tokens from ui-ux-pro-max "Portfolio/Personal" palette */
-      --bg:           #FAFAFA;
-      --surface:      #FFFFFF;
-      --ink:          #09090B;
-      --ink-2:        #3F3F46;
-      --ink-3:        #64748B;
-      --border:       #E4E4E7;
-      --muted:        #F4F4F5;
-      --accent:       #2563EB;
+      /* shadcn/ui tokens (OKLCH, New York style, light mode) */
+      --background:           oklch(1 0 0);
+      --foreground:           oklch(0.145 0 0);
+      --card:                 oklch(1 0 0);
+      --card-foreground:      oklch(0.145 0 0);
+      --popover:              oklch(1 0 0);
+      --popover-foreground:   oklch(0.145 0 0);
+      --primary:              oklch(0.205 0 0);
+      --primary-foreground:   oklch(0.985 0 0);
+      --secondary:            oklch(0.97 0 0);
+      --secondary-foreground: oklch(0.205 0 0);
+      --muted:                oklch(0.97 0 0);
+      --muted-foreground:     oklch(0.556 0 0);
+      --accent:               oklch(0.97 0 0);
+      --accent-foreground:    oklch(0.205 0 0);
+      --destructive:          oklch(0.577 0.245 27.325);
+      --border:               oklch(0.922 0 0);
+      --input:                oklch(0.922 0 0);
+      --ring:                 oklch(0.708 0 0);
 
-      --chip-bg:      #FFFFFF;
-      --chip-border:  #E4E4E7;
-      --highlight-bg: #F4F4F5;
+      /* shadcn radius scale */
+      --radius:    0.625rem;                       /* 10px base */
+      --radius-sm: calc(var(--radius) - 4px);      /* 6px  */
+      --radius-md: calc(var(--radius) - 2px);      /* 8px  */
+      --radius-lg: var(--radius);                  /* 10px */
+      --radius-xl: calc(var(--radius) + 4px);      /* 14px */
 
-      /* Type from ui-ux-pro-max "Minimalist Portfolio" pairing
-         Space Grotesk display, Archivo body, Lora editorial italic */
-      --font-display:   'Space Grotesk', 'Inter', system-ui, sans-serif;
-      --font-body:      'Archivo', 'Inter', system-ui, sans-serif;
+      /* shadcn shadow scale (Tailwind defaults) */
+      --shadow-sm:  0 1px 2px 0 rgb(0 0 0 / 0.05);
+      --shadow:     0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+      --shadow-md:  0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+      --shadow-lg:  0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+      --shadow-xl:  0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+      --shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+
+      /* Backward-compatible aliases (used across the existing markup) */
+      --bg:           var(--background);
+      --surface:      var(--card);
+      --ink:          var(--foreground);
+      --ink-2:        oklch(0.32 0 0);
+      --ink-3:        var(--muted-foreground);
+      --chip-bg:      var(--card);
+      --chip-border:  var(--border);
+      --highlight-bg: var(--muted);
+
+      /* Typography: Inter mono-stack (Minimal Swiss pairing) + Lora editorial italic */
+      --font-sans:      'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+      --font-display:   var(--font-sans);
+      --font-body:      var(--font-sans);
       --font-editorial: 'Lora', Georgia, serif;
 
-      --t: 200ms ease;
+      --t: 180ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     html { scroll-behavior: smooth; }
 
     body {
-      background: var(--bg);
-      color: var(--ink);
-      font-family: var(--font-body);
+      background: var(--background);
+      color: var(--foreground);
+      font-family: var(--font-sans);
       font-size: 16px;
-      line-height: 1.6;
+      line-height: 1.5;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
+      font-feature-settings: "cv02", "cv03", "cv04", "cv11";
     }
 
-    ::selection { background: var(--ink); color: var(--bg); }
+    ::selection { background: var(--foreground); color: var(--background); }
 
     a:focus-visible,
     button:focus-visible,
     [role="button"]:focus-visible,
     .card:focus-visible,
     .chip:focus-visible {
-      outline: 2px solid var(--accent);
+      outline: 2px solid var(--ring);
       outline-offset: 2px;
-      border-radius: 4px;
+      border-radius: var(--radius-sm);
     }
 
     .container {
@@ -97,92 +129,104 @@
     }
 
     .name {
-      font-family: var(--font-display);
-      font-size: clamp(2.8rem, 6vw, 4rem);
+      font-family: var(--font-sans);
+      font-size: clamp(2.6rem, 6vw, 3.75rem);
       font-weight: 800;
       letter-spacing: -0.04em;
       line-height: 1;
-      color: var(--ink);
-      margin-bottom: 24px;
+      color: var(--foreground);
+      margin-bottom: 20px;
     }
 
     .name-tags {
-      font-family: var(--font-display);
-      font-size: 0.78rem;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
       font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      line-height: 1.6;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--muted-foreground);
+      line-height: 1.5;
     }
 
-    /* ─── BIO HEADLINE ──────────────────────────────────────── */
+    /* ─── BIO HEADLINE (editorial italic, smartbox interior) ── */
     .bio-headline {
       font-family: var(--font-editorial);
-      font-size: clamp(1.5rem, 3vw, 1.9rem);
+      font-size: clamp(1.5rem, 3vw, 1.875rem);
       font-weight: 500;
       font-style: italic;
       line-height: 1.4;
-      color: var(--ink);
+      color: var(--foreground);
       letter-spacing: -0.01em;
       max-width: 820px;
       padding: 48px 0 32px;
     }
 
     /* ─── BIO PARAGRAPHS ────────────────────────────────────── */
-    .bio-body {
-      max-width: 760px;
-    }
+    .bio-body { max-width: 720px; }
 
     .bio-body p {
-      font-size: 1rem;
-      line-height: 1.75;
-      color: var(--ink-2);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--muted-foreground);
       margin-bottom: 16px;
     }
 
     .bio-body p:last-child { margin-bottom: 0; }
 
-    /* ─── WHAT I BRING ──────────────────────────────────────── */
+    .bio-body strong { color: var(--foreground); font-weight: 600; }
+
+    /* ─── WHAT I BRING (shadcn Alert pattern) ───────────────── */
     .what-bring {
-      margin-top: 48px;
-      max-width: 760px;
-      background: var(--muted);
-      border-left: 3px solid var(--accent);
-      padding: 24px 32px;
-      border-radius: 0 8px 8px 0;
+      margin-top: 40px;
+      max-width: 720px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      position: relative;
+    }
+
+    .what-bring::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 16px;
+      bottom: 16px;
+      width: 3px;
+      background: var(--foreground);
+      border-radius: 0 2px 2px 0;
     }
 
     .what-bring-label {
-      font-family: var(--font-display);
-      font-size: 0.7rem;
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
       font-weight: 600;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--ink-3);
-      margin-bottom: 12px;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--foreground);
+      margin-bottom: 6px;
       display: block;
     }
 
     .what-bring-text {
-      font-size: 1rem;
-      line-height: 1.65;
-      color: var(--ink);
+      font-size: 0.9375rem;
+      line-height: 1.6;
+      color: var(--muted-foreground);
     }
 
-    /* ─── SECTION LABEL ─────────────────────────────────────── */
+    /* ─── SECTION LABEL (shadcn small uppercase tag) ────────── */
     .section-label {
-      font-family: var(--font-display);
-      font-size: 0.7rem;
-      font-weight: 600;
-      letter-spacing: 0.16em;
+      font-family: var(--font-sans);
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--ink-3);
-      margin: 64px 0 32px;
+      color: var(--muted-foreground);
+      margin: 64px 0 24px;
       display: block;
     }
 
-    /* ─── CHIPS ─────────────────────────────────────────────── */
+    /* ─── CHIPS (shadcn outline button variant) ─────────────── */
     .chip-list {
       display: flex;
       flex-wrap: wrap;
@@ -193,33 +237,34 @@
       display: inline-flex;
       align-items: center;
       gap: 10px;
-      background: var(--chip-bg);
-      border: 1px solid var(--chip-border);
-      border-radius: 8px;
-      padding: 10px 16px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 8px 14px;
       font-size: 0.875rem;
-      color: var(--ink);
+      color: var(--foreground);
       text-decoration: none;
-      transition: border-color var(--t), background var(--t);
+      transition: background var(--t), border-color var(--t), color var(--t);
       cursor: pointer;
+      line-height: 1.4;
     }
 
     .chip:hover {
-      background: var(--muted);
-      border-color: var(--ink-2);
+      background: var(--accent);
+      border-color: var(--border);
     }
 
-    .chip-name { font-weight: 500; color: var(--ink); }
-    .chip-desc { font-weight: 400; color: var(--ink-3); font-size: 0.82rem; }
+    .chip-name { font-weight: 500; color: var(--foreground); }
+    .chip-desc { font-weight: 400; color: var(--muted-foreground); font-size: 0.8125rem; }
 
     .chip-sm {
       padding: 6px 12px;
-      font-size: 0.78rem;
+      font-size: 0.8125rem;
       gap: 6px;
-      border-radius: 6px;
+      border-radius: var(--radius-sm);
     }
     .chip-sm .chip-icon { width: 14px; height: 14px; }
-    .chip-sm .chip-name { font-size: 0.78rem; }
+    .chip-sm .chip-name { font-size: 0.8125rem; }
 
     .chip-icon {
       width: 18px;
@@ -229,48 +274,57 @@
       border-radius: 3px;
     }
 
-    /* ─── SOCIAL LINKS ──────────────────────────────────────── */
+    /* ─── SOCIAL LINKS (shadcn inline link) ─────────────────── */
     .social-links {
       display: flex;
-      gap: 32px;
+      gap: 24px;
       margin-top: 40px;
     }
 
     .social-links a {
       font-size: 0.875rem;
-      color: var(--ink-2);
+      font-weight: 500;
+      color: var(--foreground);
       text-decoration: underline;
       text-underline-offset: 4px;
       text-decoration-thickness: 1px;
+      text-decoration-color: var(--border);
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: color var(--t);
+      transition: text-decoration-color var(--t), color var(--t);
     }
 
-    .social-links a:hover { color: var(--accent); }
+    .social-links a:hover {
+      text-decoration-color: var(--foreground);
+    }
+
     .social-links svg { width: 16px; height: 16px; flex-shrink: 0; }
 
-    /* ─── CARDS GRID ─────────────────────────────────────────── */
+    /* ─── CARDS GRID (shadcn Card primitive) ───────────────── */
     .work-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 40px;
+      gap: 24px;
       margin-bottom: 96px;
     }
 
     .card {
-      background: var(--surface);
+      background: var(--card);
+      color: var(--card-foreground);
       border: 1px solid var(--border);
-      border-radius: 12px;
+      border-radius: var(--radius-xl);
       overflow: hidden;
       cursor: pointer;
       display: flex;
       flex-direction: column;
-      transition: border-color var(--t);
+      transition: border-color var(--t), box-shadow var(--t), transform var(--t);
     }
 
-    .card:hover { border-color: var(--ink-2); }
+    .card:hover {
+      border-color: oklch(0.82 0 0);
+      box-shadow: var(--shadow-sm);
+    }
 
     .card-image-wrap {
       position: relative;
@@ -289,19 +343,20 @@
       display: block;
     }
 
+    /* shadcn Badge: text-xs, rounded-md, px-2.5, py-0.5 */
     .card-badge {
       position: absolute;
-      top: 16px;
-      right: 16px;
-      background: rgba(9,9,11,0.82);
+      top: 12px;
+      right: 12px;
+      background: rgba(9,9,11,0.86);
       color: #FFFFFF;
-      font-family: var(--font-display);
-      font-size: 0.65rem;
-      font-weight: 600;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      padding: 6px 12px;
-      border-radius: 999px;
+      font-family: var(--font-sans);
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      padding: 3px 10px;
+      border-radius: var(--radius-md);
+      line-height: 1.4;
     }
 
     .card-body {
@@ -309,22 +364,22 @@
       display: flex;
       flex-direction: column;
       flex: 1;
-      gap: 12px;
+      gap: 8px;
     }
 
     .card-title {
-      font-family: var(--font-display);
-      font-size: 1.1rem;
-      font-weight: 700;
-      letter-spacing: -0.02em;
-      color: var(--ink);
-      line-height: 1.25;
+      font-family: var(--font-sans);
+      font-size: 1.0625rem;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      color: var(--card-foreground);
+      line-height: 1.3;
     }
 
     .card-desc {
       font-size: 0.875rem;
-      line-height: 1.6;
-      color: var(--ink-2);
+      line-height: 1.55;
+      color: var(--muted-foreground);
       flex: 1;
     }
 
@@ -333,37 +388,43 @@
       justify-content: space-between;
       align-items: center;
       gap: 12px;
-      margin-top: 8px;
+      margin-top: 12px;
       padding-top: 16px;
       border-top: 1px solid var(--border);
-      font-size: 0.7rem;
-      color: var(--ink-3);
+      font-size: 0.75rem;
+      color: var(--muted-foreground);
     }
 
     .card-footer-meta {
-      font-family: var(--font-display);
-      text-transform: uppercase;
-      letter-spacing: 0.12em;
+      font-family: var(--font-sans);
+      letter-spacing: 0;
+      text-transform: none;
       font-weight: 500;
     }
 
     .card-footer-link {
-      font-family: var(--font-display);
-      color: var(--ink-2);
+      font-family: var(--font-sans);
+      color: var(--foreground);
       text-decoration: none;
       font-weight: 500;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
+      letter-spacing: 0;
+      text-transform: none;
       display: inline-flex;
       align-items: center;
       gap: 4px;
+      transition: opacity var(--t);
     }
+
+    .card:hover .card-footer-link { opacity: 0.7; }
 
     /* Per-project card variants (project palettes preserved) */
     .card.card-ross { background: #F4EAE1; border-color: #E8DDD5; }
     .card.card-ross .card-body { background: #F4EAE1; }
-    .card.card-ross .card-footer { border-top-color: #E8DDD5; }
-    .card.card-ross:hover { border-color: #3B6B5E; }
+    .card.card-ross .card-title { color: #1A1714; }
+    .card.card-ross .card-desc { color: #5C544D; }
+    .card.card-ross .card-footer { border-top-color: #E0D4C7; color: #8A8480; }
+    .card.card-ross .card-footer-link { color: #3B6B5E; }
+    .card.card-ross:hover { border-color: #C8B8A8; box-shadow: var(--shadow-sm); }
 
     .card.card-manta { background: #0D1720; border-color: #1E2E3E; }
     .card.card-manta .card-image-wrap {
@@ -377,12 +438,15 @@
     .card.card-manta .card-footer { border-top-color: #1E2E3E; color: #576A7E; }
     .card.card-manta .card-footer-meta { color: #576A7E; }
     .card.card-manta .card-footer-link { color: #96AABF; }
-    .card.card-manta:hover { border-color: #4A9EBF; }
+    .card.card-manta:hover { border-color: #3A5878; box-shadow: var(--shadow-md); }
 
     .card.card-agromercato { background: #EDF4ED; border-color: #C8DACC; }
     .card.card-agromercato .card-body { background: #EDF4ED; }
-    .card.card-agromercato .card-footer { border-top-color: #C8DACC; }
-    .card.card-agromercato:hover { border-color: #25A244; }
+    .card.card-agromercato .card-title { color: #162016; }
+    .card.card-agromercato .card-desc { color: #4A6B4A; }
+    .card.card-agromercato .card-footer { border-top-color: #BCCFBC; color: #668066; }
+    .card.card-agromercato .card-footer-link { color: #1E7A36; }
+    .card.card-agromercato:hover { border-color: #A8C0AC; box-shadow: var(--shadow-sm); }
 
     .card.card-locali { background: #2A4ED0; border-color: #1E3BA0; }
     .card.card-locali .card-body { background: #2A4ED0; }
@@ -390,11 +454,12 @@
     .card.card-locali .card-desc { color: rgba(255,255,255,0.78); }
     .card.card-locali .card-footer { border-top-color: rgba(255,255,255,0.18); }
     .card.card-locali .card-footer-meta { color: rgba(255,255,255,0.55); }
-    .card.card-locali .card-footer-link { color: rgba(255,255,255,0.92); }
-    .card.card-locali:hover { border-color: #E8C840; }
+    .card.card-locali .card-footer-link { color: #E8C840; }
+    .card.card-locali:hover { border-color: rgba(232,200,64,0.55); box-shadow: var(--shadow-md); }
 
     .card.card-lux { background: #FFFFFF; border-color: var(--border); }
     .card.card-lux .card-body { background: #FFFFFF; }
+    .card.card-lux:hover { border-color: oklch(0.82 0 0); box-shadow: var(--shadow-sm); }
 
     /* ─── RESPONSIVE ────────────────────────────────────────── */
     @media (max-width: 900px) {
@@ -420,7 +485,7 @@
 
     /* ─── FOOTER ─────────────────────────────────────────────── */
     footer {
-      padding: 64px 0 96px;
+      padding: 48px 0 80px;
       border-top: 1px solid var(--border);
       margin-top: 32px;
     }
@@ -434,24 +499,28 @@
     }
 
     .footer-name {
-      font-family: var(--font-display);
-      font-size: 0.78rem;
-      color: var(--ink-3);
-      letter-spacing: 0.04em;
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      color: var(--muted-foreground);
+      letter-spacing: 0;
     }
 
     .footer-links { display: flex; gap: 24px; }
 
     .footer-links a {
-      font-size: 0.82rem;
-      color: var(--ink-3);
+      font-size: 0.8125rem;
+      color: var(--muted-foreground);
       text-decoration: underline;
       text-underline-offset: 4px;
       text-decoration-thickness: 1px;
-      transition: color var(--t);
+      text-decoration-color: var(--border);
+      transition: color var(--t), text-decoration-color var(--t);
     }
 
-    .footer-links a:hover { color: var(--accent); }
+    .footer-links a:hover {
+      color: var(--foreground);
+      text-decoration-color: var(--foreground);
+    }
 
     /* ═══════════════════════════════════════════════════════════
        OVERLAY + MODAL
@@ -460,9 +529,9 @@
     .overlay {
       position: fixed;
       inset: 0;
-      background: rgba(9, 9, 11, 0.62);
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
+      background: rgba(0, 0, 0, 0.5);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
       z-index: 100;
       display: flex;
       align-items: flex-end;
@@ -479,14 +548,18 @@
       .overlay { align-items: center; padding: 24px; }
     }
 
+    /* shadcn Dialog: rounded-xl, shadow-2xl, border, padded */
     .modal {
-      background: var(--modal-bg, var(--surface));
-      border-radius: 12px 12px 0 0;
+      background: var(--modal-bg, var(--card));
+      border: 1px solid var(--modal-border, var(--border));
+      border-bottom: none;
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+      box-shadow: var(--shadow-2xl);
       width: 100%;
       max-width: 880px;
       max-height: 92vh;
       overflow-y: auto;
-      padding: 64px 64px 80px;
+      padding: 56px 56px 72px;
       transform: translateY(32px);
       transition: transform var(--t);
       position: relative;
@@ -495,70 +568,77 @@
     }
 
     @media (min-width: 600px) {
-      .modal { border-radius: 16px; transform: translateY(0) scale(0.975); }
+      .modal {
+        border: 1px solid var(--modal-border, var(--border));
+        border-radius: var(--radius-xl);
+        transform: translateY(0) scale(0.97);
+      }
     }
 
     @media (max-width: 640px) {
-      .modal { padding: 40px 24px 56px; max-height: 100vh; border-radius: 0; }
+      .modal { padding: 32px 20px 48px; max-height: 100vh; border-radius: 0; border: none; }
     }
 
     .overlay.open .modal { transform: translateY(0) scale(1); }
 
+    /* shadcn Dialog close: ghost icon button, top-right, no border */
     .modal-close {
       position: absolute;
-      top: 24px;
-      right: 24px;
-      width: 40px;
-      height: 40px;
-      border: 1px solid var(--modal-border, var(--border));
-      background: color-mix(in srgb, var(--modal-bg, var(--surface)) 78%, transparent);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-radius: 50%;
+      top: 16px;
+      right: 16px;
+      width: 32px;
+      height: 32px;
+      border: none;
+      background: transparent;
+      border-radius: var(--radius-sm);
       cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 0.9rem;
-      color: var(--modal-ink-3, var(--ink-3));
-      transition: background var(--t), color var(--t), border-color var(--t);
+      font-size: 0.875rem;
+      color: var(--modal-ink-3, var(--muted-foreground));
+      transition: background var(--t), color var(--t);
       z-index: 5;
+      opacity: 0.7;
     }
 
     .modal-close:hover {
-      background: var(--modal-ink, var(--ink));
-      color: var(--modal-bg, var(--surface));
-      border-color: var(--modal-ink, var(--ink));
+      background: color-mix(in srgb, var(--modal-ink, var(--foreground)) 10%, transparent);
+      color: var(--modal-ink, var(--foreground));
+      opacity: 1;
     }
 
+    /* shadcn-style small uppercase label (tracked, muted) */
     .modal-tag {
-      font-family: var(--font-display);
+      font-family: var(--font-sans);
       display: inline-block;
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
+      font-size: 0.75rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--modal-accent, var(--ink-3));
-      margin-bottom: 24px;
+      color: var(--modal-accent, var(--muted-foreground));
+      margin-bottom: 20px;
     }
 
+    /* Editorial Lora italic for modal title (smartbox interior personality) */
     .modal-headline {
       font-family: var(--font-editorial);
-      font-size: clamp(1.7rem, 3vw, 2.2rem);
+      font-size: clamp(1.625rem, 3vw, 2.125rem);
       font-weight: 600;
       font-style: italic;
       line-height: 1.25;
-      color: var(--modal-ink, var(--ink));
-      margin-bottom: 24px;
+      color: var(--modal-ink, var(--foreground));
+      margin-bottom: 20px;
       letter-spacing: -0.015em;
       max-width: 720px;
     }
 
     .modal-hook {
+      font-family: var(--font-sans);
       font-size: 1rem;
-      line-height: 1.75;
-      color: var(--modal-ink-2, var(--ink-2));
-      margin-bottom: 48px;
+      line-height: 1.7;
+      color: var(--modal-ink-2, var(--muted-foreground));
+      margin-bottom: 40px;
       padding-bottom: 32px;
       border-bottom: 1px solid var(--modal-border, var(--border));
       max-width: 680px;
@@ -567,60 +647,64 @@
     .modal-metrics {
       display: flex;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
       margin-bottom: 48px;
     }
 
+    /* shadcn Badge: text-xs, rounded-md, px-2.5, py-0.5, font-medium */
     .metric-pill {
       background: transparent;
       border: 1px solid var(--modal-border, var(--border));
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-family: var(--font-display);
+      border-radius: var(--radius-md);
+      padding: 3px 10px;
+      font-family: var(--font-sans);
       font-size: 0.75rem;
-      font-weight: 600;
-      color: var(--modal-accent, var(--ink));
+      font-weight: 500;
+      color: var(--modal-ink-2, var(--foreground));
       white-space: nowrap;
+      line-height: 1.4;
     }
 
     .modal-section {
-      margin-bottom: 48px;
+      margin-bottom: 40px;
       max-width: 680px;
     }
 
+    /* shadcn h4-style section label */
     .modal-section-label {
-      font-family: var(--font-display);
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--modal-accent, var(--ink-3));
-      margin-bottom: 16px;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--modal-ink, var(--foreground));
+      margin-bottom: 12px;
     }
 
     .modal-section-body {
-      font-size: 0.95rem;
-      line-height: 1.75;
-      color: var(--modal-ink-2, var(--ink-2));
+      font-family: var(--font-sans);
+      font-size: 0.9375rem;
+      line-height: 1.7;
+      color: var(--modal-ink-2, var(--muted-foreground));
     }
 
-    .modal-section-body p + p { margin-top: 16px; }
-    .modal-section-body strong { color: var(--modal-ink, var(--ink)); font-weight: 600; }
+    .modal-section-body p + p { margin-top: 14px; }
+    .modal-section-body strong { color: var(--modal-ink, var(--foreground)); font-weight: 600; }
 
     .modal-hero {
       width: 100%;
       height: 400px;
       object-fit: cover;
       object-position: center top;
-      border-radius: 8px;
+      border-radius: var(--radius-lg);
       display: block;
-      margin-bottom: 48px;
+      margin-bottom: 40px;
     }
 
     .modal-hero.tall { height: 480px; }
 
     @media (max-width: 640px) {
-      .modal-hero, .modal-hero.tall { height: 240px; margin-bottom: 32px; }
+      .modal-hero, .modal-hero.tall { height: 240px; margin-bottom: 28px; }
     }
 
     .modal-gallery {
@@ -628,7 +712,7 @@
       grid-template-columns: repeat(3, 1fr);
       gap: 8px;
       margin: 32px 0 12px;
-      border-radius: 8px;
+      border-radius: var(--radius-lg);
       overflow: hidden;
     }
 
@@ -650,109 +734,121 @@
     }
 
     .img-caption {
-      font-family: var(--font-display);
-      font-size: 0.72rem;
-      color: var(--modal-ink-3, var(--ink-3));
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      color: var(--modal-ink-3, var(--muted-foreground));
       margin-top: 12px;
-      line-height: 1.55;
-      letter-spacing: 0.02em;
+      line-height: 1.5;
     }
 
     .modal-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-      margin: 32px 0;
+      gap: 8px;
+      margin: 28px 0;
     }
 
+    /* shadcn Button (default) */
     .modal-link-primary {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
-      background: var(--modal-accent, var(--ink));
-      color: var(--modal-bg, var(--surface));
-      font-family: var(--font-display);
-      font-weight: 600;
+      background: var(--modal-ink, var(--foreground));
+      color: var(--modal-bg, var(--background));
+      font-family: var(--font-sans);
+      font-weight: 500;
       font-size: 0.875rem;
       text-decoration: none;
-      border: 1.5px solid var(--modal-accent, var(--ink));
-      border-radius: 999px;
-      padding: 10px 22px;
+      border: 1px solid var(--modal-ink, var(--foreground));
+      border-radius: var(--radius-md);
+      padding: 0 16px;
+      height: 40px;
       transition: opacity var(--t);
+      white-space: nowrap;
     }
 
-    .modal-link-primary:hover { opacity: 0.85; }
+    .modal-link-primary:hover { opacity: 0.9; }
 
+    /* shadcn Button (outline) */
     .modal-link-secondary {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
-      color: var(--modal-ink-2, var(--ink-2));
-      font-family: var(--font-display);
-      font-size: 0.85rem;
+      color: var(--modal-ink, var(--foreground));
+      background: transparent;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
       font-weight: 500;
       text-decoration: none;
       border: 1px solid var(--modal-border, var(--border));
-      border-radius: 999px;
-      padding: 10px 22px;
-      transition: border-color var(--t), color var(--t);
+      border-radius: var(--radius-md);
+      padding: 0 16px;
+      height: 40px;
+      transition: background var(--t), border-color var(--t);
+      white-space: nowrap;
     }
 
     .modal-link-secondary:hover {
-      color: var(--modal-ink, var(--ink));
-      border-color: var(--modal-ink-2, var(--ink-2));
+      background: color-mix(in srgb, var(--modal-ink, var(--foreground)) 6%, transparent);
     }
 
     /* Materials / pitch deck CTA */
     .deck-cta-wrap {
-      margin: 48px 0;
+      margin: 40px 0;
       padding-top: 32px;
       border-top: 1px solid var(--modal-border, var(--border));
     }
 
     .deck-cta-label {
-      font-family: var(--font-display);
-      font-size: 0.7rem;
-      font-weight: 700;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--modal-ink-3, var(--ink-3));
-      margin-bottom: 16px;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      font-weight: 600;
+      letter-spacing: 0;
+      text-transform: none;
+      color: var(--modal-ink, var(--foreground));
+      margin-bottom: 14px;
     }
 
+    /* shadcn Button (default filled) — base style for .deck-btn */
     .deck-btn {
       display: inline-flex;
       align-items: center;
+      justify-content: center;
       gap: 8px;
-      background: var(--modal-ink, var(--ink));
-      color: var(--modal-bg, var(--surface));
-      font-family: var(--font-display);
+      background: var(--modal-ink, var(--foreground));
+      color: var(--modal-bg, var(--background));
+      font-family: var(--font-sans);
       font-size: 0.875rem;
-      font-weight: 600;
+      font-weight: 500;
       text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 999px;
+      padding: 0 16px;
+      height: 40px;
+      border-radius: var(--radius-md);
       transition: opacity var(--t);
+      white-space: nowrap;
     }
 
-    .deck-btn:hover { opacity: 0.85; }
+    .deck-btn:hover { opacity: 0.9; }
 
     /* Logo-style hero (contain, branded background) */
     .modal-hero.logo-frame {
       height: 240px;
       object-fit: contain;
       padding: 32px;
-      background: var(--modal-border, #F0EBE3);
-      border-radius: 8px;
+      background: var(--modal-border, var(--muted));
+      border-radius: var(--radius-lg);
     }
 
     .modal-credits {
-      margin-top: 48px;
+      margin-top: 40px;
       padding-top: 24px;
       border-top: 1px solid var(--modal-border, var(--border));
-      font-size: 0.85rem;
-      color: var(--modal-ink-3, var(--ink-3));
-      line-height: 1.65;
+      font-family: var(--font-sans);
+      font-size: 0.875rem;
+      color: var(--modal-ink-3, var(--muted-foreground));
+      line-height: 1.6;
       max-width: 680px;
     }
 
@@ -760,20 +856,20 @@
       display: flex;
       flex-wrap: wrap;
       gap: 24px;
-      margin-top: 24px;
+      margin-top: 20px;
       max-width: 680px;
     }
 
     .meta-item {
-      font-family: var(--font-display);
-      font-size: 0.78rem;
-      color: var(--modal-ink-3, var(--ink-3));
-      letter-spacing: 0.02em;
+      font-family: var(--font-sans);
+      font-size: 0.8125rem;
+      color: var(--modal-ink-3, var(--muted-foreground));
+      letter-spacing: 0;
     }
 
     .meta-item strong {
       font-weight: 600;
-      color: var(--modal-ink-2, var(--ink-2));
+      color: var(--modal-ink-2, var(--foreground));
     }
 
     /* ─── MODAL VARIANTS (per-project palettes preserved) ───── */
