@@ -392,6 +392,29 @@
 
     .social-links svg { width: 15px; height: 15px; flex-shrink: 0; }
 
+    /* ─── WORK SECTION GLOW ─────────────────────────────────── */
+    .work-section {
+      position: relative;
+    }
+
+    .work-section::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 900px;
+      height: 700px;
+      background: radial-gradient(ellipse at center, rgba(14,201,176,0.08) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    .work-section > .container {
+      position: relative;
+      z-index: 1;
+    }
+
     /* ─── CARDS GRID ────────────────────────────────────────── */
     .work-grid {
       display: grid;
@@ -1164,7 +1187,7 @@
 <hr />
 
 <!-- ─────────────────── SELECTED WORK ───────────────────────── -->
-<section>
+<section class="work-section">
   <div class="container">
     <span class="section-label">Selected work</span>
 
