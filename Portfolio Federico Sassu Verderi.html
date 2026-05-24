@@ -19,12 +19,12 @@
       --muted:           #1A1A1A;
       --muted-foreground:#888888;
       --border:          rgba(255,255,255,0.09);
-      --ring:            rgba(14,201,176,0.5);
+      --ring:            rgba(255,255,255,0.45);
 
-      /* Teal accent — Cassis signature */
-      --teal:            #0EC9B0;
-      --teal-bg:         rgba(14,201,176,0.1);
-      --teal-border:     rgba(14,201,176,0.28);
+      /* Neutral accent — replaces former teal */
+      --teal:            #F5F5F5;
+      --teal-bg:         rgba(255,255,255,0.06);
+      --teal-border:     rgba(255,255,255,0.18);
 
       /* Border radius */
       --radius-sm:  4px;
@@ -133,7 +133,7 @@
       padding-top: 60px;
     }
 
-    /* Cassis teal hero glow */
+    /* Neutral hero glow */
     body::before {
       content: '';
       position: fixed;
@@ -142,12 +142,12 @@
       transform: translateX(-50%);
       width: 900px;
       height: 640px;
-      background: radial-gradient(ellipse at 50% 30%, rgba(14,201,176,0.13) 0%, transparent 68%);
+      background: radial-gradient(ellipse at 50% 30%, rgba(255,255,255,0.06) 0%, transparent 68%);
       pointer-events: none;
       z-index: 0;
     }
 
-    ::selection { background: var(--teal); color: #080808; }
+    ::selection { background: #F5F5F5; color: #080808; }
 
     a:focus-visible,
     button:focus-visible,
@@ -521,7 +521,7 @@
       transform: translate(-50%, -50%);
       width: 900px;
       height: 700px;
-      background: radial-gradient(ellipse at center, rgba(14,201,176,0.08) 0%, transparent 65%);
+      background: radial-gradient(ellipse at center, rgba(255,255,255,0.04) 0%, transparent 65%);
       pointer-events: none;
       z-index: 0;
     }
@@ -843,7 +843,7 @@
       opacity: 1;
     }
 
-    /* Modal tag — teal pill badge */
+    /* Modal tag — neutral pill badge (uses per-modal palette) */
     .modal-tag {
       font-family: var(--font-sans);
       display: inline-block;
@@ -851,9 +851,9 @@
       font-weight: 600;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      color: var(--modal-accent, var(--teal));
-      background: rgba(14,201,176,0.1);
-      border: 1px solid rgba(14,201,176,0.25);
+      color: var(--modal-accent, var(--modal-ink, var(--foreground)));
+      background: color-mix(in srgb, var(--modal-accent, var(--modal-ink, #F5F5F5)) 8%, transparent);
+      border: 1px solid color-mix(in srgb, var(--modal-accent, var(--modal-ink, #F5F5F5)) 22%, transparent);
       border-radius: 9999px;
       padding: 5px 14px;
       margin-bottom: 24px;
