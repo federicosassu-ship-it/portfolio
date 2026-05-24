@@ -782,16 +782,24 @@
     }
     #lb-close {
       position: absolute;
-      top: 20px; right: 24px;
-      background: none; border: none;
-      color: rgba(255,255,255,0.65);
-      font-size: 1.4rem;
+      top: 20px; right: 20px;
+      background: rgba(255,255,255,0.15);
+      border: 1.5px solid rgba(255,255,255,0.35);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 50%;
+      width: 44px; height: 44px;
+      display: flex; align-items: center; justify-content: center;
+      color: #FFFFFF;
+      font-size: 1.1rem;
       cursor: pointer;
-      padding: 4px 8px;
       line-height: 1;
-      transition: color 0.15s;
+      transition: background 0.15s, border-color 0.15s;
     }
-    #lb-close:hover { color: #fff; }
+    #lb-close:hover {
+      background: rgba(255,255,255,0.28);
+      border-color: rgba(255,255,255,0.65);
+    }
   </style>
 </head>
 <body>
