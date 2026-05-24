@@ -364,6 +364,17 @@
     }
     .card.card-agromercato .card-body { background: #EDF4ED; }
 
+    .card.card-locali {
+      background: #2A4ED0;
+      border-color: #1E3BA0;
+    }
+    .card.card-locali .card-body { background: #2A4ED0; }
+    .card.card-locali .card-title { color: #FFFFFF; }
+    .card.card-locali .card-desc { color: rgba(255,255,255,0.72); }
+    .card.card-locali .card-footer { border-top-color: rgba(255,255,255,0.15); }
+    .card.card-locali .card-footer-meta { color: rgba(255,255,255,0.50); }
+    .card.card-locali .card-footer-link { color: rgba(255,255,255,0.85); }
+
     /* Responsive */
     @media (max-width: 900px) {
       .work-grid { grid-template-columns: repeat(2, 1fr); }
@@ -726,12 +737,12 @@
     }
 
     #modal-locali {
-      --modal-bg:     #F2EFF9;
-      --modal-ink:    #1A1428;
-      --modal-ink-2:  #3D3060;
-      --modal-ink-3:  #7A6BA0;
-      --modal-accent: #7C5CBF;
-      --modal-border: #CFC9E8;
+      --modal-bg:     #EBF0FB;
+      --modal-ink:    #111E5A;
+      --modal-ink-2:  #2A4ED0;
+      --modal-ink-3:  #5B7ADB;
+      --modal-accent: #2A4ED0;
+      --modal-border: #BAC8EC;
     }
   </style>
 </head>
@@ -881,16 +892,16 @@
       </article>
 
       <!-- LOCALI -->
-      <article class="card" onclick="openModal('locali')">
-        <div class="card-image-wrap">
-          <img src="assets/locali/locali-splash.png" alt="LocaLì — splash screen" style="object-fit: contain; padding: 14px; background: #4F6FE6;" />
-          <span class="card-badge" style="background:#7C5CBF;">Live MVP</span>
+      <article class="card card-locali" onclick="openModal('locali')">
+        <div class="card-image-wrap" style="display:flex; align-items:center; justify-content:center; background:#2A4ED0;">
+          <img src="assets/locali/locali-logo-transparent.png" alt="LocaLì logo" style="width:74%; height:auto; object-fit:contain; display:block;" />
+          <span class="card-badge" style="background:#1E3BA0;">Product · H-Farm</span>
         </div>
         <div class="card-body">
           <h2 class="card-title">LocaLì</h2>
-          <p class="card-desc">We killed our first startup when the financial model didn't close. Then built LocaLì — a city discovery app for international students. Live MVP at localit.lovable.app.</p>
+          <p class="card-desc">A city discovery platform for international students — built after killing the first version when the model didn't hold.</p>
           <div class="card-footer">
-            <span class="card-footer-meta">2025–2026 · H-Farm College</span>
+            <span class="card-footer-meta">2025–Present · H-Farm College</span>
             <a href="https://localit.lovable.app" target="_blank" rel="noopener" class="card-footer-link" onclick="event.stopPropagation();">Live ↗</a>
           </div>
         </div>
@@ -1125,60 +1136,65 @@
   <!-- ── MODAL: LOCALI ── -->
   <div class="modal" id="modal-locali">
     <button class="modal-close" onclick="closeModal()">✕</button>
-    <span class="modal-tag">Venture Thinking · Live MVP</span>
+    <span class="modal-tag">Product · H-Farm College</span>
 
-    <img src="assets/locali/locali-splash.png" alt="LocaLì app — splash" class="modal-hero" style="object-fit: contain; background: #4F6FE6; padding: 24px; aspect-ratio: 16/9;" />
+    <!-- Logo hero -->
+    <div style="display:flex; align-items:center; justify-content:center; background:#2A4ED0; border-radius:10px; padding:44px 24px; margin-bottom:32px; max-width:460px; margin-left:auto; margin-right:auto;">
+      <img src="assets/locali/locali-logo-transparent.png" alt="LocaLì logo" style="width:76%; height:auto; object-fit:contain;" />
+    </div>
 
-    <h2 class="modal-headline">We killed our first startup when the financial model didn't close. Then we built this.</h2>
+    <h2 class="modal-headline">A platform for international students navigating an unfamiliar city — built after killing the first version when the model didn't hold.</h2>
 
-    <p class="modal-hook">We started with CheckTheStreet — an urban safety app. Built the product, mapped the personas, designed the B2B2C model. Then ran the financial model: revenues couldn't cover operating costs at 36 months. And the content verification problem — a crowdsourced safety platform in the wrong hands becomes a misinformation weapon. We didn't defend the solution. We questioned the problem.</p>
+    <p class="modal-hook">LocaLì started as CheckTheStreet — a Waze-like app for safe micro-movements in the city, built around crowdsourced real-time alerts on street-level incidents. When financial projections and legal constraints made it clear the model wouldn't work, we didn't defend it — we questioned the problem from scratch and rebuilt around a sharper insight: international students don't need a safety app, they need local context from day one.</p>
 
     <div class="modal-metrics">
-      <span class="metric-pill">TAM €5B global</span>
-      <span class="metric-pill">34% ESN integration</span>
-      <span class="metric-pill">+10.7% YoY growth</span>
-      <span class="metric-pill">Live MVP</span>
+      <span class="metric-pill">3 features: Explore · Deals · Safe&amp;Chill</span>
+      <span class="metric-pill">€2.99/mo or €9.99/semester</span>
+      <span class="metric-pill">GTM: 2,500 users · 3 Italian cities</span>
+      <span class="metric-pill">Functional mockups + pitch deck</span>
     </div>
 
     <div class="modal-section">
-      <p class="modal-section-label">The pivot</p>
+      <p class="modal-section-label">The insight</p>
       <div class="modal-section-body">
-        <p>We asked: who experiences the information gap most intensely? Not the Italian student who knows the city. The international student — arriving with zero local context, zero network, often a language barrier, for 6–12 months. Same problem, more acute, on a ticking clock.</p>
-        <p>From that question came LocaLì: not a safety tool, but the student layer of the city. Map &amp; Discovery, Student Deals, Safe &amp; Chill.</p>
+        <p>Every year, 50,000 international students arrive in Italy alone — full of expectations, and completely blind to the city they're about to live in for six months. Their only references are the few people they met in the first days and chaotic WhatsApp groups where thousands of messages pile up without answering the one question that matters: what should I do tonight, and where?</p>
+        <p>The problem compounds in two directions. Time: 180 days feel like an eternity until you realize every hour spent figuring out where to go is a piece of the experience gone. Resources: every tourist trap, every missed discount, every wrong neighborhood at the wrong hour is money and freedom you don't get back.</p>
+        <p>The result is a number that shouldn't exist: only 34% of international students manage to actually integrate into the city they live in. Not because they lack motivation — but because no tool was built for them.</p>
       </div>
     </div>
 
     <div class="modal-section">
-      <p class="modal-section-label">The problem is real</p>
+      <p class="modal-section-label">The product</p>
       <div class="modal-section-body">
-        <p>ESNsurvey XV (2024, N=17,855): only 34% of international students actively integrate with the city they arrive in. 50,000 international students arrive in Italy every year (+10.7% YoY) — all starting from zero. I did Erasmus in Vilnius and navigated an unknown city through fragmented WhatsApp groups. That experience built the first hypothesis.</p>
+        <p>LocaLì works through three pillars. <strong>Explore</strong> maps the places that actually matter to international students — from quiet study rooms to the best spots to go out — so you stop navigating blind and start experiencing the city like someone who actually lives there.</p>
+        <p><strong>Student Deals</strong> solves a specific invisibility problem: every city is full of discounts and benefits reserved for students, but they're scattered across fragmented websites, window signs and last-minute word of mouth. Nobody finds them until it's too late. LocaLì aggregates them in one place — you walk in, show the code on the app linked to your student card, and pay less. Immediately.</p>
+        <p><strong>Safe &amp; Chill</strong> closes the loop: real-time crowdsourced reports from other students in the community show you the safest route home, based on what's actually happening in the city at that moment.</p>
       </div>
     </div>
 
-    <div class="modal-section">
-      <p class="modal-section-label">The model</p>
-      <div class="modal-section-body">
-        <p>B2C freemium: free Guest mode → €2.99/month or €9.99/semester. TAM €5B globally, SAM €400M Europe, SOM €40M (Italy beachhead). Live MVP shipped on Lovable.</p>
+    <!-- Materials -->
+    <div class="deck-cta-wrap">
+      <p class="deck-cta-label">Materials</p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">
+        <a href="https://localit.lovable.app" target="_blank" rel="noopener" class="deck-btn">Live MVP ↗</a>
+        <a href="assets/locali/locali-pitch-deck.pptx" target="_blank" class="deck-btn" style="background:transparent; color:var(--modal-ink); border:1.5px solid var(--modal-border);">Pitch deck ↗</a>
+        <a href="https://checkthestreet.lovable.app" target="_blank" rel="noopener" class="deck-btn" style="background:transparent; color:var(--modal-ink); border:1.5px solid var(--modal-border);">CheckTheStreet (il pivot) ↗</a>
       </div>
     </div>
 
-    <div class="modal-gallery">
-      <img src="assets/locali/locali-map.png" alt="LocaLì — map view" />
-      <img src="assets/locali/locali-deals.png" alt="LocaLì — student deals" />
-      <img src="assets/locali/locali-pricing.png" alt="LocaLì — pricing" />
-    </div>
-    <p class="img-caption">LocaLì app: map discovery, student deals, pricing tiers.</p>
-
-    <div class="modal-links">
-      <a href="https://localit.lovable.app" target="_blank" rel="noopener" class="modal-link-primary">Live app: localit.lovable.app ↗</a>
-      <a href="https://checkthestreet.lovable.app" target="_blank" rel="noopener" class="modal-link-secondary">CheckTheStreet — the idea we killed ↗</a>
+    <!-- App screens — 3 screenshots -->
+    <div style="display:flex; flex-direction:column; gap:10px; margin:28px 0 6px;">
+      <img src="assets/locali/locali-screen-1.png" style="width:100%; object-fit:contain; border-radius:8px; background:#D8E3F5;" />
+      <img src="assets/locali/locali-screen-2.png" style="width:100%; object-fit:contain; border-radius:8px; background:#D8E3F5;" />
+      <img src="assets/locali/locali-screen-3.png" style="width:100%; object-fit:contain; border-radius:8px; background:#D8E3F5;" />
     </div>
 
-    <p class="modal-credits">Entrepreneurship in Digital Age course — MSc Digital Transformation &amp; Entrepreneurship, H-Farm College / University of Chichester, A.Y. 2025/2026.</p>
+    <p class="modal-credits">Federico Sassu Verderi — Strategy &amp; Business Operations · Alessandro Di Mauro — Product Development &amp; Tech Lead · Jacopo Cecchin — User Experience &amp; Community Growth</p>
 
     <div class="modal-meta">
-      <span class="meta-item"><strong>Period:</strong> 2025–2026</span>
-      <span class="meta-item"><strong>Role:</strong> Co-founder — venture design, financial modeling, market sizing</span>
+      <span class="meta-item"><strong>Period:</strong> 2025 – Present</span>
+      <span class="meta-item"><strong>Role:</strong> Strategy &amp; Business Operations</span>
+      <span class="meta-item"><strong>Context:</strong> H-Farm College · Entrepreneurship in the Digital Age</span>
       <span class="meta-item"><strong>Team:</strong> 3</span>
     </div>
   </div>
