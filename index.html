@@ -375,6 +375,12 @@
     .card.card-locali .card-footer-meta { color: rgba(255,255,255,0.50); }
     .card.card-locali .card-footer-link { color: rgba(255,255,255,0.85); }
 
+    .card.card-lux {
+      background: #FFFFFF;
+      border-color: #DEDEDE;
+    }
+    .card.card-lux .card-body { background: #FFFFFF; }
+
     /* Responsive */
     @media (max-width: 900px) {
       .work-grid { grid-template-columns: repeat(2, 1fr); }
@@ -736,6 +742,15 @@
       --modal-border: #C5D9C5;
     }
 
+    #modal-lux {
+      --modal-bg:     #FFFFFF;
+      --modal-ink:    #111111;
+      --modal-ink-2:  #444444;
+      --modal-ink-3:  #999999;
+      --modal-accent: #111111;
+      --modal-border: #E4E4E4;
+    }
+
     #modal-locali {
       --modal-bg:     #2A4ED0;
       --modal-ink:    #E8C840;
@@ -936,6 +951,22 @@
           <div class="card-footer">
             <span class="card-footer-meta">2025–Present · H-Farm College</span>
             <a href="https://localit.lovable.app" target="_blank" rel="noopener" class="card-footer-link" onclick="event.stopPropagation();">Live ↗</a>
+          </div>
+        </div>
+      </article>
+
+      <!-- LUX CHALLENGE -->
+      <article class="card card-lux" onclick="openModal('lux')">
+        <div class="card-image-wrap" style="display:flex; align-items:center; justify-content:center; background:#FFFFFF;">
+          <img src="assets/lux/lux-logo.png" alt="Lux Collective logo" style="width:78%; height:auto; object-fit:contain; display:block;" />
+          <span class="card-badge" style="background:#111111; color:#FFFFFF;">Challenge · H-Farm</span>
+        </div>
+        <div class="card-body">
+          <h2 class="card-title">Lux Challenge</h2>
+          <p class="card-desc">Brand innovation for SOCIO — The Lux Collective's urban lifestyle brand. Designed the social experience for the Social Nomad generation. 2nd place out of 10 teams.</p>
+          <div class="card-footer">
+            <span class="card-footer-meta">Mar – Apr 2026 · H-Farm College</span>
+            <span class="card-footer-link">Open ↗</span>
           </div>
         </div>
       </article>
@@ -1163,6 +1194,66 @@
       <span class="meta-item"><strong>Period:</strong> March – May 2025</span>
       <span class="meta-item"><strong>Role:</strong> Strategy &amp; Go-to-Market</span>
       <span class="meta-item"><strong>Context:</strong> H-Farm Startup Centre Pre-Acceleration Program</span>
+    </div>
+  </div>
+
+  <!-- ── MODAL: LUX ── -->
+  <div class="modal" id="modal-lux">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <span class="modal-tag">Brand Innovation Challenge · The Lux Collective x H-Farm College</span>
+
+    <!-- Logo hero -->
+    <div style="display:flex; align-items:center; justify-content:center; padding:40px 24px 28px; max-width:500px; margin:0 auto 28px;">
+      <img src="assets/lux/lux-logo.png" alt="The Lux Collective logo" style="width:80%; height:auto; object-fit:contain;" />
+    </div>
+
+    <h2 class="modal-headline">Designing the social experience of SOCIO — The Lux Collective's urban lifestyle brand for the Social Nomad generation.</h2>
+
+    <p class="modal-hook">The Lux Collective — a global hospitality group managing 18+ resorts across the Indian Ocean, China and Tanzania — commissioned H-Farm College students to reimagine the social spaces of SOCIO, their newest urban lifestyle brand. The challenge: design distinctive USPs that could turn a hotel lobby into a 24/7 social hub for a guest who blurs the lines between work, life, and play. We placed 2nd out of 10 competing teams.</p>
+
+    <div class="modal-metrics">
+      <span class="metric-pill">2nd / 10 teams</span>
+      <span class="metric-pill">Jury of 4 TLC executives</span>
+      <span class="metric-pill">30-day sprint</span>
+      <span class="metric-pill">Live pitch at H-Farm</span>
+    </div>
+
+    <div class="modal-section">
+      <p class="modal-section-label">The brief</p>
+      <div class="modal-section-body">
+        <p>SOCIO targets the Social Nomad — location-independent, community-driven, wellness-conscious travelers who find traditional hotels isolating and inadequate for how they actually live and work. The brief asked us to go beyond standard hospitality thinking and design social spaces that feel less like a hotel and more like a neighborhood hub that happens to have rooms.</p>
+      </div>
+    </div>
+
+    <div class="modal-section">
+      <p class="modal-section-label">Our approach</p>
+      <div class="modal-section-body">
+        <p>We started with the guest. I led the buyer persona definition and customer experience design — mapping the Social Nomad's daily rituals, needs and friction points across the full guest journey, from booking to arrival to the late-night wind-down. From that foundation we designed a concept for SOCIO's social spaces organized around those rituals: environments that shift identity throughout the day, with specific touchpoints designed to generate the spontaneous connections that define the Social Nomad experience.</p>
+      </div>
+    </div>
+
+    <!-- Materials -->
+    <div class="deck-cta-wrap">
+      <p class="deck-cta-label">Materials</p>
+      <div style="display:flex; flex-wrap:wrap; gap:10px;">
+        <a href="assets/lux/lux-pitch-deck.pdf" target="_blank" class="deck-btn">Pitch deck ↗</a>
+      </div>
+    </div>
+
+    <!-- Screens -->
+    <div style="display:flex; flex-direction:column; gap:10px; margin:28px 0 6px;">
+      <img src="assets/lux/lux-screen-1.png" style="width:100%; object-fit:contain; border-radius:8px; background:#F5F5F5;" />
+      <img src="assets/lux/lux-screen-2.png" style="width:100%; object-fit:contain; border-radius:8px; background:#F5F5F5;" />
+      <img src="assets/lux/lux-screen-3.png" style="width:100%; object-fit:contain; border-radius:8px; background:#F5F5F5;" />
+      <img src="assets/lux/lux-screen-4.png" style="width:100%; object-fit:contain; border-radius:8px; background:#F5F5F5;" />
+    </div>
+
+    <p class="modal-credits">Federico Sassu Verderi — Buyer Persona &amp; Customer Experience Design</p>
+
+    <div class="modal-meta">
+      <span class="meta-item"><strong>Period:</strong> March – April 2026</span>
+      <span class="meta-item"><strong>Role:</strong> Buyer Persona &amp; Customer Experience Design</span>
+      <span class="meta-item"><strong>Team:</strong> 4</span>
     </div>
   </div>
 
