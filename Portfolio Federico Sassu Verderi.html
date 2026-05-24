@@ -79,11 +79,12 @@
     }
 
     .nav-logo {
-      font-size: 0.9375rem;
-      font-weight: 600;
-      color: #F5F5F5;
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #FFFFFF;
       text-decoration: none;
-      letter-spacing: -0.01em;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
     }
 
     .nav-actions {
@@ -850,6 +851,100 @@
       text-decoration-color: #0A0A0A;
     }
 
+    /* ─── OUTRO — closing black band with big CTA ───────────── */
+    .outro-band {
+      position: relative;
+      z-index: 1;
+      background: #0A0A0A;
+      color: #FFFFFF;
+      padding: 128px 0 64px;
+      margin-top: 96px;
+      overflow: hidden;
+    }
+
+    .outro-band::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 76% 25%, rgba(255,255,255,0.06) 0%, transparent 55%),
+        radial-gradient(ellipse at 18% 80%, rgba(255,255,255,0.04) 0%, transparent 55%);
+      pointer-events: none;
+    }
+
+    .outro-inner {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 22px;
+    }
+
+    .outro-eyebrow {
+      font-size: 0.6875rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+
+    .outro-headline {
+      font-size: clamp(2.75rem, 8vw, 5.5rem);
+      font-weight: 800;
+      letter-spacing: -0.045em;
+      line-height: 1;
+      color: #FFFFFF;
+    }
+
+    .outro-sub {
+      max-width: 580px;
+      font-size: clamp(0.9375rem, 1.4vw, 1.0625rem);
+      line-height: 1.6;
+      color: rgba(255,255,255,0.65);
+    }
+
+    .outro-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 12px;
+      font-size: 1rem;
+      font-weight: 600;
+      background: #FFFFFF;
+      color: #0A0A0A;
+      text-decoration: none;
+      padding: 18px 38px;
+      border-radius: 9999px;
+      transition: transform var(--t), background var(--t);
+    }
+
+    @media (hover: hover) {
+      .outro-cta:hover {
+        transform: translateY(-2px);
+        background: #E8E8E8;
+      }
+    }
+
+    .outro-credit {
+      position: relative;
+      z-index: 2;
+      margin-top: 88px;
+      padding: 28px 0 0;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      text-align: center;
+      font-size: 0.8125rem;
+      color: rgba(255,255,255,0.45);
+    }
+
+    @media (max-width: 640px) {
+      .outro-band { padding: 80px 0 48px; margin-top: 56px; }
+      .outro-headline { font-size: 2.75rem; }
+      .outro-cta { padding: 15px 30px; font-size: 0.9375rem; }
+      .outro-credit { margin-top: 56px; }
+    }
+
     /* ═══════════════════════════════════════════════════════════
        OVERLAY + MODAL
        ═══════════════════════════════════════════════════════════ */
@@ -1306,11 +1401,8 @@
 <nav class="site-nav">
   <div class="container">
     <div class="nav-inner">
-      <span class="nav-logo">Federico Sassu Verderi</span>
-      <div class="nav-actions">
-        <a href="https://www.linkedin.com/in/federico-sassu-verderi-0345a1231" target="_blank" rel="noopener" class="nav-link">LinkedIn</a>
-        <a href="mailto:Federico.sassu@student.h-farm.com" class="nav-cta">Get in touch</a>
-      </div>
+      <span class="nav-logo">My Portfolio</span>
+      <a href="mailto:Federico.sassu@student.h-farm.com" class="nav-cta">Get in touch</a>
     </div>
   </div>
 </nav>
@@ -1498,18 +1590,18 @@
   </div>
 </section>
 
-<!-- ─────────────────── FOOTER ───────────────────────────────── -->
-<footer>
-  <div class="container">
-    <div class="footer-inner">
-      <span class="footer-name">Federico Sassu Verderi · 2026</span>
-      <nav class="footer-links">
-        <a href="https://www.linkedin.com/in/federico-sassu-verderi-0345a1231" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:Federico.sassu@student.h-farm.com">Email</a>
-      </nav>
-    </div>
+<!-- ─────────────────── OUTRO ────────────────────────────────── -->
+<section class="outro-band" aria-label="Get in touch">
+  <div class="container outro-inner">
+    <span class="outro-eyebrow">Let's connect</span>
+    <h2 class="outro-headline">Get in touch.</h2>
+    <p class="outro-sub">Always open to a conversation about early stage ventures, product strategy, or anything you're trying to figure out.</p>
+    <a href="mailto:Federico.sassu@student.h-farm.com" class="outro-cta">Get in touch ↗</a>
   </div>
-</footer>
+  <div class="container outro-credit">
+    Federico Sassu Verderi · 2026
+  </div>
+</section>
 
 <!-- ─────────────────── OVERLAY + MODALS ─────────────────────── -->
 <div class="overlay" id="overlay" onclick="handleOverlayClick(event)">
