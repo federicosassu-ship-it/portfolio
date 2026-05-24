@@ -737,12 +737,12 @@
     }
 
     #modal-locali {
-      --modal-bg:     #EBF0FB;
-      --modal-ink:    #111E5A;
-      --modal-ink-2:  #2A4ED0;
-      --modal-ink-3:  #5B7ADB;
-      --modal-accent: #2A4ED0;
-      --modal-border: #BAC8EC;
+      --modal-bg:     #2A4ED0;
+      --modal-ink:    #FFFFFF;
+      --modal-ink-2:  #E8C840;
+      --modal-ink-3:  rgba(255,255,255,0.58);
+      --modal-accent: #E8C840;
+      --modal-border: rgba(255,255,255,0.18);
     }
   </style>
 </head>
@@ -1138,9 +1138,9 @@
     <button class="modal-close" onclick="closeModal()">✕</button>
     <span class="modal-tag">Product · H-Farm College</span>
 
-    <!-- Logo hero -->
-    <div style="display:flex; align-items:center; justify-content:center; background:#2A4ED0; border-radius:10px; padding:44px 24px; margin-bottom:32px; max-width:460px; margin-left:auto; margin-right:auto;">
-      <img src="assets/locali/locali-logo-transparent.png" alt="LocaLì logo" style="width:76%; height:auto; object-fit:contain;" />
+    <!-- Logo hero — floats on the blue modal bg -->
+    <div style="display:flex; align-items:center; justify-content:center; padding:40px 24px 28px; max-width:460px; margin:0 auto 28px;">
+      <img src="assets/locali/locali-logo-transparent.png" alt="LocaLì logo" style="width:80%; height:auto; object-fit:contain;" />
     </div>
 
     <h2 class="modal-headline">A platform for international students navigating an unfamiliar city — built after killing the first version when the model didn't hold.</h2>
@@ -1178,15 +1178,15 @@
       <div style="display:flex; flex-wrap:wrap; gap:10px;">
         <a href="https://localit.lovable.app" target="_blank" rel="noopener" class="deck-btn">Live MVP ↗</a>
         <a href="assets/locali/locali-pitch-deck.pptx" target="_blank" class="deck-btn" style="background:transparent; color:var(--modal-ink); border:1.5px solid var(--modal-border);">Pitch deck ↗</a>
-        <a href="https://checkthestreet.lovable.app" target="_blank" rel="noopener" class="deck-btn" style="background:transparent; color:var(--modal-ink); border:1.5px solid var(--modal-border);">CheckTheStreet (il pivot) ↗</a>
+        <a href="https://checkthestreet.lovable.app" target="_blank" rel="noopener" class="deck-btn" style="background:transparent; color:var(--modal-ink); border:1.5px solid var(--modal-border);">CheckTheStreet — the pivot ↗</a>
       </div>
     </div>
 
     <!-- App screens — 3 screenshots -->
     <div style="display:flex; flex-direction:column; gap:10px; margin:28px 0 6px;">
-      <img src="assets/locali/locali-screen-1.png" style="width:100%; object-fit:contain; border-radius:8px; background:#D8E3F5;" />
-      <img src="assets/locali/locali-screen-2.png" style="width:100%; object-fit:contain; border-radius:8px; background:#D8E3F5;" />
-      <img src="assets/locali/locali-screen-3.png" style="width:100%; object-fit:contain; border-radius:8px; background:#D8E3F5;" />
+      <img src="assets/locali/locali-screen-1.png" style="width:100%; object-fit:contain; border-radius:8px; background:rgba(255,255,255,0.08);" />
+      <img src="assets/locali/locali-screen-2.png" style="width:100%; object-fit:contain; border-radius:8px; background:rgba(255,255,255,0.08);" />
+      <img src="assets/locali/locali-screen-3.png" style="width:100%; object-fit:contain; border-radius:8px; background:rgba(255,255,255,0.08);" />
     </div>
 
     <p class="modal-credits">Federico Sassu Verderi — Strategy &amp; Business Operations · Alessandro Di Mauro — Product Development &amp; Tech Lead · Jacopo Cecchin — User Experience &amp; Community Growth</p>
