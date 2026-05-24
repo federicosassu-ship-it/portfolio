@@ -887,22 +887,50 @@
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 24px;
+      gap: 14px;
+    }
+
+    .outro-mark {
+      display: block;
+      width: 52px;
+      height: 1px;
+      background: rgba(255,255,255,0.35);
+      margin-bottom: 6px;
     }
 
     .outro-statement {
-      max-width: 660px;
-      font-size: clamp(1.0625rem, 1.7vw, 1.3125rem);
+      max-width: 760px;
+      font-size: clamp(1.25rem, 2.2vw, 1.625rem);
       font-weight: 500;
-      line-height: 1.5;
-      color: #F2F2F2;
-      letter-spacing: -0.01em;
+      line-height: 1.42;
+      color: #F0F0F0;
+      letter-spacing: -0.012em;
+    }
+
+    .outro-statement em {
+      font-style: normal;
+      font-weight: 600;
+      color: #FFFFFF;
+    }
+
+    .outro-followup {
+      max-width: 540px;
+      font-size: clamp(0.9375rem, 1.35vw, 1.0625rem);
+      line-height: 1.55;
+      color: rgba(255,255,255,0.62);
+    }
+
+    .outro-followup em {
+      font-style: normal;
+      font-weight: 600;
+      color: #FFFFFF;
     }
 
     .outro-cta {
       display: inline-flex;
       align-items: center;
       gap: 8px;
+      margin-top: 14px;
       font-size: 0.9375rem;
       font-weight: 600;
       background: #FFFFFF;
@@ -933,7 +961,8 @@
 
     @media (max-width: 640px) {
       .outro-band { padding: 56px 0 22px; margin-top: 48px; }
-      .outro-statement { font-size: 1rem; }
+      .outro-statement { font-size: 1.125rem; }
+      .outro-followup { font-size: 0.9375rem; }
       .outro-cta { padding: 13px 24px; font-size: 0.875rem; }
       .outro-credit { margin-top: 40px; }
     }
@@ -1586,7 +1615,9 @@
 <!-- ─────────────────── OUTRO ────────────────────────────────── -->
 <section class="outro-band" aria-label="Get in touch">
   <div class="container outro-inner">
-    <p class="outro-statement">Every project here started with a problem I couldn't stop thinking about. If you're working on something in that spirit, I'd love to hear about it.</p>
+    <span class="outro-mark" aria-hidden="true"></span>
+    <p class="outro-statement">Every project here started with a <em>problem I couldn't stop thinking about</em>.</p>
+    <p class="outro-followup">If you're working on something in that spirit, <em>I'd love to hear about it</em>.</p>
     <a href="mailto:Federico.sassu@student.h-farm.com" class="outro-cta">Get in touch ↗</a>
   </div>
   <div class="container outro-credit">
