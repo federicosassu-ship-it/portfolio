@@ -147,6 +147,61 @@
       z-index: 0;
     }
 
+    /* ─── AMBIENT WAVE BACKGROUND ──────────────────────────── */
+    .ambient-bg {
+      position: fixed;
+      inset: -6% -4%;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+      mask-image: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(0,0,0,0.92) 14%,
+        rgba(0,0,0,0.85) 44%,
+        rgba(0,0,0,0.28) 76%,
+        transparent 100%);
+      -webkit-mask-image: linear-gradient(to bottom,
+        transparent 0%,
+        rgba(0,0,0,0.92) 14%,
+        rgba(0,0,0,0.85) 44%,
+        rgba(0,0,0,0.28) 76%,
+        transparent 100%);
+    }
+
+    .ambient-drift {
+      position: absolute;
+      inset: 0;
+      animation: ambient-drift 28s ease-in-out infinite alternate;
+      will-change: transform;
+    }
+
+    .ambient-bg svg {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      display: block;
+      transform: translate3d(0, var(--py, 0px), 0);
+      will-change: transform;
+    }
+
+    .ambient-bg path {
+      fill: none;
+      stroke: rgba(0,0,0,0.18);
+      stroke-width: 0.6;
+      vector-effect: non-scaling-stroke;
+    }
+
+    @keyframes ambient-drift {
+      0%   { transform: translate3d(-1.8%, -1%, 0) scale(1.03); }
+      100% { transform: translate3d(2%, 1.2%, 0) scale(1.07); }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ambient-drift { animation: none; }
+      .ambient-bg svg { transform: none; }
+    }
+
     ::selection { background: #0A0A0A; color: #FFFFFF; }
 
     a:focus-visible,
@@ -1202,6 +1257,13 @@
 </head>
 <body>
 
+<!-- ─────────────────── AMBIENT WAVE BACKGROUND ──────────────── -->
+<div class="ambient-bg" aria-hidden="true">
+  <div class="ambient-drift">
+    <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice"></svg>
+  </div>
+</div>
+
 <!-- ─────────────────── NAV ──────────────────────────────────── -->
 <nav class="site-nav">
   <div class="container">
@@ -1814,6 +1876,58 @@
   // Click backdrop closes; click on image itself does not
   lightbox.addEventListener('click', closeLightbox);
   lbImg.addEventListener('click', e => e.stopPropagation());
+
+  // ── Ambient wave background ──
+  (function () {
+    const svg = document.querySelector('.ambient-bg svg');
+    if (!svg) return;
+    const W = 1440, H = 900;
+    const LINES = 44;
+    const SEG = 96;
+    const ns = 'http://www.w3.org/2000/svg';
+
+    function gen(yBase, amp, freq, phase, knot) {
+      let d = '';
+      for (let i = 0; i <= SEG; i++) {
+        const t = i / SEG;
+        const x = t * W;
+        const y1 = Math.sin(freq * t * Math.PI * 2 + phase) * amp;
+        const y2 = Math.sin(freq * 1.85 * t * Math.PI * 2 + phase * 1.4) * amp * 0.34;
+        const compression = Math.exp(-Math.pow((t - 0.5) * 3.2, 2)) * knot;
+        const y = (yBase + y1 + y2 + compression) * H;
+        d += i === 0 ? 'M ' + x.toFixed(1) + ' ' + y.toFixed(2)
+                     : ' L ' + x.toFixed(1) + ' ' + y.toFixed(2);
+      }
+      return d;
+    }
+
+    for (let i = 0; i < LINES; i++) {
+      const t = i / (LINES - 1);
+      const yBase = 0.15 + t * 0.7;
+      const phase = 0.32 + (t - 0.5) * 0.75;
+      const amp = 0.045 + (1 - Math.abs(t - 0.5) * 1.4) * 0.06;
+      const knot = (t - 0.5) * 0.085;
+      const p = document.createElementNS(ns, 'path');
+      p.setAttribute('d', gen(yBase, amp, 1.45, phase, knot));
+      const op = 0.11 + Math.abs(t - 0.5) * 0.18;
+      p.setAttribute('stroke', 'rgba(0,0,0,' + op.toFixed(3) + ')');
+      svg.appendChild(p);
+    }
+
+    // Subtle scroll-driven parallax (rAF throttled)
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return;
+    let pending = false, lastY = 0;
+    function update() {
+      const off = Math.max(-40, Math.min(40, lastY * 0.045));
+      svg.style.setProperty('--py', off + 'px');
+      pending = false;
+    }
+    window.addEventListener('scroll', function () {
+      lastY = window.scrollY || window.pageYOffset || 0;
+      if (!pending) { pending = true; requestAnimationFrame(update); }
+    }, { passive: true });
+  })();
 
   // Wire zoom-in cursor + click to all modal content images (skip logos)
   document.querySelectorAll('.modal img').forEach(img => {
