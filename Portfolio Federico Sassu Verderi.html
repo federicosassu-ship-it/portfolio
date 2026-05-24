@@ -1530,7 +1530,7 @@
 
     <!-- Team photos -->
     <div class="modal-gallery" style="grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 8px;">
-      <img src="assets/ross/ross-team-hackathon.png" alt="ROSS team at H HACK" style="width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top; border-radius:6px;" />
+      <img src="assets/ross/ross-team-hackathon.png" alt="ROSS team at H HACK" data-href="https://www.linkedin.com/posts/h-ack-top-projects-ugcPost-7449007621187219456-4ZrC/?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAADnt_OgB0EZ0Pxen0QICO6jvyLLp3XjUC2c" title="Open H HACK Top Projects on LinkedIn" style="width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top; border-radius:6px;" />
       <img src="assets/ross/ross-team-humanplus.jpg" alt="ROSS team at HUMAN+ Healthcare Dialogue 2026" style="width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top; border-radius:6px;" />
     </div>
     <p class="img-caption">H HACK 2026 · HUMAN+ Healthcare Dialogue 2026</p>
@@ -1585,7 +1585,7 @@
       </div>
     </div>
 
-    <img src="assets/manta-ai/manta-pitch.jpg" alt="Final pitch presentation — MANTA AI" style="width:100%; border-radius:8px; object-fit:cover; margin: 28px 0 8px;" />
+    <img src="assets/manta-ai/manta-pitch.jpg" alt="Final pitch presentation — MANTA AI" data-href="https://www.linkedin.com/feed/update/urn:li:activity:7400145816947957760/?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAADnt_OgB0EZ0Pxen0QICO6jvyLLp3XjUC2c" title="Open MANTA pitch post on LinkedIn" style="width:100%; border-radius:8px; object-fit:cover; margin: 28px 0 8px;" />
     <p class="img-caption">Final pitch with live demo · Impact Puglia Challenge · November 2025</p>
 
     <div class="deck-cta-wrap">
@@ -1659,7 +1659,7 @@
 
     <!-- Pitch photos -->
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px; margin:28px 0 8px;">
-      <img src="assets/agromercato/agromercato-final-pitch-post.png" alt="Final pitch — H Farm post" style="width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top; border-radius:6px;" />
+      <img src="assets/agromercato/agromercato-final-pitch-post.png" alt="Final pitch — H Farm post" data-href="https://www.linkedin.com/posts/h-farm_pre-accelerator-spring-edition-2026-activity-7461067870362488833-gl99?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAADnt_OgB0EZ0Pxen0QICO6jvyLLp3XjUC2c" title="Open Pre Accelerator Spring Edition post on LinkedIn" style="width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top; border-radius:6px;" />
       <img src="assets/agromercato/agromercato-final-pitch-2.png" alt="Final pitch presentation — H Farm Startup Centre" style="width:100%; aspect-ratio:3/4; object-fit:cover; object-position:center top; border-radius:6px;" />
     </div>
     <img src="assets/agromercato/agromercato-team.jpg" alt="H Farm Startup Centre cohort — pre acceleration program" style="width:100%; border-radius:6px; object-fit:cover; object-position:center 30%; margin:8px 0;" />
@@ -1929,14 +1929,24 @@
     }, { passive: true });
   })();
 
-  // Wire zoom-in cursor + click to all modal content images (skip logos)
+  // Wire zoom-in cursor + click to all modal content images (skip logos).
+  // If an image has data-href, click opens that URL in a new tab instead.
   document.querySelectorAll('.modal img').forEach(img => {
     if (/logo|transparent/i.test(img.getAttribute('src') || '')) return;
-    img.style.cursor = 'zoom-in';
-    img.addEventListener('click', function(e) {
-      e.stopPropagation();
-      openLightbox(this.src, this.alt);
-    });
+    const href = img.getAttribute('data-href');
+    if (href) {
+      img.style.cursor = 'pointer';
+      img.addEventListener('click', function(e) {
+        e.stopPropagation();
+        window.open(href, '_blank', 'noopener,noreferrer');
+      });
+    } else {
+      img.style.cursor = 'zoom-in';
+      img.addEventListener('click', function(e) {
+        e.stopPropagation();
+        openLightbox(this.src, this.alt);
+      });
+    }
   });
 </script>
 
