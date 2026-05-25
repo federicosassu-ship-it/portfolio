@@ -460,21 +460,35 @@
       font-size: 0.875rem;
       color: var(--foreground);
       text-decoration: none;
-      transition: background var(--t), border-color var(--t), box-shadow var(--t);
+      transition: background 320ms cubic-bezier(0.4, 0, 0.2, 1),
+                  border-color 320ms cubic-bezier(0.4, 0, 0.2, 1),
+                  box-shadow 320ms cubic-bezier(0.4, 0, 0.2, 1);
       cursor: pointer;
       line-height: 1.4;
     }
 
-    @media (hover: hover) {
-      .chip:hover {
-        background: #F2F2F2;
-        border-color: rgba(0,0,0,0.22);
-        box-shadow: var(--shadow-sm);
-      }
+    .chip-name {
+      font-weight: 500;
+      color: #0A0A0A;
+      transition: color 320ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .chip-name { font-weight: 500; color: #0A0A0A; }
-    .chip-desc { font-weight: 400; color: #6B6B6B; font-size: 0.8125rem; }
+    .chip-desc {
+      font-weight: 400;
+      color: #6B6B6B;
+      font-size: 0.8125rem;
+      transition: color 320ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    @media (hover: hover) {
+      .chip:hover {
+        background: #0A0A0A;
+        border-color: #0A0A0A;
+        box-shadow: var(--shadow-md);
+      }
+      .chip:hover .chip-name { color: #FFFFFF; }
+      .chip:hover .chip-desc { color: rgba(255,255,255,0.7); }
+    }
 
     .chip-sm {
       padding: 6px 12px;
