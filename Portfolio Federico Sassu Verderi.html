@@ -999,6 +999,83 @@
       text-decoration-color: #0A0A0A;
     }
 
+    /* ─── ARCADE — little jump game between projects and outro ─ */
+    .arcade-section {
+      padding: 88px 0 96px;
+    }
+
+    .arcade-inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
+
+    .arcade-label {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(0,0,0,0.55);
+    }
+
+    .arcade-label::before {
+      content: '';
+      display: inline-block;
+      width: 32px;
+      height: 2px;
+      background: rgba(0,0,0,0.4);
+    }
+
+    .arcade-hint {
+      font-size: 0.875rem;
+      line-height: 1.5;
+      color: #555555;
+      margin-bottom: 6px;
+    }
+
+    .arcade-hint kbd {
+      display: inline-block;
+      padding: 2px 8px;
+      border: 1px solid rgba(0,0,0,0.22);
+      border-bottom-width: 2px;
+      border-radius: 4px;
+      font-family: var(--font-sans);
+      font-size: 0.6875rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      background: rgba(0,0,0,0.04);
+      color: #0A0A0A;
+      margin: 0 2px;
+      vertical-align: 1px;
+    }
+
+    .arcade-frame {
+      width: 100%;
+      max-width: 920px;
+      height: 200px;
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 14px;
+      overflow: hidden;
+      background: #FAFAFA;
+      position: relative;
+    }
+
+    #arcade-canvas {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    @media (max-width: 640px) {
+      .arcade-section { padding: 56px 0 64px; }
+      .arcade-frame { height: 160px; border-radius: 12px; }
+    }
+
     /* ─── OUTRO — closing black band ────────────────────────── */
     .outro-band {
       position: relative;
@@ -1757,6 +1834,17 @@
   </div>
 </section>
 
+<!-- ─────────────────── ARCADE JUMP GAME ─────────────────────── -->
+<section class="arcade-section" aria-label="Arcade jump game">
+  <div class="container arcade-inner">
+    <span class="arcade-label">A little break</span>
+    <p class="arcade-hint">Press <kbd>SPACE</kbd> to jump · tap on touch</p>
+    <div class="arcade-frame">
+      <canvas id="arcade-canvas" width="920" height="200"></canvas>
+    </div>
+  </div>
+</section>
+
 <!-- ─────────────────── OUTRO ────────────────────────────────── -->
 <section class="outro-band" aria-label="Get in touch">
   <div class="container outro-inner">
@@ -2329,6 +2417,159 @@
       });
     }
   });
+
+  // ── Arcade jump game (Chrome-dino style) ──
+  (function () {
+    const canvas = document.getElementById('arcade-canvas');
+    if (!canvas || !canvas.getContext) return;
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width;
+    const H = canvas.height;
+    const GROUND_Y = H - 38;
+    const GRAVITY = 0.72;
+    const JUMP_V = -13.2;
+    const INK = '#0A0A0A';
+    const PLAYER_SIZE = 26;
+
+    const player = { x: 80, y: GROUND_Y - PLAYER_SIZE, w: PLAYER_SIZE, h: PLAYER_SIZE, vy: 0, onGround: true };
+    let obstacles = [];
+    let speed = 5.2;
+    let score = 0;
+    let best = parseInt(localStorage.getItem('arcadeBest') || '0', 10);
+    let state = 'idle'; // 'idle' | 'playing' | 'over'
+    let spawnTimer = 0;
+
+    function reset() {
+      player.y = GROUND_Y - PLAYER_SIZE;
+      player.vy = 0;
+      player.onGround = true;
+      obstacles = [];
+      speed = 5.2;
+      score = 0;
+      spawnTimer = 0;
+      state = 'playing';
+    }
+
+    function jump() {
+      if (state === 'idle' || state === 'over') { reset(); return; }
+      if (player.onGround) {
+        player.vy = JUMP_V;
+        player.onGround = false;
+      }
+    }
+
+    function spawnObstacle() {
+      const tall = Math.random() < 0.3;
+      const h = tall ? 38 : (18 + Math.random() * 14);
+      const w = tall ? 14 : (12 + Math.random() * 8);
+      obstacles.push({ x: W + 20, y: GROUND_Y - h, w: w, h: h });
+    }
+
+    function step() {
+      if (state !== 'playing') return;
+      player.vy += GRAVITY;
+      player.y += player.vy;
+      if (player.y >= GROUND_Y - PLAYER_SIZE) {
+        player.y = GROUND_Y - PLAYER_SIZE;
+        player.vy = 0;
+        player.onGround = true;
+      }
+      for (let i = 0; i < obstacles.length; i++) obstacles[i].x -= speed;
+      obstacles = obstacles.filter(o => o.x + o.w > -10);
+      spawnTimer -= speed;
+      if (spawnTimer <= 0) {
+        spawnObstacle();
+        spawnTimer = 140 + Math.random() * 180;
+      }
+      for (const o of obstacles) {
+        if (player.x < o.x + o.w && player.x + player.w > o.x &&
+            player.y < o.y + o.h && player.y + player.h > o.y) {
+          state = 'over';
+          if (Math.floor(score) > best) {
+            best = Math.floor(score);
+            try { localStorage.setItem('arcadeBest', String(best)); } catch (e) {}
+          }
+        }
+      }
+      score += 0.18;
+      speed = 5.2 + score * 0.0035;
+    }
+
+    function draw() {
+      ctx.clearRect(0, 0, W, H);
+
+      // ground line
+      ctx.fillStyle = INK;
+      ctx.fillRect(0, GROUND_Y + PLAYER_SIZE - 2, W, 2);
+
+      // ground ticks scrolling
+      ctx.fillStyle = 'rgba(0,0,0,0.35)';
+      const tickPhase = (Date.now() / (1000 / 60) * speed) % 24;
+      for (let x = -tickPhase; x < W; x += 24) {
+        ctx.fillRect(x, GROUND_Y + PLAYER_SIZE + 4, 8, 2);
+      }
+
+      // player
+      ctx.fillStyle = INK;
+      ctx.fillRect(player.x, player.y, player.w, player.h);
+
+      // obstacles
+      for (const o of obstacles) ctx.fillRect(o.x, o.y, o.w, o.h);
+
+      // score
+      ctx.fillStyle = 'rgba(0,0,0,0.7)';
+      ctx.font = '700 12px Inter, system-ui, sans-serif';
+      ctx.textAlign = 'right';
+      ctx.fillText('SCORE  ' + String(Math.floor(score)).padStart(5, '0'), W - 18, 24);
+      if (best > 0) {
+        ctx.fillStyle = 'rgba(0,0,0,0.4)';
+        ctx.fillText('BEST  ' + String(best).padStart(5, '0'), W - 18, 42);
+      }
+
+      // overlays
+      ctx.textAlign = 'center';
+      if (state === 'idle') {
+        ctx.fillStyle = 'rgba(0,0,0,0.7)';
+        ctx.font = '700 14px Inter, system-ui, sans-serif';
+        ctx.fillText('PRESS SPACE TO START', W / 2, H / 2 - 6);
+      } else if (state === 'over') {
+        ctx.fillStyle = 'rgba(250,250,250,0.92)';
+        ctx.fillRect(W / 2 - 150, H / 2 - 26, 300, 52);
+        ctx.fillStyle = INK;
+        ctx.font = '800 14px Inter, system-ui, sans-serif';
+        ctx.fillText('GAME OVER', W / 2, H / 2 - 4);
+        ctx.font = '600 11px Inter, system-ui, sans-serif';
+        ctx.fillStyle = 'rgba(0,0,0,0.65)';
+        ctx.fillText('SPACE OR TAP TO RESTART', W / 2, H / 2 + 14);
+      }
+      ctx.textAlign = 'left';
+    }
+
+    function loop() {
+      step();
+      draw();
+      requestAnimationFrame(loop);
+    }
+
+    document.addEventListener('keydown', function (e) {
+      if (e.code === 'Space' || e.key === ' ') {
+        // Only intercept if no input is focused
+        const ae = document.activeElement;
+        if (ae && (ae.tagName === 'INPUT' || ae.tagName === 'TEXTAREA' || ae.isContentEditable)) return;
+        // Only intercept if any portion of the canvas is in the viewport
+        const r = canvas.getBoundingClientRect();
+        const onScreen = r.bottom > 0 && r.top < (window.innerHeight || document.documentElement.clientHeight);
+        if (!onScreen) return;
+        e.preventDefault();
+        jump();
+      }
+    });
+
+    canvas.addEventListener('click', jump);
+    canvas.addEventListener('touchstart', function (e) { e.preventDefault(); jump(); }, { passive: false });
+
+    loop();
+  })();
 </script>
 
 </body>
