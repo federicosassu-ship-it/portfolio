@@ -455,13 +455,12 @@
     .section-label::before {
       content: '';
       display: inline-block;
-      width: 0;
+      width: calc(var(--p, 0) * 96px);
       height: 3px;
       background: #0A0A0A;
-      transition: width 1200ms cubic-bezier(0.22, 1, 0.36, 1);
+      transition: width 220ms cubic-bezier(0.22, 1, 0.36, 1);
+      will-change: width;
     }
-
-    .section-label.is-visible::before { width: 96px; }
 
     @media (prefers-reduced-motion: reduce) {
       .section-label::before { width: 96px; transition: none; }
@@ -1669,7 +1668,7 @@
       <a class="chip chip-sm" href="https://replit.com" target="_blank" rel="noopener"><img class="chip-icon" src="assets/logos/replit.png" alt="" /><span class="chip-name">Replit</span></a>
       <a class="chip chip-sm" href="https://www.notion.so" target="_blank" rel="noopener"><img class="chip-icon" src="assets/logos/notion.png" alt="" /><span class="chip-name">Notion</span></a>
       <a class="chip chip-sm" href="https://www.canva.com" target="_blank" rel="noopener"><img class="chip-icon" src="assets/logos/canva.png" alt="" /><span class="chip-name">Canva</span></a>
-      <a class="chip chip-sm" href="https://www.microsoft.com/microsoft-365/excel" target="_blank" rel="noopener"><img class="chip-icon" src="assets/logos/excel.png" alt="" /><span class="chip-name">Excel</span></a>
+      <a class="chip chip-sm" href="https://www.microsoft.com/microsoft-365/excel" target="_blank" rel="noopener"><img class="chip-icon" src="assets/logos/excel.svg" alt="" /><span class="chip-name">Excel</span></a>
       <a class="chip chip-sm" href="https://www.shopify.com" target="_blank" rel="noopener"><img class="chip-icon" src="assets/logos/shopify.png" alt="" /><span class="chip-name">Shopify</span></a>
       <a class="chip chip-sm" href="https://www.facebook.com/business/ads" target="_blank" rel="noopener"><img class="chip-icon" src="assets/logos/meta.png" alt="" /><span class="chip-name">Meta Ads</span></a>
     </div>
@@ -2198,24 +2197,34 @@
   lightbox.addEventListener('click', closeLightbox);
   lbImg.addEventListener('click', e => e.stopPropagation());
 
-  // ── Section labels: grow the dash on scroll-in ──
+  // ── Section labels: dash width follows scroll position (bidirectional) ──
   (function () {
     const labels = document.querySelectorAll('.section-label');
     if (!labels.length) return;
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced || !('IntersectionObserver' in window)) {
-      labels.forEach(l => l.classList.add('is-visible'));
+    if (reduced) {
+      labels.forEach(l => l.style.setProperty('--p', '1'));
       return;
     }
-    const io = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting) {
-          e.target.classList.add('is-visible');
-          io.unobserve(e.target);
-        }
+    let raf = null;
+    function update() {
+      const vh = window.innerHeight || document.documentElement.clientHeight;
+      const start = vh * 0.92;   // label center crosses 92% of viewport → progress starts
+      const end = vh * 0.35;     // label center reaches 35% of viewport → progress = 1
+      labels.forEach(label => {
+        const r = label.getBoundingClientRect();
+        const y = r.top + r.height / 2;
+        const p = Math.max(0, Math.min(1, (start - y) / (start - end)));
+        label.style.setProperty('--p', p.toFixed(3));
       });
-    }, { threshold: 0.55, rootMargin: '0px 0px -8% 0px' });
-    labels.forEach(l => io.observe(l));
+      raf = null;
+    }
+    function onScroll() {
+      if (!raf) raf = requestAnimationFrame(update);
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    update();
   })();
 
   // ── Project row color reveal (touch / no-hover devices) ──
