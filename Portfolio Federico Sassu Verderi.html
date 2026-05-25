@@ -267,10 +267,35 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 28px;
+      gap: 56px;
+    }
+
+    .avatar-wrap {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 120px;
+      height: 120px;
+      flex-shrink: 0;
+    }
+
+    .avatar-wrap::before {
+      content: '';
+      position: absolute;
+      inset: -70px;
+      background-image: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 280 280'%3E%3Cfilter id='d'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.78' numOctaves='2' seed='6'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 13 -7.5'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23d)' fill='black'/%3E%3C/svg%3E");
+      background-size: cover;
+      background-repeat: no-repeat;
+      mask-image: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.85) 48%, rgba(0,0,0,0.4) 70%, transparent 100%);
+      -webkit-mask-image: radial-gradient(circle at center, transparent 30%, rgba(0,0,0,0.85) 48%, rgba(0,0,0,0.4) 70%, transparent 100%);
+      pointer-events: none;
+      z-index: 0;
     }
 
     .header-avatar {
+      position: relative;
+      z-index: 1;
       width: 120px;
       height: 120px;
       border-radius: 50%;
@@ -1562,7 +1587,9 @@
 <header>
   <div class="container">
     <div class="header-inner">
-      <img src="assets/federico-profile.jpg" alt="Federico Sassu Verderi" class="header-avatar" />
+      <div class="avatar-wrap">
+        <img src="assets/federico-profile.jpg" alt="Federico Sassu Verderi" class="header-avatar" />
+      </div>
       <div class="header-text">
         <h1 class="name">Federico Sassu Verderi</h1>
         <div class="social-links">
