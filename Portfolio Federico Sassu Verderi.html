@@ -431,15 +431,15 @@
       content: '';
       display: inline-block;
       width: 0;
-      height: 2px;
+      height: 3px;
       background: #0A0A0A;
-      transition: width 900ms steps(7, end);
+      transition: width 1200ms cubic-bezier(0.22, 1, 0.36, 1);
     }
 
-    .section-label.is-visible::before { width: 60px; }
+    .section-label.is-visible::before { width: 96px; }
 
     @media (prefers-reduced-motion: reduce) {
-      .section-label::before { width: 60px; transition: none; }
+      .section-label::before { width: 96px; transition: none; }
     }
 
     /* ─── CHIPS (shadcn outline button variant) ─────────────── */
@@ -1569,7 +1569,7 @@
 <!-- ─────────────────── BIO ──────────────────────────────────── -->
 <section>
   <div class="container">
-    <p class="bio-headline">Cofounder · MSc Digital Transformation and Entrepreneurship · H-FARM Startup Centre</p>
+    <p class="bio-headline">Co-Founder, MSc Digital Transformation and Entrepreneurship, H-FARM, Startup Centre</p>
 
     <div class="bio-body">
       <p>At 17 I launched a Shopify store, my first attempt at building something from scratch. After a degree in Economics and Management, I chose H-FARM's MSc in Digital Transformation &amp; Entrepreneurship deliberately: I wanted to be in an environment where startups aren't studied but lived, with the explicit goal of applying to the pre acceleration program. I was selected, and worked on Agromercato.com, a B2B marketplace connecting wholesale produce operators with professional buyers, targeting a market of €150M+ turnover. During my master's I built LocaLì, a platform for international students navigating an unfamiliar city, born from a problem I lived firsthand during Erasmus. I'm now cofounder of ROSS, an AI robot companion designed to slow cognitive decline in elderly patients, currently in H-FARM's venture building program.</p>
