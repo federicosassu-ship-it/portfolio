@@ -60,13 +60,15 @@
 
     html { scroll-behavior: smooth; }
 
-    /* Custom pixel-arrow cursor across the site (pointer-capable devices only) */
+    /* Hollow pixel-art cursor — classic X11/Amiga look, black outline + white interior.
+       Built with discrete 1px rects on a 13x20 grid so the stair-step edges match
+       the reference image. Hot spot at the very tip (0, 0). */
     @media (hover: hover) and (pointer: fine) {
       html, body, * {
-        cursor: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 14 16' shape-rendering='crispEdges'%3E%3Cpath fill='%23FFFFFF' d='M0 0h2v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h-4v1h1v1h1v1h1v1h-3v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1z'/%3E%3Cpath fill='%23000000' d='M1 1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h-3v1h1v1h1v1h-1v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1z'/%3E%3C/svg%3E") 1 1, auto;
+        cursor: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='40' viewBox='0 0 13 20' shape-rendering='crispEdges'%3E%3Cg fill='%23FFFFFF'%3E%3Crect x='1' y='1' width='1' height='1'/%3E%3Crect x='1' y='2' width='2' height='1'/%3E%3Crect x='1' y='3' width='3' height='1'/%3E%3Crect x='1' y='4' width='4' height='1'/%3E%3Crect x='1' y='5' width='5' height='1'/%3E%3Crect x='1' y='6' width='6' height='1'/%3E%3Crect x='1' y='7' width='7' height='1'/%3E%3Crect x='1' y='8' width='8' height='1'/%3E%3Crect x='1' y='9' width='9' height='1'/%3E%3Crect x='1' y='10' width='9' height='1'/%3E%3Crect x='1' y='11' width='5' height='1'/%3E%3Crect x='1' y='12' width='3' height='1'/%3E%3Crect x='1' y='13' width='2' height='1'/%3E%3Crect x='6' y='12' width='1' height='1'/%3E%3Crect x='6' y='13' width='2' height='1'/%3E%3Crect x='7' y='14' width='2' height='1'/%3E%3C/g%3E%3Cg fill='%23000000'%3E%3Crect x='0' y='0' width='1' height='1'/%3E%3Crect x='0' y='1' width='2' height='1'/%3E%3Crect x='0' y='2' width='1' height='1'/%3E%3Crect x='2' y='2' width='2' height='1'/%3E%3Crect x='0' y='3' width='1' height='1'/%3E%3Crect x='3' y='3' width='2' height='1'/%3E%3Crect x='0' y='4' width='1' height='1'/%3E%3Crect x='4' y='4' width='2' height='1'/%3E%3Crect x='0' y='5' width='1' height='1'/%3E%3Crect x='5' y='5' width='2' height='1'/%3E%3Crect x='0' y='6' width='1' height='1'/%3E%3Crect x='6' y='6' width='2' height='1'/%3E%3Crect x='0' y='7' width='1' height='1'/%3E%3Crect x='7' y='7' width='2' height='1'/%3E%3Crect x='0' y='8' width='1' height='1'/%3E%3Crect x='8' y='8' width='2' height='1'/%3E%3Crect x='0' y='9' width='1' height='1'/%3E%3Crect x='9' y='9' width='2' height='1'/%3E%3Crect x='0' y='10' width='1' height='1'/%3E%3Crect x='10' y='10' width='1' height='1'/%3E%3Crect x='0' y='11' width='1' height='1'/%3E%3Crect x='6' y='11' width='5' height='1'/%3E%3Crect x='0' y='12' width='1' height='1'/%3E%3Crect x='4' y='12' width='2' height='1'/%3E%3Crect x='7' y='12' width='2' height='1'/%3E%3Crect x='0' y='13' width='1' height='1'/%3E%3Crect x='3' y='13' width='1' height='1'/%3E%3Crect x='5' y='13' width='1' height='1'/%3E%3Crect x='8' y='13' width='1' height='1'/%3E%3Crect x='0' y='14' width='3' height='1'/%3E%3Crect x='5' y='14' width='1' height='1'/%3E%3Crect x='6' y='14' width='1' height='1'/%3E%3Crect x='9' y='14' width='1' height='1'/%3E%3Crect x='6' y='15' width='1' height='1'/%3E%3Crect x='9' y='15' width='1' height='1'/%3E%3Crect x='7' y='16' width='3' height='1'/%3E%3C/g%3E%3C/svg%3E") 1 1, auto;
       }
       a, button, [role="button"], .project-row, .chip, .nav-cta, .modal-close, .deck-btn, .modal-link-primary, .modal-link-secondary, .outro-cta, .social-links a, .footer-links a, .project-cta, [data-href] {
-        cursor: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 14 16' shape-rendering='crispEdges'%3E%3Cpath fill='%23FFFFFF' d='M0 0h2v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h-4v1h1v1h1v1h1v1h-3v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1z'/%3E%3Cpath fill='%23000000' d='M1 1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h1v1h-3v1h1v1h1v1h-1v-1h-1v-1h-1v-1h-1v-1h-1v-1h-1z'/%3E%3C/svg%3E") 1 1, pointer;
+        cursor: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='26' height='40' viewBox='0 0 13 20' shape-rendering='crispEdges'%3E%3Cg fill='%23FFFFFF'%3E%3Crect x='1' y='1' width='1' height='1'/%3E%3Crect x='1' y='2' width='2' height='1'/%3E%3Crect x='1' y='3' width='3' height='1'/%3E%3Crect x='1' y='4' width='4' height='1'/%3E%3Crect x='1' y='5' width='5' height='1'/%3E%3Crect x='1' y='6' width='6' height='1'/%3E%3Crect x='1' y='7' width='7' height='1'/%3E%3Crect x='1' y='8' width='8' height='1'/%3E%3Crect x='1' y='9' width='9' height='1'/%3E%3Crect x='1' y='10' width='9' height='1'/%3E%3Crect x='1' y='11' width='5' height='1'/%3E%3Crect x='1' y='12' width='3' height='1'/%3E%3Crect x='1' y='13' width='2' height='1'/%3E%3Crect x='6' y='12' width='1' height='1'/%3E%3Crect x='6' y='13' width='2' height='1'/%3E%3Crect x='7' y='14' width='2' height='1'/%3E%3C/g%3E%3Cg fill='%23000000'%3E%3Crect x='0' y='0' width='1' height='1'/%3E%3Crect x='0' y='1' width='2' height='1'/%3E%3Crect x='0' y='2' width='1' height='1'/%3E%3Crect x='2' y='2' width='2' height='1'/%3E%3Crect x='0' y='3' width='1' height='1'/%3E%3Crect x='3' y='3' width='2' height='1'/%3E%3Crect x='0' y='4' width='1' height='1'/%3E%3Crect x='4' y='4' width='2' height='1'/%3E%3Crect x='0' y='5' width='1' height='1'/%3E%3Crect x='5' y='5' width='2' height='1'/%3E%3Crect x='0' y='6' width='1' height='1'/%3E%3Crect x='6' y='6' width='2' height='1'/%3E%3Crect x='0' y='7' width='1' height='1'/%3E%3Crect x='7' y='7' width='2' height='1'/%3E%3Crect x='0' y='8' width='1' height='1'/%3E%3Crect x='8' y='8' width='2' height='1'/%3E%3Crect x='0' y='9' width='1' height='1'/%3E%3Crect x='9' y='9' width='2' height='1'/%3E%3Crect x='0' y='10' width='1' height='1'/%3E%3Crect x='10' y='10' width='1' height='1'/%3E%3Crect x='0' y='11' width='1' height='1'/%3E%3Crect x='6' y='11' width='5' height='1'/%3E%3Crect x='0' y='12' width='1' height='1'/%3E%3Crect x='4' y='12' width='2' height='1'/%3E%3Crect x='7' y='12' width='2' height='1'/%3E%3Crect x='0' y='13' width='1' height='1'/%3E%3Crect x='3' y='13' width='1' height='1'/%3E%3Crect x='5' y='13' width='1' height='1'/%3E%3Crect x='8' y='13' width='1' height='1'/%3E%3Crect x='0' y='14' width='3' height='1'/%3E%3Crect x='5' y='14' width='1' height='1'/%3E%3Crect x='6' y='14' width='1' height='1'/%3E%3Crect x='9' y='14' width='1' height='1'/%3E%3Crect x='6' y='15' width='1' height='1'/%3E%3Crect x='9' y='15' width='1' height='1'/%3E%3Crect x='7' y='16' width='3' height='1'/%3E%3C/g%3E%3C/svg%3E") 1 1, pointer;
       }
     }
 
@@ -538,7 +540,7 @@
       justify-content: center;
       padding: 48px 40px;
       background: #A0A0A0;
-      transition: background 420ms ease;
+      transition: background 850ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .project-visual img {
@@ -547,7 +549,7 @@
       object-fit: contain;
       display: block;
       filter: grayscale(1) brightness(0.45) opacity(0.95);
-      transition: filter 420ms ease;
+      transition: filter 850ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .project-content {
@@ -558,7 +560,7 @@
       flex-direction: column;
       justify-content: center;
       gap: 16px;
-      transition: background 420ms ease;
+      transition: background 850ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     /* --- Color reveal pattern: vivid CSS vars per row --- */
@@ -577,27 +579,27 @@
       --v-img-filter: none;
     }
 
-    .project-name { filter: grayscale(1) brightness(0.28); transition: filter 420ms ease; }
-    .project-name span { transition: color 420ms ease; }
+    .project-name { filter: grayscale(1) brightness(0.28); transition: filter 850ms cubic-bezier(0.4, 0, 0.2, 1); }
+    .project-name span { transition: color 850ms cubic-bezier(0.4, 0, 0.2, 1); }
 
     .project-content .project-desc,
-    .project-content .project-meta { transition: color 420ms ease; }
+    .project-content .project-meta { transition: color 850ms cubic-bezier(0.4, 0, 0.2, 1); }
 
     .project-content .project-desc { color: #1A1A1A; }
     .project-content .project-meta { color: #3D3D3D; }
-    .project-content .project-footer { border-top-color: rgba(0,0,0,0.3); transition: border-color 420ms ease; }
+    .project-content .project-footer { border-top-color: rgba(0,0,0,0.3); transition: border-color 850ms cubic-bezier(0.4, 0, 0.2, 1); }
 
     .project-content .project-tag {
       background: rgba(0,0,0,0.1);
       border-color: rgba(0,0,0,0.34);
       color: #0F0F0F;
-      transition: background 420ms ease, border-color 420ms ease, color 420ms ease;
+      transition: background 850ms cubic-bezier(0.4, 0, 0.2, 1), border-color 850ms cubic-bezier(0.4, 0, 0.2, 1), color 850ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .project-content .project-cta {
       background: #0F0F0F;
       color: #FFFFFF;
-      transition: background 420ms ease, color 420ms ease;
+      transition: background 850ms cubic-bezier(0.4, 0, 0.2, 1), color 850ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     /* Vivid state — desktop hover */
