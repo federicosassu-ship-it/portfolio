@@ -1819,7 +1819,6 @@
 <!-- ─────────────────── ARCADE JUMP GAME ─────────────────────── -->
 <section class="arcade-section" aria-label="Arcade jump game">
   <div class="container arcade-inner">
-    <p class="arcade-hint">Press <kbd>SPACE</kbd> to jump · tap on touch</p>
     <div class="arcade-frame">
       <canvas id="arcade-canvas" width="920" height="150"></canvas>
     </div>
@@ -2613,9 +2612,32 @@
       // Overlays
       ctx.textAlign = 'center';
       if (state === 'idle') {
-        ctx.fillStyle = 'rgba(0,0,0,0.7)';
-        ctx.font = '700 13px Inter, system-ui, sans-serif';
-        ctx.fillText('PRESS SPACE TO START', W / 2, H / 2 - 8);
+        const cardW = 360, cardH = 76;
+        const cardX = Math.round(W / 2 - cardW / 2);
+        const cardY = Math.round(H / 2 - cardH / 2);
+
+        ctx.fillStyle = 'rgba(250,250,250,0.96)';
+        ctx.fillRect(cardX, cardY, cardW, cardH);
+        ctx.strokeStyle = 'rgba(0,0,0,0.16)';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(cardX + 0.5, cardY + 0.5, cardW - 1, cardH - 1);
+
+        // Ghost preview on the left
+        const ghostY = cardY + Math.round((cardH - pSize.h) / 2);
+        const ghostBob = Math.round(Math.sin(bobPhase * 0.7) * 2);
+        drawSprite('ghost', cardX + 22, ghostY + ghostBob);
+
+        const textX = cardX + 22 + pSize.w + 18;
+        ctx.textAlign = 'left';
+        ctx.fillStyle = INK;
+        ctx.font = '800 18px Inter, system-ui, sans-serif';
+        ctx.fillText('READY TO JUMP?', textX, cardY + 33);
+
+        const blink = Math.floor(Date.now() / 500) % 2;
+        ctx.font = '700 10px Inter, system-ui, sans-serif';
+        ctx.fillStyle = blink ? 'rgba(0,0,0,0.7)' : 'rgba(0,0,0,0.28)';
+        ctx.fillText('PRESS  SPACE  OR  TAP  TO  START', textX, cardY + 55);
+        ctx.textAlign = 'center';
       } else if (state === 'over') {
         ctx.fillStyle = 'rgba(250,250,250,0.92)';
         ctx.fillRect(W / 2 - 150, H / 2 - 28, 300, 52);
