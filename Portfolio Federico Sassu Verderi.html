@@ -1001,41 +1001,21 @@
 
     /* ─── ARCADE — little jump game between projects and outro ─ */
     .arcade-section {
-      padding: 88px 0 96px;
+      padding: 40px 0 28px;
     }
 
     .arcade-inner {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 18px;
-    }
-
-    .arcade-label {
-      display: inline-flex;
-      align-items: center;
       gap: 12px;
-      font-family: var(--font-sans);
-      font-size: 0.6875rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: rgba(0,0,0,0.55);
-    }
-
-    .arcade-label::before {
-      content: '';
-      display: inline-block;
-      width: 32px;
-      height: 2px;
-      background: rgba(0,0,0,0.4);
     }
 
     .arcade-hint {
-      font-size: 0.875rem;
+      font-size: 0.8125rem;
       line-height: 1.5;
-      color: #555555;
-      margin-bottom: 6px;
+      color: #6B6B6B;
+      margin-bottom: 4px;
     }
 
     .arcade-hint kbd {
@@ -1057,9 +1037,9 @@
     .arcade-frame {
       width: 100%;
       max-width: 920px;
-      height: 200px;
+      height: 150px;
       border: 1px solid rgba(0,0,0,0.12);
-      border-radius: 14px;
+      border-radius: 12px;
       overflow: hidden;
       background: #FAFAFA;
       position: relative;
@@ -1069,11 +1049,13 @@
       width: 100%;
       height: 100%;
       display: block;
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
     }
 
     @media (max-width: 640px) {
-      .arcade-section { padding: 56px 0 64px; }
-      .arcade-frame { height: 160px; border-radius: 12px; }
+      .arcade-section { padding: 28px 0 20px; }
+      .arcade-frame { height: 120px; border-radius: 10px; }
     }
 
     /* ─── OUTRO — closing black band ────────────────────────── */
@@ -1083,7 +1065,7 @@
       background: #0A0A0A;
       color: #FFFFFF;
       padding: 72px 0 28px;
-      margin-top: 72px;
+      margin-top: 24px;
       overflow: hidden;
     }
 
@@ -1837,10 +1819,9 @@
 <!-- ─────────────────── ARCADE JUMP GAME ─────────────────────── -->
 <section class="arcade-section" aria-label="Arcade jump game">
   <div class="container arcade-inner">
-    <span class="arcade-label">A little break</span>
     <p class="arcade-hint">Press <kbd>SPACE</kbd> to jump · tap on touch</p>
     <div class="arcade-frame">
-      <canvas id="arcade-canvas" width="920" height="200"></canvas>
+      <canvas id="arcade-canvas" width="920" height="150"></canvas>
     </div>
   </div>
 </section>
@@ -2418,33 +2399,127 @@
     }
   });
 
-  // ── Arcade jump game (Chrome-dino style) ──
+  // ── Arcade jump game (pixel-art ghost vs trees / bushes / rocks) ──
   (function () {
     const canvas = document.getElementById('arcade-canvas');
     if (!canvas || !canvas.getContext) return;
     const ctx = canvas.getContext('2d');
     const W = canvas.width;
     const H = canvas.height;
-    const GROUND_Y = H - 38;
-    const GRAVITY = 0.72;
-    const JUMP_V = -13.2;
+    const GROUND_Y = H - 14;       // y of ground line; sprites rest with bottom on this
+    const GRAVITY = 0.62;
+    const JUMP_V = -10.2;
     const INK = '#0A0A0A';
-    const PLAYER_SIZE = 26;
+    const EYE = '#FAFAFA';
+    const SCALE = 2;
 
-    const player = { x: 80, y: GROUND_Y - PLAYER_SIZE, w: PLAYER_SIZE, h: PLAYER_SIZE, vy: 0, onGround: true };
+    // 1 = ink pixel, 2 = eye/white pixel, 0 = transparent
+    const SPRITES = {
+      ghost: [
+        [0,0,0,0,1,1,1,1,1,1,0,0,0,0],
+        [0,0,1,1,1,1,1,1,1,1,1,1,0,0],
+        [0,1,1,1,1,1,1,1,1,1,1,1,1,0],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,2,2,1,1,1,1,2,2,1,1,1],
+        [1,1,1,2,2,1,1,1,1,2,2,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1,1,1,1,1,1],
+        [1,1,0,1,1,0,1,1,0,1,1,0,1,1],
+        [1,0,0,0,1,0,0,1,0,0,1,0,0,1]
+      ],
+      tree_s: [
+        [0,0,0,1,1,0,0,0],
+        [0,0,1,1,1,1,0,0],
+        [0,1,1,1,1,1,1,0],
+        [1,1,1,1,1,1,1,1],
+        [0,1,1,1,1,1,1,0],
+        [0,0,1,1,1,1,0,0],
+        [0,0,0,1,1,0,0,0],
+        [0,0,0,1,1,0,0,0],
+        [0,0,0,1,1,0,0,0]
+      ],
+      tree_t: [
+        [0,0,0,1,0,0,0],
+        [0,0,1,1,1,0,0],
+        [0,1,1,1,1,1,0],
+        [1,1,1,1,1,1,1],
+        [0,1,1,1,1,1,0],
+        [0,0,1,1,1,0,0],
+        [0,1,1,1,1,1,0],
+        [1,1,1,1,1,1,1],
+        [0,1,1,1,1,1,0],
+        [0,0,1,1,1,0,0],
+        [0,0,0,1,0,0,0],
+        [0,0,0,1,0,0,0],
+        [0,0,0,1,0,0,0]
+      ],
+      bush: [
+        [0,0,1,1,1,1,1,0,0],
+        [0,1,1,1,1,1,1,1,0],
+        [1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1],
+        [0,1,1,1,1,1,1,1,0]
+      ],
+      rock: [
+        [0,0,1,1,1,1,1,0,0],
+        [0,1,1,1,1,1,1,1,0],
+        [1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1],
+        [1,1,1,1,1,1,1,1,1]
+      ]
+    };
+
+    function spriteSize(name) {
+      const s = SPRITES[name];
+      return { w: s[0].length * SCALE, h: s.length * SCALE };
+    }
+
+    function drawSprite(name, sx, sy) {
+      const s = SPRITES[name];
+      for (let y = 0; y < s.length; y++) {
+        const row = s[y];
+        for (let x = 0; x < row.length; x++) {
+          const p = row[x];
+          if (p === 0) continue;
+          ctx.fillStyle = (p === 2) ? EYE : INK;
+          ctx.fillRect(sx + x * SCALE, sy + y * SCALE, SCALE, SCALE);
+        }
+      }
+    }
+
+    const pSize = spriteSize('ghost');
+    const player = {
+      x: 60,
+      y: GROUND_Y - pSize.h,
+      w: pSize.w,
+      h: pSize.h,
+      vy: 0,
+      onGround: true
+    };
+
+    const OBSTACLE_TYPES = ['tree_s', 'tree_t', 'bush', 'rock'];
+
     let obstacles = [];
-    let speed = 5.2;
+    let speed = 4.6;
     let score = 0;
     let best = parseInt(localStorage.getItem('arcadeBest') || '0', 10);
-    let state = 'idle'; // 'idle' | 'playing' | 'over'
+    let state = 'idle';
     let spawnTimer = 0;
+    let bobPhase = 0;
 
     function reset() {
-      player.y = GROUND_Y - PLAYER_SIZE;
+      player.y = GROUND_Y - pSize.h;
       player.vy = 0;
       player.onGround = true;
       obstacles = [];
-      speed = 5.2;
+      speed = 4.6;
       score = 0;
       spawnTimer = 0;
       state = 'playing';
@@ -2459,18 +2534,24 @@
     }
 
     function spawnObstacle() {
-      const tall = Math.random() < 0.3;
-      const h = tall ? 38 : (18 + Math.random() * 14);
-      const w = tall ? 14 : (12 + Math.random() * 8);
-      obstacles.push({ x: W + 20, y: GROUND_Y - h, w: w, h: h });
+      const type = OBSTACLE_TYPES[Math.floor(Math.random() * OBSTACLE_TYPES.length)];
+      const sz = spriteSize(type);
+      obstacles.push({
+        type: type,
+        x: W + 20,
+        y: GROUND_Y - sz.h,
+        w: sz.w,
+        h: sz.h
+      });
     }
 
     function step() {
+      bobPhase += 0.12;
       if (state !== 'playing') return;
       player.vy += GRAVITY;
       player.y += player.vy;
-      if (player.y >= GROUND_Y - PLAYER_SIZE) {
-        player.y = GROUND_Y - PLAYER_SIZE;
+      if (player.y >= GROUND_Y - pSize.h) {
+        player.y = GROUND_Y - pSize.h;
         player.vy = 0;
         player.onGround = true;
       }
@@ -2479,11 +2560,15 @@
       spawnTimer -= speed;
       if (spawnTimer <= 0) {
         spawnObstacle();
-        spawnTimer = 140 + Math.random() * 180;
+        spawnTimer = 130 + Math.random() * 180;
       }
+      // Collision uses a tighter box than the full sprite for fairness
+      const pad = 2;
       for (const o of obstacles) {
-        if (player.x < o.x + o.w && player.x + player.w > o.x &&
-            player.y < o.y + o.h && player.y + player.h > o.y) {
+        if (player.x + pad < o.x + o.w - pad &&
+            player.x + player.w - pad > o.x + pad &&
+            player.y + pad < o.y + o.h - pad &&
+            player.y + player.h - pad > o.y + pad) {
           state = 'over';
           if (Math.floor(score) > best) {
             best = Math.floor(score);
@@ -2492,55 +2577,54 @@
         }
       }
       score += 0.18;
-      speed = 5.2 + score * 0.0035;
+      speed = 4.6 + score * 0.0035;
     }
 
     function draw() {
       ctx.clearRect(0, 0, W, H);
 
-      // ground line
+      // Ground line + scrolling ticks
       ctx.fillStyle = INK;
-      ctx.fillRect(0, GROUND_Y + PLAYER_SIZE - 2, W, 2);
-
-      // ground ticks scrolling
+      ctx.fillRect(0, GROUND_Y, W, 2);
       ctx.fillStyle = 'rgba(0,0,0,0.35)';
       const tickPhase = (Date.now() / (1000 / 60) * speed) % 24;
       for (let x = -tickPhase; x < W; x += 24) {
-        ctx.fillRect(x, GROUND_Y + PLAYER_SIZE + 4, 8, 2);
+        ctx.fillRect(x, GROUND_Y + 6, 8, 2);
       }
 
-      // player
-      ctx.fillStyle = INK;
-      ctx.fillRect(player.x, player.y, player.w, player.h);
+      // Ghost player: subtle bob when on the ground for a "floating" feel
+      let ghostY = player.y;
+      if (player.onGround) ghostY += Math.round(Math.sin(bobPhase) * 1) * SCALE * 0.5;
+      drawSprite('ghost', player.x, ghostY);
 
-      // obstacles
-      for (const o of obstacles) ctx.fillRect(o.x, o.y, o.w, o.h);
+      // Obstacles
+      for (const o of obstacles) drawSprite(o.type, o.x, o.y);
 
-      // score
+      // Score
       ctx.fillStyle = 'rgba(0,0,0,0.7)';
       ctx.font = '700 12px Inter, system-ui, sans-serif';
       ctx.textAlign = 'right';
-      ctx.fillText('SCORE  ' + String(Math.floor(score)).padStart(5, '0'), W - 18, 24);
+      ctx.fillText('SCORE  ' + String(Math.floor(score)).padStart(5, '0'), W - 18, 22);
       if (best > 0) {
         ctx.fillStyle = 'rgba(0,0,0,0.4)';
-        ctx.fillText('BEST  ' + String(best).padStart(5, '0'), W - 18, 42);
+        ctx.fillText('BEST  ' + String(best).padStart(5, '0'), W - 18, 40);
       }
 
-      // overlays
+      // Overlays
       ctx.textAlign = 'center';
       if (state === 'idle') {
         ctx.fillStyle = 'rgba(0,0,0,0.7)';
-        ctx.font = '700 14px Inter, system-ui, sans-serif';
-        ctx.fillText('PRESS SPACE TO START', W / 2, H / 2 - 6);
+        ctx.font = '700 13px Inter, system-ui, sans-serif';
+        ctx.fillText('PRESS SPACE TO START', W / 2, H / 2 - 8);
       } else if (state === 'over') {
         ctx.fillStyle = 'rgba(250,250,250,0.92)';
-        ctx.fillRect(W / 2 - 150, H / 2 - 26, 300, 52);
+        ctx.fillRect(W / 2 - 150, H / 2 - 28, 300, 52);
         ctx.fillStyle = INK;
         ctx.font = '800 14px Inter, system-ui, sans-serif';
-        ctx.fillText('GAME OVER', W / 2, H / 2 - 4);
+        ctx.fillText('GAME OVER', W / 2, H / 2 - 6);
         ctx.font = '600 11px Inter, system-ui, sans-serif';
         ctx.fillStyle = 'rgba(0,0,0,0.65)';
-        ctx.fillText('SPACE OR TAP TO RESTART', W / 2, H / 2 + 14);
+        ctx.fillText('SPACE OR TAP TO RESTART', W / 2, H / 2 + 12);
       }
       ctx.textAlign = 'left';
     }
@@ -2553,10 +2637,8 @@
 
     document.addEventListener('keydown', function (e) {
       if (e.code === 'Space' || e.key === ' ') {
-        // Only intercept if no input is focused
         const ae = document.activeElement;
         if (ae && (ae.tagName === 'INPUT' || ae.tagName === 'TEXTAREA' || ae.isContentEditable)) return;
-        // Only intercept if any portion of the canvas is in the viewport
         const r = canvas.getBoundingClientRect();
         const onScreen = r.bottom > 0 && r.top < (window.innerHeight || document.documentElement.clientHeight);
         if (!onScreen) return;
