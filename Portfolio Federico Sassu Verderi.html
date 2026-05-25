@@ -60,13 +60,25 @@
 
     html { scroll-behavior: smooth; }
 
-    /* Solid black square cursor — 12x12, hot spot at center. */
+    /* Solid 12px square cursor — black on light shell, white on dark bands. */
     @media (hover: hover) and (pointer: fine) {
       html, body, * {
         cursor: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' shape-rendering='crispEdges'%3E%3Crect width='12' height='12' fill='%23000000'/%3E%3C/svg%3E") 6 6, auto;
       }
       a, button, [role="button"], .project-row, .chip, .nav-cta, .modal-close, .deck-btn, .modal-link-primary, .modal-link-secondary, .outro-cta, .social-links a, .footer-links a, .project-cta, [data-href] {
         cursor: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' shape-rendering='crispEdges'%3E%3Crect width='12' height='12' fill='%23000000'/%3E%3C/svg%3E") 6 6, pointer;
+      }
+
+      /* Dark sections: invert cursor to white so it stays visible. */
+      .site-nav, .site-nav *,
+      .bring-band, .bring-band *,
+      .outro-band, .outro-band * {
+        cursor: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' shape-rendering='crispEdges'%3E%3Crect width='12' height='12' fill='%23FFFFFF'/%3E%3C/svg%3E") 6 6, auto;
+      }
+
+      .site-nav a, .site-nav .nav-cta,
+      .outro-band a, .outro-band .outro-cta {
+        cursor: url("data:image/svg+xml;utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12' shape-rendering='crispEdges'%3E%3Crect width='12' height='12' fill='%23FFFFFF'/%3E%3C/svg%3E") 6 6, pointer;
       }
     }
 
