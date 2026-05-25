@@ -552,6 +552,12 @@
       transition: filter 850ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 
+    /* Lux logo is shipped with an opaque white background; in muted state map
+       that white to the same #A0A0A0 as the card so the rectangle disappears. */
+    .project-row[data-modal="lux"] .project-visual img {
+      filter: grayscale(1) brightness(0.628);
+    }
+
     .project-content {
       flex: 1;
       background: linear-gradient(135deg, #C0C0C0 0%, #A0A0A0 100%);
